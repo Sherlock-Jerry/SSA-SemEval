@@ -21,6 +21,7 @@ from peng.model.generator import SequenceGeneratorModel
 import fitlog
 
 # fitlog.debug()
+os.makedirs('logs')
 fitlog.set_log_dir('logs')
 
 import argparse
