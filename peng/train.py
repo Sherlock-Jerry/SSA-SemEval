@@ -70,21 +70,39 @@ else:
 @cache_results(cache_fn, _refresh=False)
 def get_data():
     pipe = BartBPEABSAPipe(tokenizer=bart_name, opinion_first=opinion_first)
-    data_bundle = pipe.process_from_file(f'../data/{dataset_name}', demo=demo)
+    data_bundle = pipe.process_from_file(f'../final_data/{dataset_name}', demo=demo)
     return data_bundle, pipe.tokenizer, pipe.mapping2id
 
 data_bundle, tokenizer, mapping2id = get_data()
+# for i in range(0,15):
+print(tokenizer.convert_ids_to_tokens(range(0,15)))
+print("For positive:")
+print(tokenizer.convert_ids_to_tokens(2))
+print(tokenizer.convert_tokens_to_ids("<<positive>>"))
+# exit()
+print()
+print("Data_bundle", data_bundle)
+
+for j in range(20,25):
+    wet123 = data_bundle.get_dataset('train')[j].items()
+    for i in wet123:
+        print(i)
+    print()
+    print()
+exit()
 max_len = 10
-max_len_a = {
-    'penga/14lap': 0.9,
-    'penga/14res': 1,
-    'penga/15res': 1.2,
-    'penga/16res': 0.9,
-    'pengb/14lap': 1.1,
-    'pengb/14res': 1.2,
-    'pengb/15res': 0.9,
-    'pengb/16res': 1.2
-}[dataset_name]
+# max_len_a = {
+#     'penga/14lap': 0.9,
+#     'penga/14res': 1,
+#     'penga/15res': 1.2,
+#     'penga/16res': 0.9,
+#     'pengb/14lap': 1.1,
+#     'pengb/14res': 1.2,
+#     'pengb/15res': 0.9,
+#     'pengb/16res': 1.2
+# }[dataset_name]
+
+max_len_a = 1.2
 
 print("The number of tokens in tokenizer ", len(tokenizer.decoder))
 

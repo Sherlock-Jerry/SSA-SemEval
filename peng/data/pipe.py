@@ -1,3 +1,4 @@
+from typing import OrderedDict
 from fastNLP.io import Pipe, DataBundle, Loader
 import os
 import json
@@ -6,6 +7,7 @@ from transformers import AutoTokenizer
 import numpy as np
 from itertools import chain
 from functools import cmp_to_key
+from collections import OrderedDict
 
 
 def cmp_aspect(v1, v2):
@@ -23,11 +25,20 @@ class BartBPEABSAPipe(Pipe):
     def __init__(self, tokenizer='facebook/bart-base', opinion_first=True):
         super(BartBPEABSAPipe, self).__init__()
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
-        self.mapping = {  # so that the label word can be initialized in a better embedding.
-            'POS': '<<positive>>',
-            'NEG': '<<negative>>',
-            'NEU': '<<neutral>>'
-        }
+        self.mapping = OrderedDict(  # so that the label word can be initialized in a better embedding.
+            Positive = '<<positive>>',
+            Negative = '<<negative>>',
+            Neutral= '<<neutral>>',
+
+            Weak= '<<weak>>',
+            Strong= '<<strong>>',
+            Average= '<<average>>',
+            Standard= '<<standard>>',
+            Slight= '<<slight>>'
+        )
+        # self.mapping["rag"] = "<<rag>>"
+        self.mapping[None] = "<<none>>"
+        
         self.opinion_first = opinion_first  # 是否先生成opinion
 
         cur_num_tokens = self.tokenizer.vocab_size
@@ -50,6 +61,18 @@ class BartBPEABSAPipe(Pipe):
             self.mapping2id[key] = key_id[0]
             self.mapping2targetid[key] = len(self.mapping2targetid)
 
+        print("mapping2targetid",self.mapping2targetid)
+        print("mapping2id",self.mapping2id)
+        print()
+        print()
+        print()
+        import pickle
+        dictionary_data = self.mapping2targetid 
+        a_file = open("/content/mapping2targetid.pkl", "wb")
+        pickle.dump(dictionary_data, a_file)
+        a_file.close()
+        
+
     def process(self, data_bundle: DataBundle) -> DataBundle:
         """
         words: List[str]
@@ -58,6 +81,7 @@ class BartBPEABSAPipe(Pipe):
             'from': int
             'to': int
             'polarity': str
+            'intensity' : str
             'term': List[str]
         }],
         opinions: [{
@@ -66,13 +90,23 @@ class BartBPEABSAPipe(Pipe):
             'to': int
             'term': List[str]
         }]
+        holders: [{
+            'index': int
+            'from': int
+            'to': int
+            'term': List[str]
+        }]
 
-        输出为[o_s, o_e, a_s, a_e, c]或者[a_s, a_e, o_s, o_e, c]
+        output: [o_s, o_e, a_s, a_e, h_s, h_e, pol, int], # [a_s, a_e, o_s, o_e, h_s, h_e pol, int]
         :param data_bundle:
         :return:
         """
-        target_shift = len(self.mapping) + 2  # 是由于第一位是sos，紧接着是eos, 然后是
-
+        target_shift = len(self.mapping) + 2  # sos，eos
+        if target_shift != 11:
+            print(self.mapping)
+        else:
+            print("Print nhi hua!!")
+            # exit()
         def prepare_target(ins):
             raw_words = ins['raw_words']
             word_bpes = [[self.tokenizer.bos_token_id]]
@@ -88,31 +122,57 @@ class BartBPEABSAPipe(Pipe):
             target_spans = []
             _word_bpes = list(chain(*word_bpes))
 
-            aspects_opinions = [(a, o) for a, o in zip(ins['aspects'], ins['opinions'])]
+            aspects_opinions = [(a, o, h) for a, o, h in zip(ins['aspects'], ins['opinions'], ins['holders'])] # -- new code --
             if self.opinion_first:
                 aspects_opinions = sorted(aspects_opinions, key=cmp_to_key(cmp_opinion))
             else:
                 aspects_opinions = sorted(aspects_opinions, key=cmp_to_key(cmp_aspect))
 
-            for aspects, opinions in aspects_opinions:  # 预测bpe的start
-                assert aspects['index'] == opinions['index']
-                a_start_bpe = cum_lens[aspects['from']]  # 因为有一个sos shift
-                a_end_bpe = cum_lens[aspects['to']-1]  # 这里由于之前是开区间，刚好取到最后一个word的开头
-                o_start_bpe = cum_lens[opinions['from']]  # 因为有一个sos shift
-                o_end_bpe = cum_lens[opinions['to']-1]  # 因为有一个sos shift
-                # 这里需要evaluate是否是对齐的
-                for idx, word in zip((o_start_bpe, o_end_bpe, a_start_bpe, a_end_bpe),
-                                     (opinions['term'][0], opinions['term'][-1], aspects['term'][0], aspects['term'][-1])):
-                    assert _word_bpes[idx] == self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(word, add_prefix_space=True)[:1])[0] or \
+            for aspects, opinions, holders in aspects_opinions:  # 预测bpe的start
+                assert aspects['index'] == opinions['index'] == holders['index']
+                try: 
+                    a_start_bpe = cum_lens[aspects['from']]  # 因为有一个sos shift
+                    a_end_bpe = cum_lens[aspects['to']-1]  # 这里由于之前是开区间，刚好取到最后一个word的开头
+                except:
+                    a_start_bpe = -1 
+                    a_end_bpe =-1
+                
+                try:
+                    o_start_bpe = cum_lens[opinions['from']]  # 因为有一个sos shift
+                    o_end_bpe = cum_lens[opinions['to']-1]  # 因为有一个sos shift
+                except:
+                    o_start_bpe = -1
+                    o_end_bpe =-1
+                try: 
+                    h_start_bpe = cum_lens[holders['from']]  # 因为有一个sos shift
+                    h_end_bpe = cum_lens[holders['to']-1]  # 因为有一个sos shift
+                except:
+                    h_start_bpe = -1
+                    h_end_bpe =-1
+                # 这里需要evaluate
+                # if ins["raw_words"][0] == "At" and ins['raw_words'] == "first":
+                print()
+                print()
+                print()
+                print(ins.items())
+                print(ins['raw_words'],a_start_bpe,a_end_bpe,o_start_bpe,o_end_bpe, target_shift)
+                # x123 = input("Enter num") 
+                for idx, word in zip((o_start_bpe, o_end_bpe, a_start_bpe, a_end_bpe, h_start_bpe, h_end_bpe),
+                                     (opinions['term'][0], opinions['term'][-1], aspects['term'][0], aspects['term'][-1],holders['term'][0], holders['term'][-1])):
+                    try: assert _word_bpes[idx] == self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(word, add_prefix_space=True)[:1])[0] or \
                            _word_bpes[idx] == self.tokenizer.convert_tokens_to_ids(self.tokenizer.tokenize(word, add_prefix_space=True)[-1:])[0]
+                    except: pass
 
                 if self.opinion_first:
                     target_spans.append([o_start_bpe+target_shift, o_end_bpe+target_shift,
-                                         a_start_bpe+target_shift, a_end_bpe+target_shift])
+                                         a_start_bpe+target_shift, a_end_bpe+target_shift,
+                                         h_start_bpe+target_shift, h_end_bpe+target_shift])
                 else:
                     target_spans.append([a_start_bpe+target_shift, a_end_bpe+target_shift,
-                                         o_start_bpe+target_shift, o_end_bpe+target_shift])
-                target_spans[-1].append(self.mapping2targetid[aspects['polarity']]+2)   # 前面有sos和eos
+                                         o_start_bpe+target_shift, o_end_bpe+target_shift,
+                                         h_start_bpe+target_shift, h_end_bpe+target_shift])
+                target_spans[-1].append(self.mapping2targetid[aspects['Polarity']]+2)   # 前面有sos和eos
+                target_spans[-1].append(self.mapping2targetid[aspects['Intensity']]+2)   # 前面有sos和eos
                 target_spans[-1] = tuple(target_spans[-1])
             target.extend(list(chain(*target_spans)))
             target.append(1)  # append 1是由于特殊的eos
@@ -158,8 +218,9 @@ class ABSALoader(Loader):
             tokens = ins['words']
             aspects = ins['aspects']
             opinions = ins['opinions']
-            assert len(aspects)==len(opinions)
-            ins = Instance(raw_words=tokens, aspects=aspects, opinions=opinions)
+            holders = ins['holder']
+            assert len(aspects)==len(opinions)==len(holders)
+            ins = Instance(raw_words=tokens, aspects=aspects, opinions=opinions, holders=holders)
             ds.append(ins)
             if self.demo and len(ds)>30:
                 break
