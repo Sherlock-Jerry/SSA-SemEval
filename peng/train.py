@@ -37,7 +37,7 @@ parser.add_argument('--decoder_type', default='avg_score', type=str, choices=['N
 parser.add_argument('--length_penalty', default=1.0, type=float)
 parser.add_argument('--bart_name', default='facebook/bart-base', type=str)
 parser.add_argument('--use_encoder_mlp', type=int, default=1)
-parser.add_argument('--save_model', type=int, default=0)
+parser.add_argument('--save_model', type=int, default=1)
 
 args= parser.parse_args()
 
@@ -75,16 +75,16 @@ def get_data():
 
 data_bundle, tokenizer, mapping2id = get_data()
 # for i in range(0,15):
-print(tokenizer.convert_ids_to_tokens(range(0,15)))
-print("For positive:")
-print(tokenizer.convert_ids_to_tokens(2))
-print(tokenizer.convert_tokens_to_ids("<<positive>>"))
+# print(tokenizer.convert_ids_to_tokens(range(0,15)))
+# print("For positive:")
+# print(tokenizer.convert_ids_to_tokens(2))
+# print(tokenizer.convert_tokens_to_ids("<<positive>>"))
 # exit()
 print()
 print("Data_bundle", data_bundle)
 
-# for j in range(20,25):
-#     wet123 = data_bundle.get_dataset('train')[j].items()
+# for j in range(2):
+#     wet123 = data_bundle.get_dataset('dev')[j].items()
 #     for i in wet123:
 #         print(i)
 #     print()
@@ -161,6 +161,9 @@ metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_firs
 
 model_path = None
 if save_model:
+    if not os.path.exists('save_models/'): os.makedirs('save_models/')
+    print('Saving Model')
+    print()
     model_path = 'save_models/'
 
 trainer = Trainer(train_data=data_bundle.get_dataset('train'), model=model, optimizer=optimizer,

@@ -61,11 +61,11 @@ class BartBPEABSAPipe(Pipe):
             self.mapping2id[key] = key_id[0]
             self.mapping2targetid[key] = len(self.mapping2targetid)
 
-        print("mapping2targetid",self.mapping2targetid)
-        print("mapping2id",self.mapping2id)
+        print("mapping2targetid", '\n', json.dumps(self.mapping2targetid, indent=4))
         print()
+        print("mapping2id", '\n', json.dumps(self.mapping2id, indent=4))
         print()
-        print()
+
         import pickle
         dictionary_data = self.mapping2targetid 
         a_file = open("/content/mapping2targetid.pkl", "wb")
@@ -102,11 +102,13 @@ class BartBPEABSAPipe(Pipe):
         :return:
         """
         target_shift = len(self.mapping) + 2  # sos，eos
-        if target_shift != 11:
-            print(self.mapping)
-        else:
-            print("Print nhi hua!!")
-            # exit()
+
+        # if target_shift != 11:
+        #     print(self.mapping)
+        # else:
+        #     print("Print nhi hua!!")
+        #     # exit()
+        
         def prepare_target(ins):
             raw_words = ins['raw_words']
             word_bpes = [[self.tokenizer.bos_token_id]]
