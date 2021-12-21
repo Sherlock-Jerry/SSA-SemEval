@@ -151,11 +151,14 @@ class BartBPEABSAPipe(Pipe):
                     h_end_bpe =-1
                 # 这里需要evaluate
                 # if ins["raw_words"][0] == "At" and ins['raw_words'] == "first":
-                print()
-                print()
-                print()
-                print(ins.items())
-                print(ins['raw_words'],a_start_bpe,a_end_bpe,o_start_bpe,o_end_bpe, target_shift)
+                ###### word_bpes have multiple items in list, making cum_lens not continuous #####
+                # print()
+                # print(word_bpes)
+                # print([self.tokenizer.convert_ids_to_tokens(i) for i in word_bpes])
+                # print(lens)
+                # print(ins.items())
+                # print(cum_lens, len(cum_lens))
+                # print(ins['raw_words'],a_start_bpe,a_end_bpe,o_start_bpe,o_end_bpe, target_shift)
                 # x123 = input("Enter num") 
                 for idx, word in zip((o_start_bpe, o_end_bpe, a_start_bpe, a_end_bpe, h_start_bpe, h_end_bpe),
                                      (opinions['term'][0], opinions['term'][-1], aspects['term'][0], aspects['term'][-1],holders['term'][0], holders['term'][-1])):

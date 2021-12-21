@@ -83,13 +83,13 @@ print(tokenizer.convert_tokens_to_ids("<<positive>>"))
 print()
 print("Data_bundle", data_bundle)
 
-for j in range(20,25):
-    wet123 = data_bundle.get_dataset('train')[j].items()
-    for i in wet123:
-        print(i)
-    print()
-    print()
-exit()
+# for j in range(20,25):
+#     wet123 = data_bundle.get_dataset('train')[j].items()
+#     for i in wet123:
+#         print(i)
+#     print()
+#     print()
+# exit()
 max_len = 10
 # max_len_a = {
 #     'penga/14lap': 0.9,
