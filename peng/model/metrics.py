@@ -63,7 +63,7 @@ class Seq2SeqSpanMetric(MetricBase):
             special_token_count = 0
             if len(ps):
                 for index, j in enumerate(ps):
-                    if j < self.word_start_index: 
+                    if j < self.word_start_index and j!=10: 
                         special_token_count += 1
                         if special_token_count == 2:
                             cur_pair.append(j)
