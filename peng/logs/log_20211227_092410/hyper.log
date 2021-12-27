@@ -1,0 +1,1 @@
+{"hyper": {"dataset_name": "darmstadt_unis", "lr": 5e-05, "batch_size": 16, "num_beams": 4, "opinion_first": false, "n_epochs": 50, "decoder_type": "avg_score", "length_penalty": 1.0, "bart_name": "facebook/bart_base", "use_encoder_mlp": 1, "save_model": 1}}

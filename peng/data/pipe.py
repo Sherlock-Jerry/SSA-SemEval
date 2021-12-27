@@ -37,7 +37,7 @@ class BartBPEABSAPipe(Pipe):
             Slight= '<<slight>>'
         )
         # self.mapping["rag"] = "<<rag>>"
-        self.mapping[None] = "<<none>>"
+        self.mapping['<<none>>'] = "<<none>>"
         
         self.opinion_first = opinion_first  # 是否先生成opinion
 

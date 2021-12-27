@@ -37,7 +37,7 @@ parser.add_argument('--decoder_type', default='avg_score', type=str, choices=['N
 parser.add_argument('--length_penalty', default=1.0, type=float)
 parser.add_argument('--bart_name', default='facebook/bart-base', type=str)
 parser.add_argument('--use_encoder_mlp', type=int, default=1)
-parser.add_argument('--save_model', type=int, default=1)
+parser.add_argument('--save_model', type=int, default=0)
 
 args= parser.parse_args()
 
