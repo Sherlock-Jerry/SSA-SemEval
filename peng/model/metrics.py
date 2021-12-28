@@ -45,9 +45,9 @@ class Seq2SeqSpanMetric(MetricBase):
         # print('pred_seq_len', pred_seq_len, '\n\n', 'target_seq_len', target_seq_len) ###
         pred_spans = []
         for i, (ts, ps) in enumerate(zip(target_span, pred.tolist())):
-            # print('*'*30)
-            # print('ts', ts)
-            # print('ps', ps)
+            print('*'*30)
+            print('ts', ts)
+            print('ps', ps)
             em = 0
             ps = ps[:pred_seq_len[i]]
             if pred_seq_len[i] == target_seq_len[i]:
@@ -60,23 +60,40 @@ class Seq2SeqSpanMetric(MetricBase):
             invalid = 0
             pairs = []
             cur_pair = []
-            special_token_count = 0
+
             if len(ps):
                 for index, j in enumerate(ps):
-                    if j < self.word_start_index and j!=10: 
-                        special_token_count += 1
-                        if special_token_count == 2:
-                            cur_pair.append(j)
-                            if len(cur_pair) != 8 or cur_pair[0] > cur_pair[1] or cur_pair[2] > cur_pair[3] \
-                                                  or cur_pair[4] > cur_pair[5] or cur_pair[6] > cur_pair[7]:
-                                invalid = 1
-                            else: pairs.append(tuple(cur_pair))
-                            cur_pair = []
-                            special_token_count = 0
+                    cur_pair.append(j)
+                    if len(cur_pair) < 8: continue
+                    
+                    if cur_pair[0] > cur_pair[1] or cur_pair[2] > cur_pair[3] \
+                        or cur_pair[4] > cur_pair[5] or cur_pair[6] > cur_pair[7] \
+                        or cur_pair[-1]>=self.word_start_index or cur_pair[-2]>=self.word_start_index:
+                        invalid = 1
+                    else: 
+                        pairs.append(tuple(cur_pair))
 
-                    else:
-                        special_token_count = 0
-                        cur_pair.append(j)
+                    cur_pair = []
+
+
+
+            # special_token_count = 0
+            # if len(ps):
+            #     for index, j in enumerate(ps):
+            #         if j < self.word_start_index and j!=10: 
+            #             special_token_count += 1
+            #             if special_token_count == 2:
+            #                 cur_pair.append(j)
+            #                 if len(cur_pair) != 8 or cur_pair[0] > cur_pair[1] or cur_pair[2] > cur_pair[3] \
+            #                                       or cur_pair[4] > cur_pair[5] or cur_pair[6] > cur_pair[7]:
+            #                     invalid = 1
+            #                 else: pairs.append(tuple(cur_pair))
+            #                 cur_pair = []
+            #                 special_token_count = 0
+
+            #         else:
+            #             special_token_count = 0
+            #             cur_pair.append(j)
             
 
             # if len(ps):
@@ -91,7 +108,7 @@ class Seq2SeqSpanMetric(MetricBase):
             #         else:
             #             cur_pair.append(j)
             # print('*'*30)
-            # print('pairs', pairs)
+            print('pairs', pairs)
             # print('cur_pair', cur_pair)
             # print('invalid', invalid)
             # _ = input()

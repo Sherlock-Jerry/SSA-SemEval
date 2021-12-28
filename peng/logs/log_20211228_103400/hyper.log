@@ -1,0 +1,1 @@
+{"hyper": {"dataset_name": "opener_en", "lr": 5e-05, "batch_size": 16, "num_beams": 4, "opinion_first": false, "n_epochs": 1, "decoder_type": "avg_score", "length_penalty": 1.0, "bart_name": "facebook/bart_base", "use_encoder_mlp": 1, "save_model": 0}}

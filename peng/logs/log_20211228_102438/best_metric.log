@@ -1,0 +1,2 @@
+{"metric": {"Seq2SeqSpanMetric": {"triple_f": 0.0, "triple_rec": 0.0, "triple_pre": 0.0, "oe_ae_he_f": 0.0, "oe_ae_he_rec": 0.0, "oe_ae_he_pre": 0.0, "ae_pol_int_f": 0.0, "ae_pol_int_rec": 0.0, "ae_pol_int_pre": 0.0, "em": 0.088, "invalid": 0.624}, "step": 110, "epoch": 1}}
+{"metric": {"data_test": {"Seq2SeqSpanMetric": {"triple_f": 0.0, "triple_rec": 0.0, "triple_pre": 0.0, "oe_ae_he_f": 0.0, "oe_ae_he_rec": 0.0, "oe_ae_he_pre": 0.0, "ae_pol_int_f": 0.0, "ae_pol_int_rec": 0.0, "ae_pol_int_pre": 0.0, "em": 0.088, "invalid": 0.624}}}}
