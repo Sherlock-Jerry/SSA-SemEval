@@ -33,8 +33,8 @@ class BartBPEABSAPipe(Pipe):
             Weak= '<<weak>>',
             Strong= '<<strong>>',
             Average= '<<average>>',
-            Standard= '<<standard>>',
-            Slight= '<<slight>>'
+            # Standard= '<<standard>>',
+            # Slight= '<<slight>>'
         )
         # self.mapping["rag"] = "<<rag>>"
         self.mapping['<<none>>'] = "<<none>>"
