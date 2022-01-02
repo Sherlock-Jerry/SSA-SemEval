@@ -2,7 +2,7 @@
 
 python main.py --task uabsa \
             --dataset laptop14 \
-            --model_name_or_path ./pretrained-models/t5-base \
+            --model_name_or_path t5-base \
             --paradigm annotation \
             --n_gpu 0 \
             --do_train \
@@ -11,4 +11,4 @@ python main.py --task uabsa \
             --gradient_accumulation_steps 2 \
             --eval_batch_size 16 \
             --learning_rate 3e-4 \
-            --num_train_epochs 20 
+            --num_train_epochs 1 
