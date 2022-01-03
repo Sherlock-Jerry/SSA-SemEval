@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-python main.py --task uabsa \
+python main.py --task aste \
             --dataset laptop14 \
             --model_name_or_path t5-base \
-            --paradigm annotation \
+            --paradigm extraction \
             --n_gpu 0 \
             --do_train \
             --do_direct_eval \
@@ -11,4 +11,4 @@ python main.py --task uabsa \
             --gradient_accumulation_steps 2 \
             --eval_batch_size 16 \
             --learning_rate 3e-4 \
-            --num_train_epochs 1 
+            --num_train_epochs 5 

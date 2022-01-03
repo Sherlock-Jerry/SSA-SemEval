@@ -5,7 +5,6 @@ from torch.utils.data import Dataset
 
 senttag2word = {'POS': 'positive', 'NEG': 'negative', 'NEU': 'neutral'}
 
-
 def read_line_examples_from_file(data_path):
     """
     Read data from file, each line is: sent####labels
@@ -80,14 +79,23 @@ def get_annotated_aste_targets(sents, labels):
         for tup in tuples:
             ap, op, sent = tup[0], tup[1], tup[2]
             op = [sents[i][j] for j in op]
+            # print(ap, op, sent)
             # multiple OT for one AP
             if '[' in sents[i][ap[0]]:
+                # print('In If')
+                # print('ap op sent', ap, op, sent)
+                # print(sents[i])
                 # print(i)
                 if len(ap) == 1:
                     sents[i][ap[0]] = f"{sents[i][ap[0]][:-1]}, {' '.join(op)}]"
                 else:
+                    print(sents[i][ap[-1]][:-1], '<->', ' '.join(op))
+                    print(sents[i][ap[-1]])
                     sents[i][ap[-1]] = f"{sents[i][ap[-1]][:-1]}, {' '.join(op)}]"
+                # print(sents[i])
+                # _ = input()
             else:
+                # print('In Else')
                 annotation = f"{senttag2word[sent]}|{' '.join(op)}"
                 if len(ap) == 1:
                     sents[i][ap[0]] = f"[{sents[i][ap[0]]}|{annotation}]"
@@ -95,6 +103,9 @@ def get_annotated_aste_targets(sents, labels):
                     sents[i][ap[0]] = f"[{sents[i][ap[0]]}"
                     sents[i][ap[-1]] = f"{sents[i][ap[-1]]}|{annotation}]"
         annotated_targets.append(sents[i])
+        # print(sents[i])
+        # _ = input()
+        # print()
     return annotated_targets
 
 
@@ -174,6 +185,43 @@ def get_extraction_tasd_targets(sents, labels):
         targets.append(target)
     return targets
 
+# def get_extraction_aste_targets(sents, labels):
+#     targets = []
+#     for i, label in enumerate(labels):
+#         all_tri = []
+#         for tri in label:
+#             # Aspect
+#             if len(tri[0]) == 1:
+#                 a = sents[i][tri[0][0]]
+#             else:
+#                 start_idx, end_idx = tri[0][0], tri[0][-1]
+#                 a = ' '.join(sents[i][start_idx:end_idx+1])
+
+#             # Opinion
+#             if len(tri[1]) == 1:
+#                 b = sents[i][tri[1][0]]
+#             else:
+#                 start_idx, end_idx = tri[1][0], tri[1][-1]
+#                 b = ' '.join(sents[i][start_idx:end_idx+1])
+            
+#             # Polarity
+#             c = senttag2word[tri[2]]
+
+#             # Intensity
+#             d = 
+
+#             # Holder
+#             e = 
+
+#             all_tri.append((a, b, c))
+#         label_strs = ['('+', '.join(l)+')' for l in all_tri]
+#         targets.append('; '.join(label_strs))
+#         if i==7:
+#             print(sents[i])
+#             print(targets[-1])
+#             _ = input()
+#     return targets    
+
 
 def get_extraction_aste_targets(sents, labels):
     targets = []
@@ -194,6 +242,10 @@ def get_extraction_aste_targets(sents, labels):
             all_tri.append((a, b, c))
         label_strs = ['('+', '.join(l)+')' for l in all_tri]
         targets.append('; '.join(label_strs))
+        # if i==7:
+        #     print(sents[i])
+        #     print(targets[-1])
+        #     _ = input()
     return targets
 
 
