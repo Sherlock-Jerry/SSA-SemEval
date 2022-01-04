@@ -208,12 +208,17 @@ def fix_preds_aste(all_pairs, sents):
 
                 #print(pair)
                 # AT not in the original sentence
-                if at not in  ' '.join(sents[i]):
-                    # print('Issue')
-                    new_at = recover_terms_with_editdistance(at, sents[i])
-                else:
-                    new_at = at
-                
+                try:
+                    if at not in  ' '.join(sents[i]):
+                        # print('Issue')
+                        new_at = recover_terms_with_editdistance(at, sents[i])
+                    else:
+                        new_at = at
+                except:
+                    print(p3)
+                    print(sentiment_word_list)
+                    print(p3)
+
                 if hlder not in  ' '.join(sents[i]):
                     # print('Issue')
                     new_hlder = recover_terms_with_editdistance(hlder, sents[i])

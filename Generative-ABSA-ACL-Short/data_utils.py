@@ -155,7 +155,7 @@ def get_extraction_uabsa_targets(sents, labels):
             targets.append('; '.join(label_strs))
     return targets
 
-
+####
 def get_extraction_aope_targets(sents, labels):
     targets = []
     for i, label in enumerate(labels):
@@ -196,7 +196,6 @@ def get_extraction_aste_targets(sents, labels):
             else:
                 start_idx, end_idx = tri[0][0], tri[0][-1]
                 a = ' '.join(sents[i][start_idx:end_idx+1])
-
             # Opinion
             if len(tri[1]) == 1:
                 b = sents[i][tri[1][0]]
@@ -217,14 +216,20 @@ def get_extraction_aste_targets(sents, labels):
             # Intensity
             e = tri[4]
 
-            all_tri.append((a, b, c, d, e))
+            # if None in [a,b,c,d,e]:
+            #     print(a,b,c,d,e)
+            all_tri.append((str(a), str(b), str(c), str(d), str(e)))
+        
+        # print()        
+        # print(all_tri[:5])
+
         label_strs = ['('+', '.join(l)+')' for l in all_tri]
         targets.append('; '.join(label_strs))
         
-        if i==7:
-            print(sents[i])
-            print(targets[-1])
-            _ = input()
+        # if i==7:
+        #     print(sents[i])
+        #     print(targets[-1])
+        #     _ = input()
             
     return targets    
 
