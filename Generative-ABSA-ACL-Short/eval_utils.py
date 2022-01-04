@@ -1,9 +1,13 @@
 # This file contains the evaluation functions
-
+import json
 import re
 import editdistance
+# compute_scores
+# sentiment_word_list = ['Positive', 'Negative', 'Neutral']
+sentiment_word_list = []
+intensity_word_list = []
 
-sentiment_word_list = ['positive', 'negative', 'neutral']
+# intensity_word_list = ['Weak', 'Strong', 'Standard', 'Average', '']
 aspect_cate_list = ['location general',
  'food prices',
  'food quality',
@@ -37,10 +41,10 @@ def extract_spans_extraction(task, seq):
             for pt in all_pt:
                 pt = pt[1:-1]
                 try:
-                    a, b, c = pt.split(', ')
+                    a, b, c, d, e = pt.split(', ')
                 except ValueError:
-                    a, b, c = '', '', ''
-                extractions.append((a, b, c))            
+                    a, b, c, d, e = '', '', '', '', ''
+                extractions.append((a, b, c, d, e))            
         return extractions
 
 
@@ -191,14 +195,15 @@ def fix_preds_aste(all_pairs, sents):
         else:
             for pair in pairs:
                 #two formats have different orders
-                p0, p1, p2 = pair
+                p0, p1, p2, p3, p4 = pair
                 # for annotation-type
-                if p1 in sentiment_word_list:
-                    at, ott, ac = p0, p2, p1
-                    io_format = 'annotation'
+                # if p1 in sentiment_word_list:
+                #     at, ott, ac = p0, p2, p1
+                #     io_format = 'annotation'
                 # for extraction type
-                elif p2 in sentiment_word_list:
-                    at, ott, ac = p0, p1, p2
+
+                if p3 in sentiment_word_list:
+                    at, ott, hlder, ac, intens = p0, p1, p2, p3, p4
                     io_format = 'extraction'
 
                 #print(pair)
@@ -209,10 +214,21 @@ def fix_preds_aste(all_pairs, sents):
                 else:
                     new_at = at
                 
+                if hlder not in  ' '.join(sents[i]):
+                    # print('Issue')
+                    new_hlder = recover_terms_with_editdistance(hlder, sents[i])
+                else:
+                    new_hlder = hlder
+
                 if ac not in sentiment_word_list:
                     new_sentiment = recover_terms_with_editdistance(ac, sentiment_word_list)
                 else:
                     new_sentiment = ac
+
+                if intens not in intensity_word_list:
+                    new_intens = recover_terms_with_editdistance(intens, intensity_word_list)
+                else:
+                    new_intens = intens
                 
                 # OT not in the original sentence
                 ots = ott.split(', ')
@@ -317,10 +333,32 @@ def compute_f1_scores(pred_pt, gold_pt):
     return scores
 
 
-def compute_scores(pred_seqs, gold_seqs, sents, io_format, task):
+def compute_scores(pred_seqs, gold_seqs, sents, io_format, task, dataset_name):
     """
     compute metrics for multiple tasks
     """
+    folder_path = "/content/SSA-SemEval/BARTABSA/final_data"
+    file_path = f'{folder_path}/{dataset_name}/t1.json'
+    with open(file_path) as f:
+        x = json.load(f)
+    
+    pol = set()
+    inten = set()
+
+    for i in x:
+        for j in i['opinions']:
+            pol.add(j['Polarity'])
+            inten.add(j['Intensity'])
+
+    sentiment_word_list = list(pol)
+    intensity_word_list = list(inten)
+
+    print('*'*30)
+    print(sentiment_word_list)
+    print()
+    print(intensity_word_list)
+    print('*'*30)
+
     assert len(pred_seqs) == len(gold_seqs) 
     num_samples = len(gold_seqs)
 
@@ -348,3 +386,4 @@ def compute_scores(pred_seqs, gold_seqs, sents, io_format, task):
     print(fixed_scores)
     
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions_fixed
+

@@ -3,7 +3,7 @@
 import time
 from torch.utils.data import Dataset
 
-senttag2word = {'POS': 'positive', 'NEG': 'negative', 'NEU': 'neutral'}
+# senttag2word = {'POS': 'positive', 'NEG': 'negative', 'NEU': 'neutral'}
 
 def read_line_examples_from_file(data_path):
     """
@@ -185,68 +185,74 @@ def get_extraction_tasd_targets(sents, labels):
         targets.append(target)
     return targets
 
-# def get_extraction_aste_targets(sents, labels):
-#     targets = []
-#     for i, label in enumerate(labels):
-#         all_tri = []
-#         for tri in label:
-#             # Aspect
-#             if len(tri[0]) == 1:
-#                 a = sents[i][tri[0][0]]
-#             else:
-#                 start_idx, end_idx = tri[0][0], tri[0][-1]
-#                 a = ' '.join(sents[i][start_idx:end_idx+1])
-
-#             # Opinion
-#             if len(tri[1]) == 1:
-#                 b = sents[i][tri[1][0]]
-#             else:
-#                 start_idx, end_idx = tri[1][0], tri[1][-1]
-#                 b = ' '.join(sents[i][start_idx:end_idx+1])
-            
-#             # Polarity
-#             c = senttag2word[tri[2]]
-
-#             # Intensity
-#             d = 
-
-#             # Holder
-#             e = 
-
-#             all_tri.append((a, b, c))
-#         label_strs = ['('+', '.join(l)+')' for l in all_tri]
-#         targets.append('; '.join(label_strs))
-#         if i==7:
-#             print(sents[i])
-#             print(targets[-1])
-#             _ = input()
-#     return targets    
-
-
 def get_extraction_aste_targets(sents, labels):
     targets = []
     for i, label in enumerate(labels):
         all_tri = []
         for tri in label:
+            # Aspect
             if len(tri[0]) == 1:
                 a = sents[i][tri[0][0]]
             else:
                 start_idx, end_idx = tri[0][0], tri[0][-1]
                 a = ' '.join(sents[i][start_idx:end_idx+1])
+
+            # Opinion
             if len(tri[1]) == 1:
                 b = sents[i][tri[1][0]]
             else:
                 start_idx, end_idx = tri[1][0], tri[1][-1]
                 b = ' '.join(sents[i][start_idx:end_idx+1])
-            c = senttag2word[tri[2]]
-            all_tri.append((a, b, c))
+            
+            # Holder
+            if len(tri[2]) == 1:
+                c = sents[i][tri[2][0]]
+            else:
+                start_idx, end_idx = tri[2][0], tri[2][-1]
+                c = ' '.join(sents[i][start_idx:end_idx+1])
+
+            # Polarity
+            d = tri[3]
+
+            # Intensity
+            e = tri[4]
+
+            all_tri.append((a, b, c, d, e))
         label_strs = ['('+', '.join(l)+')' for l in all_tri]
         targets.append('; '.join(label_strs))
-        # if i==7:
-        #     print(sents[i])
-        #     print(targets[-1])
-        #     _ = input()
-    return targets
+        
+        if i==7:
+            print(sents[i])
+            print(targets[-1])
+            _ = input()
+            
+    return targets    
+
+
+# def get_extraction_aste_targets(sents, labels):
+#     targets = []
+#     for i, label in enumerate(labels):
+#         all_tri = []
+#         for tri in label:
+#             if len(tri[0]) == 1:
+#                 a = sents[i][tri[0][0]]
+#             else:
+#                 start_idx, end_idx = tri[0][0], tri[0][-1]
+#                 a = ' '.join(sents[i][start_idx:end_idx+1])
+#             if len(tri[1]) == 1:
+#                 b = sents[i][tri[1][0]]
+#             else:
+#                 start_idx, end_idx = tri[1][0], tri[1][-1]
+#                 b = ' '.join(sents[i][start_idx:end_idx+1])
+#             c = senttag2word[tri[2]]
+#             all_tri.append((a, b, c))
+#         label_strs = ['('+', '.join(l)+')' for l in all_tri]
+#         targets.append('; '.join(label_strs))
+#         # if i==7:
+#         #     print(sents[i])
+#         #     print(targets[-1])
+#         #     _ = input()
+#     return targets
 
 
 def get_transformed_io(data_path, paradigm, task):

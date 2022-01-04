@@ -4,7 +4,7 @@ import logging
 import time
 import pickle
 from tqdm import tqdm
-
+# task
 import torch
 from torch.utils.data import DataLoader
 import pytorch_lightning as pl
@@ -233,7 +233,7 @@ def evaluate(data_loader, model, paradigm, task, sents):
         outputs.extend(dec)
         targets.extend(target)
 
-    raw_scores, fixed_scores, all_labels, all_preds, all_preds_fixed = compute_scores(outputs, targets, sents, paradigm, task)
+    raw_scores, fixed_scores, all_labels, all_preds, all_preds_fixed = compute_scores(outputs, targets, sents, paradigm, task, args.dataset)
     results = {'raw_scores': raw_scores, 'fixed_scores': fixed_scores, 'labels': all_labels,
                'preds': all_preds, 'preds_fixed': all_preds_fixed}
     # pickle.dump(results, open(f"{args.output_dir}/results-{args.task}-{args.dataset}-{args.paradigm}.pickle", 'wb'))
