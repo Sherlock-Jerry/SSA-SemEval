@@ -1,0 +1,5 @@
+============================================================
+Wed Jan  5 05:52:58 2022
+aste on norec under extraction; Train bs=16, num_epochs = 1
+Raw F1 = 0.0408, Fixed F1 = 0.3875
+

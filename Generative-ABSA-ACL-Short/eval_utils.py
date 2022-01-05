@@ -3,11 +3,12 @@ import json
 import re
 import editdistance
 # compute_scores
+
 # sentiment_word_list = ['Positive', 'Negative', 'Neutral']
+# intensity_word_list = ['Weak', 'Strong', 'Standard', 'Average', '']
 sentiment_word_list = []
 intensity_word_list = []
 
-# intensity_word_list = ['Weak', 'Strong', 'Standard', 'Average', '']
 aspect_cate_list = ['location general',
  'food prices',
  'food quality',
@@ -111,7 +112,8 @@ def recover_terms_with_editdistance(original_term, sent):
         edit_dis = []
         for token in sent:
             edit_dis.append(editdistance.eval(word, token))
-        smallest_idx = edit_dis.index(min(edit_dis))
+        try:smallest_idx = edit_dis.index(min(edit_dis))
+        except: return 'NA'
         new_words.append(sent[smallest_idx])
     new_term = ' '.join(new_words)
     return new_term
@@ -205,19 +207,21 @@ def fix_preds_aste(all_pairs, sents):
                 if p3 in sentiment_word_list:
                     at, ott, hlder, ac, intens = p0, p1, p2, p3, p4
                     io_format = 'extraction'
-
-                #print(pair)
-                # AT not in the original sentence
-                try:
-                    if at not in  ' '.join(sents[i]):
-                        # print('Issue')
-                        new_at = recover_terms_with_editdistance(at, sents[i])
-                    else:
-                        new_at = at
-                except:
-                    print(p3)
+                elif p3 == '':
+                    at, ott, hlder, ac, intens = ['NA']*5
+                    io_format = 'extraction'
+                else:
+                    print('In Else')
                     print(sentiment_word_list)
                     print(p3)
+                    print(pair)
+                #print(pair)
+                # AT not in the original sentence
+                if at not in  ' '.join(sents[i]):
+                    # print('Issue')
+                    new_at = recover_terms_with_editdistance(at, sents[i])
+                else:
+                    new_at = at
 
                 if hlder not in  ' '.join(sents[i]):
                     # print('Issue')
@@ -246,7 +250,7 @@ def fix_preds_aste(all_pairs, sents):
                         new_ot_list.append(ot)
                 new_ot = ', '.join(new_ot_list)
                 if io_format == 'extraction':
-                    new_pairs.append((new_at, new_ot, new_sentiment))
+                    new_pairs.append((new_at, new_ot, new_hlder, new_sentiment, new_intens))
                 else:
                     new_pairs.append((new_at, new_sentiment, new_ot))
                 # print(pair, '>>>>>', word_and_sentiment)
@@ -355,8 +359,8 @@ def compute_scores(pred_seqs, gold_seqs, sents, io_format, task, dataset_name):
             pol.add(j['Polarity'])
             inten.add(j['Intensity'])
 
-    sentiment_word_list = list(pol)
-    intensity_word_list = list(inten)
+    sentiment_word_list = list(pol) + ['NA']
+    intensity_word_list = list(inten) + ['NA']
 
     print('*'*30)
     print(sentiment_word_list)

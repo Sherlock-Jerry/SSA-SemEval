@@ -1,0 +1,5 @@
+============================================================
+Wed Jan  5 04:50:57 2022
+aste on darmstadt_unis under extraction; Train bs=16, num_epochs = 1
+Raw F1 = 0.0042, Fixed F1 = 0.6250
+
