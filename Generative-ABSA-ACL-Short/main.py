@@ -1,5 +1,5 @@
 import argparse
-import os
+import os, json
 import logging
 import time
 import pickle
@@ -233,6 +233,11 @@ def evaluate(data_loader, model, paradigm, task, sents):
         outputs.extend(dec)
         targets.extend(target)
 
+    if not os.path.exists('output_results'): os.makedirs('output_results')
+    with open(f'output_results/outputs_{args.dataset}.json', 'w') as f: json.dump(outputs, f)
+    with open(f'output_results/targets_{args.dataset}.json', 'w') as f: json.dump(targets, f)
+    with open(f'output_results/sents_{args.dataset}.json', 'w') as f: json.dump(sents, f)
+    print('paradigm, task, args.dataset', paradigm, task, args.dataset)
     raw_scores, fixed_scores, all_labels, all_preds, all_preds_fixed = compute_scores(outputs, targets, sents, paradigm, task, args.dataset)
     results = {'raw_scores': raw_scores, 'fixed_scores': fixed_scores, 'labels': all_labels,
                'preds': all_preds, 'preds_fixed': all_preds_fixed}

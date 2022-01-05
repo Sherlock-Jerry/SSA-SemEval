@@ -210,45 +210,67 @@ def fix_preds_aste(all_pairs, sents):
                 elif p3 == '':
                     at, ott, hlder, ac, intens = ['NA']*5
                     io_format = 'extraction'
-                else:
-                    print('In Else')
-                    print(sentiment_word_list)
-                    print(p3)
-                    print(pair)
+                # else:
+                #     print('In Else')
+                #     print(sentiment_word_list)
+                #     print(p3)
+                #     print(pair)
                 #print(pair)
-                # AT not in the original sentence
-                if at not in  ' '.join(sents[i]):
-                    # print('Issue')
-                    new_at = recover_terms_with_editdistance(at, sents[i])
-                else:
-                    new_at = at
 
-                if hlder not in  ' '.join(sents[i]):
-                    # print('Issue')
-                    new_hlder = recover_terms_with_editdistance(hlder, sents[i])
-                else:
-                    new_hlder = hlder
-
-                if ac not in sentiment_word_list:
-                    new_sentiment = recover_terms_with_editdistance(ac, sentiment_word_list)
-                else:
-                    new_sentiment = ac
-
-                if intens not in intensity_word_list:
-                    new_intens = recover_terms_with_editdistance(intens, intensity_word_list)
-                else:
-                    new_intens = intens
-                
-                # OT not in the original sentence
-                ots = ott.split(', ')
-                new_ot_list = []
-                for ot in ots:
-                    if ot not in ' '.join(sents[i]):
+                try:
+                    # AT not in the original sentence
+                    if at not in  ' '.join(sents[i]):
                         # print('Issue')
-                        new_ot_list.append(recover_terms_with_editdistance(ot, sents[i]))
+                        new_at = recover_terms_with_editdistance(at, sents[i])
                     else:
-                        new_ot_list.append(ot)
-                new_ot = ', '.join(new_ot_list)
+                        new_at = at
+                except:
+                    print('Load in at')
+                    new_at = 'NA'
+                
+                try:
+                    if hlder not in  ' '.join(sents[i]):
+                        # print('Issue')
+                        new_hlder = recover_terms_with_editdistance(hlder, sents[i])
+                    else:
+                        new_hlder = hlder
+                except:
+                    print('Load in holder')
+                    new_hlder = 'NA'
+                
+                try:
+                    if ac not in sentiment_word_list:
+                        new_sentiment = recover_terms_with_editdistance(ac, sentiment_word_list)
+                    else:
+                        new_sentiment = ac
+                except:
+                    print('Load in sentiment')
+                    new_sentiment = 'NA'
+
+                try:
+                    if intens not in intensity_word_list:
+                        new_intens = recover_terms_with_editdistance(intens, intensity_word_list)
+                    else:
+                        new_intens = intens
+                except:
+                    print('Load in intensity')
+                    new_intens = 'NA'
+                
+                try:
+                    # OT not in the original sentence
+                    ots = ott.split(', ')
+                    new_ot_list = []
+                    for ot in ots:
+                        if ot not in ' '.join(sents[i]):
+                            # print('Issue')
+                            new_ot_list.append(recover_terms_with_editdistance(ot, sents[i]))
+                        else:
+                            new_ot_list.append(ot)
+                    new_ot = ', '.join(new_ot_list)
+                except:
+                    print('Load in opinion')
+                    new_ot = 'NA'
+
                 if io_format == 'extraction':
                     new_pairs.append((new_at, new_ot, new_hlder, new_sentiment, new_intens))
                 else:
@@ -346,6 +368,8 @@ def compute_scores(pred_seqs, gold_seqs, sents, io_format, task, dataset_name):
     """
     compute metrics for multiple tasks
     """
+    global sentiment_word_list
+    global intensity_word_list
     folder_path = "/content/SSA-SemEval/BARTABSA/final_data"
     file_path = f'{folder_path}/{dataset_name}/t1.json'
     with open(file_path) as f:
