@@ -212,7 +212,7 @@ class LoggingCallback(pl.Callback):
                     writer.write("{} = {}\n".format(key, str(metrics[key])))
 
 
-def evaluate(data_loader, model, paradigm, task, sents):
+def evaluate(data_loader, model, paradigm, task, sents=None):
     """
     Compute scores given the predictions and gold labels
     """
@@ -236,7 +236,10 @@ def evaluate(data_loader, model, paradigm, task, sents):
     if not os.path.exists('output_results'): os.makedirs('output_results')
     with open(f'output_results/outputs_{args.dataset}.json', 'w') as f: json.dump(outputs, f)
     with open(f'output_results/targets_{args.dataset}.json', 'w') as f: json.dump(targets, f)
-    with open(f'output_results/sents_{args.dataset}.json', 'w') as f: json.dump(sents, f)
+    if sents is not None: 
+        with open(f'output_results/sents_{args.dataset}.json', 'w') as f: json.dump(sents, f)
+    else:
+        print('sents is None, not writing in output_results')
     print('paradigm, task, args.dataset', paradigm, task, args.dataset)
     raw_scores, fixed_scores, all_labels, all_preds, all_preds_fixed = compute_scores(outputs, targets, sents, paradigm, task, args.dataset)
     results = {'raw_scores': raw_scores, 'fixed_scores': fixed_scores, 'labels': all_labels,
@@ -308,7 +311,7 @@ if args.do_eval:
         file_name = os.path.join(saved_model_dir, f)
         if 'cktepoch' in file_name:
             all_checkpoints.append(file_name)
-
+    all_checkpoints = sorted(all_checkpoints)
     # conduct some selection (or not)
     print(f"We will perform validation on the following checkpoints: {all_checkpoints}")
 
@@ -334,8 +337,8 @@ if args.do_eval:
             model = T5FineTuner(model_ckpt['hyper_parameters'])
             model.load_state_dict(model_ckpt['state_dict'])
             
-            dev_result = evaluate(dev_loader, model, args.paradigm, args.task)
-            if dev_result['f1'] > best_f1:
+            dev_result = evaluate(dev_loader, model, args.paradigm, args.task)[-1]
+            if best_f1 is None or dev_result['f1'] > best_f1:
                 best_f1 = dev_result['f1']
                 best_checkpoint = checkpoint
                 best_epoch = epoch
@@ -345,7 +348,7 @@ if args.do_eval:
             dev_result = dict((k + '_{}'.format(epoch), v) for k, v in dev_result.items())
             dev_results.update(dev_result)
 
-            test_result = evaluate(test_loader, model, args.paradigm, args.task)
+            test_result = evaluate(test_loader, model, args.paradigm, args.task)[-1]
             test_result = dict((k + '_{}'.format(epoch), v) for k, v in test_result.items())
             test_results.update(test_result)
 

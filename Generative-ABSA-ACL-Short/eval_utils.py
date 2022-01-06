@@ -413,9 +413,14 @@ def compute_scores(pred_seqs, gold_seqs, sents, io_format, task, dataset_name):
     print(raw_scores)
 
     # fix the issues due to generation
-    all_predictions_fixed = fix_pred_with_editdistance(all_predictions, sents, task)
-    print("\nResults of fixed output")
-    fixed_scores = compute_f1_scores(all_predictions_fixed, all_labels)
+    if sents is not None:
+        all_predictions_fixed = fix_pred_with_editdistance(all_predictions, sents, task)
+        print("\nResults of fixed output")
+        fixed_scores = compute_f1_scores(all_predictions_fixed, all_labels)
+    else:
+        print('sents is None, fixed scores is same as raw scores')
+        all_predictions_fixed = all_predictions
+        fixed_scores = raw_scores
     print(fixed_scores)
     
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions_fixed
