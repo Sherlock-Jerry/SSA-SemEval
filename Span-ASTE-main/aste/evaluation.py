@@ -163,7 +163,7 @@ class TagReader:
             inputs = line[0].split()  # sentence
             # t_output = line[1].split()  # target
             o_output = line[2].split()  # opinion
-            raw_pairs = eval(line[3])  # triplets
+            raw_pairs = eval(line[-1])  # triplets
 
             # prepare tagging sequence
             output = ["O" for _ in range(len(inputs))]
