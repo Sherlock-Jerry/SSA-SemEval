@@ -92,7 +92,7 @@ NA Overall , i'm left with having doubts of even attending this school because I
 NA Not to mention , I talked to a lady who works in the financial aid dept .####[([0], [0], [0], 'NA', 'NA')]
 NA today and she sounded b*tchy .####[([0], [0], [0], 'NA', 'NA')]
 NA That was just icing on the cake .####[([0], [0], [0], 'NA', 'NA')]
-NA Devry is great : http://www.iHateDevry.com####[([1], [5, 4], [0], 'Negative', 'Strong')]
+NA Devry is great : http://www.iHateDevry.com####[([1], [5], [0], 'Negative', 'Strong')]
 NA I was really disappointed with the UMUC experience , both face-to-face and online .####[([0], [0], [0], 'NA', 'NA')]
 NA There weren't many upper level F2F courses offered by UMUC in our location .####[([0], [0], [0], 'NA', 'NA')]
 NA UMUC administrators tended to supply larger communities with more choices of F2F courses .####[([0], [0], [0], 'NA', 'NA')]
