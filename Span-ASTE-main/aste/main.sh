@@ -8,8 +8,6 @@ echo DEVICE="$DEVICE"
 rm -rf model*
 mkdir -p models
 $PYTHON aste/main.py \
-  --names 14lap,14lap,14lap,14lap,14lap,14res,14res,14res,14res,14res,15res,15res,15res,15res,15res,16res,16res,16res,16res,16res \
-  --seeds 0,1,12,123,1234,0,1,12,123,1234,0,1,12,123,1234,0,1,12,123,1234 \
   --trainer__cuda_device "$DEVICE" \
   --trainer__num_epochs 10 \
   --trainer__checkpointer__num_serialized_models_to_keep 1 \
@@ -27,6 +25,12 @@ $PYTHON aste/main.py \
   --model__modules__relation__spans_per_word 0.5 \
   --model__modules__relation__neg_class_weight -1
 
+
+
+
+# --names 14lap,14lap,14lap,14lap,14lap,14res,14res,14res,14res,14res,15res,15res,15res,15res,15res,16res,16res,16res,16res,16res \
+# --seeds 0,1,12,123,1234,0,1,12,123,1234,0,1,12,123,1234,0,1,12,123,1234 \
+  
 # Glove + BiLSTM Flags
 #  --dataset_reader__token_indexers "{tokens: {type: 'single_id', lowercase_tokens: True}}" \
 #  --model__embedder__token_embedders "{tokens: {type: 'embedding', embedding_dim: 300, pretrained_file: 'https://allennlp.s3.amazonaws.com/datasets/glove/glove.840B.300d.txt.gz', trainable: True}}" \

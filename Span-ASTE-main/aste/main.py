@@ -260,7 +260,7 @@ def main_single(path: Path, overwrite=False, **kwargs):
 
 def main(
     root="aste/data/triplet_data",
-    names=("14lap",),
+    names=("opener_en",),
     seeds=(0,),
     sep=",",
     name_out="results",
