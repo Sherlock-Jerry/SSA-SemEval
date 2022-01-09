@@ -25,7 +25,7 @@ from utils import Shell, hash_text, update_nested_dict
 class SpanModelDocument(BaseModel):
     sentences: List[List[str]]
     ner: List[List[Tuple[int, int, str]]]
-    relations: List[List[Tuple[int, int, int, int, str]]]
+    relations: List[List[Tuple[int, int, int, int, int, int, str, str]]]
     doc_key: str
 
     @property
@@ -54,7 +54,7 @@ class SpanModelPrediction(SpanModelDocument):
     predicted_ner: List[List[Tuple[int, int, LabelEnum, float, float]]] = [
         []
     ]  # If loss_weights["ner"] == 0.0
-    predicted_relations: List[List[Tuple[int, int, int, int, LabelEnum, float, float]]]
+    predicted_relations: List[List[Tuple[int, int, int, int, int, int, LabelEnum, LabelEnum, float, float]]]#note_down
 
     def to_sentence(self) -> Sentence:
         for lst in [self.sentences, self.predicted_ner, self.predicted_relations]:

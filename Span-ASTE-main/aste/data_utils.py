@@ -26,11 +26,21 @@ class SplitEnum(str, Enum):
 
 
 class LabelEnum(str, Enum):
-    positive = "POS"
-    negative = "NEG"
-    neutral = "NEU"
+    positive = "Positive"
+    negative = "Negative"
+    neutral = "Neutral"
+
+    null_token = "NA"
+
+    average = "Average"
+    standard = "Standard"
+    strong = "Strong"
+    slight = "Slight"
+    weak = "Weak"
+
     opinion = "OPINION"
     target = "TARGET"
+    holder = "HOLDER"
 
     @classmethod
     def as_list(cls):
@@ -50,7 +60,10 @@ class SentimentTriple(BaseModel):
     o_end: int
     t_start: int
     t_end: int
+    h_start: int
+    h_end: int
     label: LabelEnum
+    label_inten: LabelEnum
 
     @property
     def opinion(self) -> Tuple[int, int]:
@@ -60,9 +73,13 @@ class SentimentTriple(BaseModel):
     def target(self) -> Tuple[int, int]:
         return self.t_start, self.t_end
 
+    @property
+    def holder(self) -> Tuple[int, int]:
+        return self.h_start, self.h_end
+
     @classmethod
     def from_raw_triple(cls, x: RawTriple):
-        (o_start, o_end), polarity, direction, gap_a, gap_b = x
+        (o_start, o_end),(h_start,h_end), polarity, intensity, direction, gap_a, gap_b = x
         # Refer: TagReader
         if direction == 0:
             t_end = o_start - gap_a

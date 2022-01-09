@@ -1,6 +1,8 @@
 from abc import abstractmethod
 
-
+sent_set = set()
+inten_set = set()
+#line[]
 class Instance:
     def __init__(self, instance_id, weight, inputs=None, output=None):
         self.instance_id = instance_id
@@ -149,6 +151,9 @@ class TagReader:
 
     @classmethod
     def read_inst(cls, file, is_labeled, number, opinion_offset):
+        global sent_set
+        global inten_set
+
         insts = []
         # inputs = []
         # outputs = []
@@ -156,14 +161,29 @@ class TagReader:
         original_p = 0
         f = open(file, "r", encoding="utf-8")
 
+        if len(sent_set) == 0:
+            with open('/'.join(file.split('/')[:-1])+'/train.txt',"r",encoding="utf-8") as f1:
+                for line in f1:
+                    for i in eval(line.split("####")[-1]):
+                        sent_set.add(i[3])
+                        inten_set.add(i[4])
+            
+            sent_set = list(sent_set)
+            inten_set = list(inten_set)
+
+            print("Sent_set and Inten_set")
+            print(sent_set, inten_set, sep='\n')
+            print()
+
         # read AAAI2020 data
         for line in f:
             line = line.strip()
             line = line.split("####")
             inputs = line[0].split()  # sentence
             # t_output = line[1].split()  # target
-            o_output = line[2].split()  # opinion
-            raw_pairs = eval(line[-1])  # triplets
+            # hlder_output = line[2].split()  # holder
+            o_output = line[3].split()  # opinion
+            raw_pairs = eval(line[-1])  # list of pentuplets
 
             # prepare tagging sequence
             output = ["O" for _ in range(len(inputs))]
@@ -184,23 +204,32 @@ class TagReader:
                 opinion_e = new_pair[1][-1]
                 target_s = new_pair[0][0]
                 target_e = new_pair[0][-1]
+                holder_s = new_pair[2][0]
+                holder_e = new_pair[2][-1]
+
                 # change sentiment to value --> 0 neu, 1 pos, 2 neg
-                if new_pair[2] == "NEG":
-                    polarity = 2
-                elif new_pair[2] == "POS":
-                    polarity = 1
-                else:
-                    polarity = 0
+                # if new_pair[2] == "Negative":
+                #     polarity = 2
+                # elif new_pair[2] == "Positive":
+                #     polarity = 1
+                # else:
+                #     polarity = 0
+
+                polarity = sent_set.index(new_pair[3])
+                intensity = inten_set.index(new_pair[4])
+
                 # check direction and append
                 if target_s < opinion_s:
                     dire = 0
                     new_raw_pairs.append(
                         (
                             [opinion_s, opinion_e],
+                            [holder_s,holder_e], ##note_down
                             polarity,
+                            intensity,
                             dire,
                             opinion_s - target_e,
-                            opinion_s - target_s,
+                            opinion_s - target_s                            
                         )
                     )
                 else:
@@ -208,7 +237,9 @@ class TagReader:
                     new_raw_pairs.append(
                         (
                             [opinion_s, opinion_e],
+                            [holder_s,holder_e],
                             polarity,
+                            intensity,
                             dire,
                             target_s - opinion_s,
                             target_e - opinion_s,
