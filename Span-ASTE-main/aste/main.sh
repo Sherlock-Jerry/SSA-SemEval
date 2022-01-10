@@ -9,7 +9,7 @@ rm -rf model*
 mkdir -p models
 $PYTHON aste/main.py \
   --trainer__cuda_device "$DEVICE" \
-  --trainer__num_epochs 10 \
+  --trainer__num_epochs 2 \
   --trainer__checkpointer__num_serialized_models_to_keep 1 \
   --model__span_extractor_type "endpoint" \
   --model__modules__relation__use_single_pool False \

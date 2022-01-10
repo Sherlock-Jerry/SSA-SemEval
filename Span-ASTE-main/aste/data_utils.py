@@ -79,7 +79,7 @@ class SentimentTriple(BaseModel):
 
     @classmethod
     def from_raw_triple(cls, x: RawTriple):
-        (o_start, o_end),(h_start,h_end), polarity, intensity, direction, gap_a, gap_b = x
+        (o_start, o_end), (h_start,h_end), polarity, intensity, direction, gap_a, gap_b = x
         # Refer: TagReader
         if direction == 0:
             t_end = o_start - gap_a
@@ -95,23 +95,28 @@ class SentimentTriple(BaseModel):
             o_end=o_end,
             t_start=t_start,
             t_end=t_end,
+            h_start=h_start,
+            h_end=h_end,
             label=LabelEnum.i_to_label(polarity),
+            label_inten=LabelEnum.i_to_label(intensity)
         )
 
     def to_raw_triple(self) -> RawTriple:
         polarity = LabelEnum.label_to_i(self.label)
+        intensity = LabelEnum.label_to_i(self.label_inten)
         if self.t_start < self.o_start:
             direction = 0
             gap_a, gap_b = self.o_start - self.t_end, self.o_start - self.t_start
         else:
             direction = 1
             gap_a, gap_b = self.t_start - self.o_start, self.t_end - self.o_start
-        return [self.o_start, self.o_end], polarity, direction, gap_a, gap_b
+        return [self.o_start, self.o_end], [self.h_start, self.h_end], polarity, intensity, direction, gap_a, gap_b
 
     def as_text(self, tokens: List[str]) -> str:
         opinion = " ".join(tokens[self.o_start : self.o_end + 1])
         target = " ".join(tokens[self.t_start : self.t_end + 1])
-        return f"{opinion}-{target} ({self.label})"
+        holder = " ".join(tokens[self.h_start : self.h_end + 1])
+        return f"{opinion}-{target} ({self.label})" #note_down
 
 
 class TripleHeuristic(BaseModel):
@@ -181,6 +186,7 @@ class Sentence(BaseModel):
         for t in self.triples:
             spans.append((t.o_start, t.o_end, LabelEnum.opinion))
             spans.append((t.t_start, t.t_end, LabelEnum.target))
+            spans.append((t.h_start, t.h_end, LabelEnum.holder))
         spans = sorted(set(spans))
         return spans
 
@@ -203,7 +209,7 @@ class Sentence(BaseModel):
         instance.is_labeled = self.is_labeled
         return instance
 
-    def as_text(self) -> str:
+    def as_text(self) -> str: #note_down
         tokens = list(self.tokens)
         for t in self.triples:
             tokens[t.o_start] = "(" + tokens[t.o_start]
@@ -467,6 +473,7 @@ class Result(BaseModel):
     num_start_end_correct: int = 0
     num_opinion_correct: int = 0
     num_target_correct: int = 0
+    num_holder_correct: int = 0
     num_span_overlap: int = 0
     precision: float = 0.0
     recall: float = 0.0
@@ -501,20 +508,25 @@ class ResultAnalyzer(BaseModel):
         for i in range(len(pred)):
             for p in pred[i].triples:
                 for g in gold[i].triples:
-                    if (p.opinion, p.target) == (g.opinion, g.target):
+                    if (p.opinion, p.target, p.holder) == (g.opinion, g.target, g.holder):
                         y_pred.append(str(p.label))
                         y_gold.append(str(g.label))
 
         print(dict(num_span_correct=len(y_pred)))
         if y_pred:
             print(classification_report(y_gold, y_pred))
+        else:
+            print('*'*20, 'clf rpt not printed', '*'*20)
 
     @staticmethod
     def analyze_spans(pred: List[Sentence], gold: List[Sentence]):
-        num_triples_gold, triples_found_o, triples_found_t = 0, set(), set()
-        for label in [LabelEnum.opinion, LabelEnum.target]:
+        num_triples_gold, triples_found_o, triples_found_t, triples_found_h = 0, set(), set(), set()
+        for label in [LabelEnum.opinion, LabelEnum.target, LabelEnum.holder]:
             num_correct, num_pred, num_gold = 0, 0, 0
-            is_target = {LabelEnum.opinion: False, LabelEnum.target: True}[label]
+            is_target = {LabelEnum.opinion: False, LabelEnum.target: True, LabelEnum.holder:False}[label]
+            is_opinion = {LabelEnum.opinion: True, LabelEnum.target: False, LabelEnum.holder:False}[label]
+            is_holder = {LabelEnum.opinion: False, LabelEnum.target: False, LabelEnum.holder:True}[label]
+
             for i, (p, g) in enumerate(zip(pred, gold)):
                 spans_gold = set(g.spans if g.spans else g.extract_spans())
                 spans_pred = set(p.spans if p.spans else p.extract_spans())
@@ -527,13 +539,19 @@ class ResultAnalyzer(BaseModel):
 
                 for t in g.triples:
                     num_triples_gold += 1
-                    span = (t.target if is_target else t.opinion) + (label,)
+                    # span = (t.target if is_target else t.opinion) + (label,)
+                    if is_target: span = (t.target) + (label,)
+                    if is_opinion: span = (t.opinion) + (label,)
+                    if is_holder: span = (t.holder) + (label,)
+                    
                     if span in spans_pred:
                         t_unique = (i,) + tuple(t.dict().items())
                         if is_target:
                             triples_found_t.add(t_unique)
-                        else:
+                        elif is_opinion:
                             triples_found_o.add(t_unique)
+                        else:
+                            triples_found_h.add(t_unique)
 
             if num_correct and num_pred and num_gold:
                 p = round(num_correct / num_pred, ndigits=4)
@@ -564,17 +582,17 @@ class ResultAnalyzer(BaseModel):
                 for g in gold[i].triples:
                     if p.dict() == g.dict():
                         r.num_correct += 1
-                    if (p.o_start, p.t_start) == (g.o_start, g.t_start):
+                    if (p.o_start, p.t_start, p.h_start) == (g.o_start, g.t_start, g.h_start):
                         r.num_start_correct += 1
-                    if (p.opinion, p.target) == (g.opinion, g.target):
+                    if (p.opinion, p.target, p.holder) == (g.opinion, g.target, g.holder):
                         r.num_start_end_correct += 1
                     if p.opinion == g.opinion:
                         r.num_opinion_correct += 1
                     if p.target == g.target:
                         r.num_target_correct += 1
-                    if cls.check_overlap(*p.opinion, *g.opinion) and cls.check_overlap(
-                        *p.target, *g.target
-                    ):
+                    if p.holder == g.holder:
+                        r.num_holder_correct += 1
+                    if cls.check_overlap(*p.opinion, *g.opinion) and cls.check_overlap(*p.target, *g.target) and cls.check_overlap(*p.holder, *g.holder):
                         r.num_span_overlap += 1
 
         e = 1e-9

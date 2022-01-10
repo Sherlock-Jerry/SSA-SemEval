@@ -486,7 +486,7 @@ class nereval(Eval):
                 # print(inst)
                 # print('----',output)
                 # print('-------', prediction)
-                if pair_eval:
+                if pair_eval:  # True
                     output = inst.output[1]
                     prediction = inst.prediction[1]
                     total_entity += len(output)
@@ -498,7 +498,7 @@ class nereval(Eval):
 
                 # convert to span
                 output_spans = set()
-                if target_eval:
+                if target_eval: # False
                     start = -1
                     for i in range(len(output)):
                         if output[i].startswith("B"):
@@ -508,7 +508,7 @@ class nereval(Eval):
                             output_spans.add(Span(start, end, output[i][2:]))
                         if output[i].startswith("S"):
                             output_spans.add(Span(i, i, output[i][2:]))
-                if opinion_eval:
+                if opinion_eval: # False
                     start = -1
                     for i in range(len(output)):
                         if output[i].startswith("b"):

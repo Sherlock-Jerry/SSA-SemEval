@@ -38,9 +38,10 @@ class SpanModelDocument(BaseModel):
         for t in x.triples:
             ner.append((t.o_start, t.o_end, LabelEnum.opinion))
             ner.append((t.t_start, t.t_end, LabelEnum.target))
+            ner.append((t.h_start, t.h_end, LabelEnum.holder))
         ner = sorted(set(ner), key=lambda n: n[0])
         relations = [
-            (t.o_start, t.o_end, t.t_start, t.t_end, t.label) for t in x.triples
+            (t.o_start, t.o_end, t.t_start, t.t_end, t.h_start, t.h_end, t.label, t.label_inten) for t in x.triples
         ]
         return cls(
             sentences=[x.tokens],
@@ -61,8 +62,8 @@ class SpanModelPrediction(SpanModelDocument):
             assert len(lst) == 1
 
         triples = [
-            SentimentTriple(o_start=os, o_end=oe, t_start=ts, t_end=te, label=label)
-            for os, oe, ts, te, label, value, prob in self.predicted_relations[0]
+            SentimentTriple(o_start=os, o_end=oe, t_start=ts, t_end=te, h_start=hs, h_end=he, label=label, label_inten=label_inten)
+            for os, oe, ts, te, hs, he, label, label_inten, value, prob in self.predicted_relations[0]
         ]
         return Sentence(
             id=int(self.doc_key),
@@ -228,6 +229,7 @@ class SpanModelTrainer(BaseModel):
     def eval(self, data_split: SplitEnum) -> FScore:
         data = Data(root=self.root, data_split=data_split)
         data.load()
+        # data.sentences = [Sentence.from_instance(x) for x in instances] line 239 data_utils
         instances = [s.to_instance() for s in data.sentences]
 
         path = self.predict(data_split)
