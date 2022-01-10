@@ -206,6 +206,7 @@ class SpanModelTrainer(BaseModel):
             serialization_dir=self.model_path.parent,
             include_package="span_model",
         )
+        print(type(self.model_path), self.model_path)
         assert self.model_path.exists()
 
     def predict(self, data_split: SplitEnum) -> Path:

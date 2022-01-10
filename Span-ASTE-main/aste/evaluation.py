@@ -162,7 +162,8 @@ class TagReader:
         f = open(file, "r", encoding="utf-8")
 
         if len(sent_set) == 0:
-            with open('/'.join(file.split('/')[:-1])+'/train.txt',"r",encoding="utf-8") as f1:
+            # print(type(file), file)
+            with open('/'.join(str(file).split('/')[:-1])+'/train.txt',"r",encoding="utf-8") as f1:
                 for line in f1:
                     for i in eval(line.split("####")[-1]):
                         sent_set.add(i[3])
