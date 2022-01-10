@@ -44,7 +44,9 @@ class LabelEnum(str, Enum):
 
     @classmethod
     def as_list(cls):
-        return [cls.neutral, cls.positive, cls.negative]
+        return [cls.neutral, cls.positive, cls.negative,
+                cls.null_token,
+                cls.average, cls.standard, cls.strong, cls.slight, cls.weak]
 
     @classmethod
     def i_to_label(cls, i: int):

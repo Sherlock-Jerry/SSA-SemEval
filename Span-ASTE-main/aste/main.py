@@ -263,7 +263,7 @@ def main_single(path: Path, overwrite=False, **kwargs):
 
 def main(
     root="aste/data/triplet_data",
-    names=("opener_en",),
+    names=("darmstadt_unis",),
     seeds=(0,),
     sep=",",
     name_out="results",
