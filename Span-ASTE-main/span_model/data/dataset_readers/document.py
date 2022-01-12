@@ -392,30 +392,36 @@ class PredictedNER(NER):
 
 class Relation:
     def __init__(self, relation, sentence, sentence_offsets=False):
+        # print(relation)
+        # print('*'*30)
         start1, end1 = relation[0], relation[1]
         start2, end2 = relation[2], relation[3]
-        label = relation[4]
+        start3, end3 = relation[4], relation[5]
+        label = relation[6]
+        label_inten = relation[7]
         span1 = Span(start1, end1, sentence, sentence_offsets)
         span2 = Span(start2, end2, sentence, sentence_offsets)
-        self.pair = (span1, span2)
+        span3 = Span(start3, end3, sentence, sentence_offsets)
+        self.pair = (span1, span2, span3)
         self.label = label
+        self.label_inten = label_inten
 
     def __repr__(self):
         return f"{self.pair[0].__repr__()}, {self.pair[1].__repr__()}: {self.label}"
 
     def __eq__(self, other):
-        return (self.pair == other.pair) and (self.label == other.label)
+        return (self.pair == other.pair) and (self.label == other.label) and (self.label_inten == other.label_inten)
 
     def to_json(self):
-        return list(self.pair[0].span_doc) + list(self.pair[1].span_doc) + [self.label]
+        return list(self.pair[0].span_doc) + list(self.pair[1].span_doc) + [self.label, self.label_inten]
 
 
 class PredictedRelation(Relation):
     def __init__(self, relation, sentence, sentence_offsets=False):
-        "Input format: [start_1, end_1, start_2, end_2, label, raw_score, softmax_score]."
+        "Input format: [start_1, end_1, start_2, end_2, start_3, end_3, label, label_inten, raw_score, softmax_score]."
         super().__init__(relation, sentence, sentence_offsets)
-        self.raw_score = relation[5]
-        self.softmax_score = relation[6]
+        self.raw_score = relation[-2]
+        self.softmax_score = relation[-1]
 
     def __repr__(self):
         return super().__repr__() + f" with confidence {self.softmax_score:0.4f}"

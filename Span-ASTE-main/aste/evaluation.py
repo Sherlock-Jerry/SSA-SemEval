@@ -1,7 +1,6 @@
 from abc import abstractmethod
 
 sent_set = set()
-inten_set = set()
 #line[]
 class Instance:
     def __init__(self, instance_id, weight, inputs=None, output=None):
@@ -152,7 +151,6 @@ class TagReader:
     @classmethod
     def read_inst(cls, file, is_labeled, number, opinion_offset):
         global sent_set
-        global inten_set
 
         insts = []
         # inputs = []
@@ -167,13 +165,12 @@ class TagReader:
                 for line in f1:
                     for i in eval(line.split("####")[-1]):
                         sent_set.add(i[3])
-                        inten_set.add(i[4])
+                        sent_set.add(i[4])
             
-            sent_set = list(sent_set)
-            inten_set = list(inten_set)
+            sent_set = sorted(list(sent_set))      
 
-            print("Sent_set and Inten_set")
-            print(sent_set, inten_set, sep='\n')
+            print("Sent_set")
+            print(sent_set, sep='\n')
             print()
 
         # read AAAI2020 data
@@ -217,7 +214,7 @@ class TagReader:
                 #     polarity = 0
 
                 polarity = sent_set.index(new_pair[3])
-                intensity = inten_set.index(new_pair[4])
+                intensity = sent_set.index(new_pair[4])
 
                 # check direction and append
                 if target_s < opinion_s:

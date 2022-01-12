@@ -114,6 +114,9 @@ class SpanModelReader(DatasetReader):
 
         # Loop over the gold spans. Look up their indices in the list of span tuples and store
         # values.
+        print('span_model.py, line 117')
+        print(sent.relation_dict.items())
+        _ = input()
         for (span1, span2), label in sent.relation_dict.items():
             # If either span is beyond the max span width, skip it.
             if self._too_long(span1) or self._too_long(span2):
