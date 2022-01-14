@@ -1,6 +1,8 @@
 from abc import abstractmethod
 
+#+""+
 sent_set = set()
+inten_set = set()
 #line[]
 class Instance:
     def __init__(self, instance_id, weight, inputs=None, output=None):
@@ -143,7 +145,7 @@ class LinearInstance(Instance):
             + str(self.is_labeled)
         )
 
-
+#cls.Positive
 class TagReader:
     # 0 neu, 1 pos, 2 neg
     label2id_map = {"<START>": 0}
@@ -151,6 +153,7 @@ class TagReader:
     @classmethod
     def read_inst(cls, file, is_labeled, number, opinion_offset):
         global sent_set
+        global inten_set
 
         insts = []
         # inputs = []
@@ -165,9 +168,15 @@ class TagReader:
                 for line in f1:
                     for i in eval(line.split("####")[-1]):
                         sent_set.add(i[3])
-                        sent_set.add(i[4])
+                        inten_set.add(i[4])
             
-            sent_set = sorted(list(sent_set))      
+            # fin_set = sent_set.union(inten_set)
+            fin_set = set()
+            for i in sent_set:
+                for j in inten_set:
+                    fin_set.add(i+"_"+j)#note_down
+
+            sent_set = sorted(list(fin_set))      
 
             print("Sent_set")
             print(sent_set, sep='\n')
@@ -213,8 +222,8 @@ class TagReader:
                 # else:
                 #     polarity = 0
 
-                polarity = sent_set.index(new_pair[3])
-                intensity = sent_set.index(new_pair[4])
+                polarity = sent_set.index(new_pair[3]+"_"+new_pair[4])#note_down
+                # intensity = sent_set.index(new_pair[4])
 
                 # check direction and append
                 if target_s < opinion_s:
@@ -224,7 +233,7 @@ class TagReader:
                             [opinion_s, opinion_e],
                             [holder_s,holder_e], ##note_down
                             polarity,
-                            intensity,
+                            # intensity,
                             dire,
                             opinion_s - target_e,
                             opinion_s - target_s                            
@@ -237,10 +246,10 @@ class TagReader:
                             [opinion_s, opinion_e],
                             [holder_s,holder_e],
                             polarity,
-                            intensity,
+                            # intensity,
                             dire,
                             target_s - opinion_s,
-                            target_e - opinion_s,
+                            target_e - opinion_s
                         )
                     )
 
@@ -437,7 +446,7 @@ class nereval(Eval):
                         opinion_idx = list(range(p[1][0], p[1][-1] + 1))
                         if len(opinion_idx) == 1:
                             opinion_idx.append(opinion_idx[0])
-                        if p[-1] == "POS":
+                        if p[-1] == "POS":#note_down
                             polarity = 1
                         elif p[-1] == "NEG":
                             polarity = 2

@@ -9,7 +9,7 @@ import _jsonnet  # noqa
 import pandas as pd
 from fire import Fire
 from pydantic import BaseModel
-
+#training
 from data_utils import (
     LabelEnum,
     SplitEnum,
@@ -25,7 +25,7 @@ from utils import Shell, hash_text, update_nested_dict
 class SpanModelDocument(BaseModel):
     sentences: List[List[str]]
     ner: List[List[Tuple[int, int, str]]]
-    relations: List[List[Tuple[int, int, int, int, int, int, str, str]]]
+    relations: List[List[Tuple[int, int, int, int, int, int, str]]]
     doc_key: str
 
     @property
@@ -41,7 +41,7 @@ class SpanModelDocument(BaseModel):
             ner.append((t.h_start, t.h_end, LabelEnum.holder))
         ner = sorted(set(ner), key=lambda n: n[0])
         relations = [
-            (t.o_start, t.o_end, t.t_start, t.t_end, t.h_start, t.h_end, t.label, t.label_inten) for t in x.triples
+            (t.o_start, t.o_end, t.t_start, t.t_end, t.h_start, t.h_end, t.label) for t in x.triples
         ]
         return cls(
             sentences=[x.tokens],
@@ -55,15 +55,15 @@ class SpanModelPrediction(SpanModelDocument):
     predicted_ner: List[List[Tuple[int, int, LabelEnum, float, float]]] = [
         []
     ]  # If loss_weights["ner"] == 0.0
-    predicted_relations: List[List[Tuple[int, int, int, int, int, int, LabelEnum, LabelEnum, float, float]]]#note_down
+    predicted_relations: List[List[Tuple[int, int, int, int, int, int, LabelEnum, float, float]]]#note_down
 
     def to_sentence(self) -> Sentence:
         for lst in [self.sentences, self.predicted_ner, self.predicted_relations]:
             assert len(lst) == 1
 
         triples = [
-            SentimentTriple(o_start=os, o_end=oe, t_start=ts, t_end=te, h_start=hs, h_end=he, label=label, label_inten=label_inten)
-            for os, oe, ts, te, hs, he, label, label_inten, value, prob in self.predicted_relations[0]
+            SentimentTriple(o_start=os, o_end=oe, t_start=ts, t_end=te, h_start=hs, h_end=he, label=label)
+            for os, oe, ts, te, hs, he, label, value, prob in self.predicted_relations[0]
         ]
         return Sentence(
             id=int(self.doc_key),

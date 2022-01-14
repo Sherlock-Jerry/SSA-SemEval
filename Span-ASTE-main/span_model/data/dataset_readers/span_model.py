@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Tuple, DefaultDict, Set, Union
 import json
 import pickle as pkl
 import warnings
-
+#i.split()
 from overrides import overrides
 
 from allennlp.common.file_utils import cached_path
@@ -82,6 +82,8 @@ class SpanModelReader(DatasetReader):
         # New
         print(dict(file_path=file_path, stats=self.stats))
         self.stats = Stats()
+        # print("ALL DONE")
+        # _ = input()
 
     def _too_long(self, span):
         return span[1] - span[0] + 1 > self._max_span_width
@@ -114,31 +116,36 @@ class SpanModelReader(DatasetReader):
 
         # Loop over the gold spans. Look up their indices in the list of span tuples and store
         # values.
-        print('span_model.py, line 117')
-        print(sent.relation_dict.items())
-        _ = input()
-        for (span1, span2), label in sent.relation_dict.items():
+        # print('span_model.py, line 117')
+        # print(sent.relation_dict.items())
+        # _ = input()
+
+        for (span1, span2, span3), label in sent.relation_dict.items():
             # If either span is beyond the max span width, skip it.
-            if self._too_long(span1) or self._too_long(span2):
+            if self._too_long(span1) or self._too_long(span2) or self._too_long(span3):
                 continue
             # New
             self.stats.relation_total += 1
-            if (span1 not in span_tuples) or (span2 not in span_tuples):
+            if (span1 not in span_tuples) or (span2 not in span_tuples) or (span3 not in span_tuples):
                 self.stats.relation_drop += 1
                 continue
+
             ix1 = span_tuples.index(span1)
             ix2 = span_tuples.index(span2)
-            relation_indices.append((ix1, ix2))
+            ix3 = span_tuples.index(span3)
+
+            relation_indices.append((ix1, ix2, ix3))
             relations.append(label)
 
         return relations, relation_indices
 
     def _process_grid(self, sent):
         indices = []
-        for ((a_start, a_end), (b_start, b_end)), label in sent.relation_dict.items():
+        for ((a_start, a_end), (b_start, b_end), (c_start, c_end)), label in sent.relation_dict.items():
             for i in [a_start, a_end]:
                 for j in [b_start, b_end]:
-                    indices.append((i, j))
+                    for k in [c_start, c_end]:
+                        indices.append((i, j, k))
         indices = sorted(set(indices))
         assert indices
         self.stats.grid_paired += len(indices)
@@ -198,14 +205,19 @@ class SpanModelReader(DatasetReader):
             )
         if sent.relations is not None:
             relation_labels, relation_indices = self._process_relations(span_tuples, sent)
+            # print("#"*100)
+            # print(relation_indices, span_field, relation_labels)
+            # # _ = input()
+            # print("#"*100)
             fields["relation_labels"] = AdjacencyField(
-                indices=relation_indices, sequence_field=span_field, labels=relation_labels,
+                indices=relation_indices, sequence_field=span_field, labels =  relation_labels,
                 label_namespace=f"{dataset}__relation_labels")
             fields["grid_labels"] = AdjacencyField(
                 indices=self._process_grid(sent), sequence_field=text_field, labels=None,
                 label_namespace=f"{dataset}__grid_labels"
             )
 
+        # print("Done see fields", fields)
         return fields
 
     def _process_sentence_fields(self, doc: Document):

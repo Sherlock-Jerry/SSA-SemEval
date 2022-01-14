@@ -4,7 +4,7 @@ from collections import Counter
 from enum import Enum
 from pathlib import Path
 from typing import List, Tuple, Optional, Dict, Set
-
+#+""+
 import numpy as np
 import pandas as pd
 from pydantic import BaseModel
@@ -18,6 +18,7 @@ from utils import count_joins, get_simple_stats
 RawTriple = Tuple[List[int], int, int, int, int]
 Span = Tuple[int, int]
 
+# set_set_1 = ['NA Average', 'NA NA', 'NA Strong', 'NA Weak', 'Negative Average', 'Negative NA', 'Negative Strong', 'Negative Weak', 'Neutral Average', 'Neutral NA', 'Neutral Strong', 'Neutral Weak', 'Positive Average', 'Positive NA', 'Positive Strong', 'Positive Weak']
 
 class SplitEnum(str, Enum):
     train = "train"
@@ -26,25 +27,59 @@ class SplitEnum(str, Enum):
 
 
 class LabelEnum(str, Enum):
-    positive = "Positive"
-    negative = "Negative"
-    neutral = "Neutral"
+    NA_Average = "NA_Average"
+    NA_NA = "NA_NA"
+    NA_Strong = "NA_Strong"
+    NA_weak = "NA_Weak"
+    Negative_Average = "Negative_Average"
+    Negative_NA = "Negative_NA"
+    Negative_Strong = "Negative_Strong"
+    Neutral_Average = "Neutral_Average"
+    Negative_Weak = "Negative_Weak"
+    Neutral_NA = 'Neutral_NA'
+    Neutral_Strong = 'Neutral_Strong'
+    Neutral_Weak = 'Neutral_Weak'
+    Positive_Average = 'Positive_Average'
+    Positive_NA = 'Positive_NA'
+    Positive_Strong = 'Positive_Strong'
+    Positive_Weak = 'Positive_Weak'
 
-    null_token = "NA"
+    
+    # positive = "Positive"
+    # negative = "Negative"
+    # neutral = "Neutral"
 
-    average = "Average"
-    standard = "Standard"
-    strong = "Strong"
-    slight = "Slight"
-    weak = "Weak"
+    # null_token = "NA"
+
+    # average = "Average"
+    # standard = "Standard"
+    # strong = "Strong"
+    # slight = "Slight"
+    # weak = "Weak"
 
     opinion = "OPINION"
     target = "TARGET"
     holder = "HOLDER"
 
     @classmethod
-    def as_list(cls):
-        return [cls.average, cls.null_token, cls.negative, cls.neutral, cls.positive, cls.strong, cls.weak]
+    def as_list(cls):        
+        # return [cls.average, cls.null_token, cls.negative, cls.neutral, cls.positive, cls.strong, cls.weak]
+        return [cls.NA_Average,
+                cls.NA_NA,
+                cls.NA_Strong,
+                cls.NA_weak,
+                cls.Negative_Average,
+                cls.Negative_NA,
+                cls.Negative_Strong,
+                cls.Neutral_Average,
+                cls.Negative_Weak,
+                cls.Neutral_NA,
+                cls.Neutral_Strong,
+                cls.Neutral_Weak,
+                cls.Positive_Average,
+                cls.Positive_NA,
+                cls.Positive_Strong,
+                cls.Positive_Weak]
 
     @classmethod
     def i_to_label(cls, i: int):
@@ -63,7 +98,7 @@ class SentimentTriple(BaseModel):
     h_start: int
     h_end: int
     label: LabelEnum
-    label_inten: LabelEnum
+    # label_inten: LabelEnum
 
     @property
     def opinion(self) -> Tuple[int, int]:
@@ -79,7 +114,7 @@ class SentimentTriple(BaseModel):
 
     @classmethod
     def from_raw_triple(cls, x: RawTriple):
-        (o_start, o_end), (h_start,h_end), polarity, intensity, direction, gap_a, gap_b = x
+        (o_start, o_end), (h_start,h_end), polarity, direction, gap_a, gap_b = x
         # Refer: TagReader
         if direction == 0:
             t_end = o_start - gap_a
@@ -97,20 +132,20 @@ class SentimentTriple(BaseModel):
             t_end=t_end,
             h_start=h_start,
             h_end=h_end,
-            label=LabelEnum.i_to_label(polarity),
-            label_inten=LabelEnum.i_to_label(intensity)
+            label=LabelEnum.i_to_label(polarity)
+            # label_inten=LabelEnum.i_to_label(intensity)
         )
 
     def to_raw_triple(self) -> RawTriple:
         polarity = LabelEnum.label_to_i(self.label)
-        intensity = LabelEnum.label_to_i(self.label_inten)
+        # intensity = LabelEnum.label_to_i(self.label_inten)
         if self.t_start < self.o_start:
             direction = 0
             gap_a, gap_b = self.o_start - self.t_end, self.o_start - self.t_start
         else:
             direction = 1
             gap_a, gap_b = self.t_start - self.o_start, self.t_end - self.o_start
-        return [self.o_start, self.o_end], [self.h_start, self.h_end], polarity, intensity, direction, gap_a, gap_b
+        return [self.o_start, self.o_end], [self.h_start, self.h_end], polarity, direction, gap_a, gap_b
 
     def as_text(self, tokens: List[str]) -> str:
         opinion = " ".join(tokens[self.o_start : self.o_end + 1])
@@ -119,7 +154,7 @@ class SentimentTriple(BaseModel):
         return f"{opinion}-{target} ({self.label})" #note_down
 
 
-class TripleHeuristic(BaseModel):
+class TripleHeuristic(BaseModel):#note_down
     @staticmethod
     def run(
         opinion_to_label: Dict[Span, LabelEnum], target_to_label: Dict[Span, LabelEnum],

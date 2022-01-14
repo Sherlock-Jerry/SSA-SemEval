@@ -5,13 +5,13 @@ import re
 import json
 
 
+
 def format_float(x):
     return round(x, 4)
 
 
 class SpanCrossesSentencesError(ValueError):
     pass
-
 
 def get_sentence_of_span(span, sentence_starts, doc_tokens):
     """
@@ -247,8 +247,8 @@ class Sentence:
             ]
             relation_dict = {}
             for rel in self.relations:
-                key = (rel.pair[0].span_sent, rel.pair[1].span_sent)
-                relation_dict[key] = rel.label
+                key = (rel.pair[0].span_sent, rel.pair[1].span_sent, rel.pair[1].span_sent)
+                relation_dict[key] = str(rel.label) #+" "+str(rel.label_inten)#note_down
             self.relation_dict = relation_dict
         else:
             self.relations = None
@@ -398,27 +398,27 @@ class Relation:
         start2, end2 = relation[2], relation[3]
         start3, end3 = relation[4], relation[5]
         label = relation[6]
-        label_inten = relation[7]
+        # label_inten = relation[7]
         span1 = Span(start1, end1, sentence, sentence_offsets)
         span2 = Span(start2, end2, sentence, sentence_offsets)
         span3 = Span(start3, end3, sentence, sentence_offsets)
         self.pair = (span1, span2, span3)
         self.label = label
-        self.label_inten = label_inten
+        # self.label_inten = label_inten
 
     def __repr__(self):
         return f"{self.pair[0].__repr__()}, {self.pair[1].__repr__()}: {self.label}"
 
     def __eq__(self, other):
-        return (self.pair == other.pair) and (self.label == other.label) and (self.label_inten == other.label_inten)
+        return (self.pair == other.pair) and (self.label == other.label) #and (self.label_inten == other.label_inten)
 
     def to_json(self):
-        return list(self.pair[0].span_doc) + list(self.pair[1].span_doc) + [self.label, self.label_inten]
+        return list(self.pair[0].span_doc) + list(self.pair[1].span_doc) + [self.label]
 
 
 class PredictedRelation(Relation):
     def __init__(self, relation, sentence, sentence_offsets=False):
-        "Input format: [start_1, end_1, start_2, end_2, start_3, end_3, label, label_inten, raw_score, softmax_score]."
+        "Input format: [start_1, end_1, start_2, end_2, start_3, end_3, label, raw_score, softmax_score]."
         super().__init__(relation, sentence, sentence_offsets)
         self.raw_score = relation[-2]
         self.softmax_score = relation[-1]
