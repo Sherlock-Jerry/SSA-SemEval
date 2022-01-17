@@ -134,7 +134,8 @@ class SpanModelReader(DatasetReader):
             ix2 = span_tuples.index(span2)
             ix3 = span_tuples.index(span3)
 
-            relation_indices.append((ix1, ix2, ix3))
+            relation_indices.append((ix1, ix2))
+            # relation_indices.append((ix1, ix2, ix3))
             relations.append(label)
 
         return relations, relation_indices
@@ -144,8 +145,9 @@ class SpanModelReader(DatasetReader):
         for ((a_start, a_end), (b_start, b_end), (c_start, c_end)), label in sent.relation_dict.items():
             for i in [a_start, a_end]:
                 for j in [b_start, b_end]:
-                    for k in [c_start, c_end]:
-                        indices.append((i, j, k))
+                    indices.append((i, j))
+                    # for k in [c_start, c_end]:
+                    #     indices.append((i, j, k))
         indices = sorted(set(indices))
         assert indices
         self.stats.grid_paired += len(indices)
@@ -188,6 +190,7 @@ class SpanModelReader(DatasetReader):
         graph = self.dep_parser.run([sentence_text])[0]
         self.stats.graph_total += graph.matrix.numel()
         self.stats.graph_edges += graph.matrix.sum()
+        # print('graph.indices', graph.indices[0])
         fields["dep_graph_labels"] = AdjacencyField(
             indices=graph.indices,
             sequence_field=text_field,
@@ -209,9 +212,12 @@ class SpanModelReader(DatasetReader):
             # print(relation_indices, span_field, relation_labels)
             # # _ = input()
             # print("#"*100)
+            # print('relation_indices', relation_indices[0])
             fields["relation_labels"] = AdjacencyField(
                 indices=relation_indices, sequence_field=span_field, labels =  relation_labels,
                 label_namespace=f"{dataset}__relation_labels")
+            # print(self._process_grid(sent)[0])
+            # _ = input()
             fields["grid_labels"] = AdjacencyField(
                 indices=self._process_grid(sent), sequence_field=text_field, labels=None,
                 label_namespace=f"{dataset}__grid_labels"

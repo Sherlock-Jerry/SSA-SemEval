@@ -219,8 +219,9 @@ class ProperRelationExtractor(Model):
         self._active_namespace = f"{metadata.dataset}__relation_labels"
 
         pruned_o: PruneOutput = self._prune_spans(spans, span_mask, span_embeddings, sentence_lengths, "opinion")
+        pruned_h: PruneOutput = self._prune_spans(spans, span_mask, span_embeddings, sentence_lengths, "holder")
         pruned_t: PruneOutput = self._prune_spans(spans, span_mask, span_embeddings, sentence_lengths, "target")
-        relation_scores = self._compute_relation_scores(pruned_o, pruned_t)
+        relation_scores = self._compute_relation_scores(pruned_o, pruned_t, pruned_h)
 
         prediction_dict, predictions = self.predict(
             spans_a=pruned_o.spans.detach().cpu(),
@@ -394,22 +395,22 @@ class ProperRelationExtractor(Model):
 
         return res
 
-    def _make_pair_features(self, a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
-        assert a.shape == b.shape
-        bs, num_a, num_b, size = a.shape
-        features = [a, b]
+    def _make_pair_features(self, a: torch.Tensor, b: torch.Tensor, c1: torch.Tensor) -> torch.Tensor:
+        assert a.shape == b.shape == c.shape
+        bs, num_a, num_b, num_c, size = a.shape
+        features = [a, b, c1]
 
         if self.use_pair_feature_maxpool:
             x = self._text_embeds
             c = global_max_pool1d(x)  # [bs, size]
             bs, size = c.shape
-            c = c.view(bs, 1, 1, size).expand(-1, num_a, num_b, -1)
+            c = c.view(bs, 1, 1, size).expand(-1, num_a, num_b, num_c, -1)
             features.append(c)
 
         if self.use_pair_feature_cls:
             c = self._text_embeds[:, 0, :]
             bs, size = c.shape
-            c = c.view(bs, 1, 1, size).expand(-1, num_a, num_b, -1)
+            c = c.view(bs, 1, 1, size).expand(-1, num_a, num_b, num_c, -1)
             features.append(c)
 
         if self.use_distance_embeds:
@@ -418,26 +419,30 @@ class ProperRelationExtractor(Model):
         x = torch.cat(features, dim=-1)
         return x
 
-    def _compute_span_pair_embeddings(self, a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
-        c = self._make_pair_features(a, b)
+    def _compute_span_pair_embeddings(self, a: torch.Tensor, b: torch.Tensor, c: torch.Tensor) -> torch.Tensor:
+        c = self._make_pair_features(a, b, c)
         if self.use_bi_affine_classifier:
             c = self._bi_affine_classifier(a, b)
         return c
 
-    def _compute_relation_scores(self, pruned_a: PruneOutput, pruned_b: PruneOutput):
+    def _compute_relation_scores(self, pruned_a: PruneOutput, pruned_b: PruneOutput, pruned_c: PruneOutput):
         if self.span_length_loss_weight_gamma != 0:
             bs, num_a, _ = pruned_a.spans.shape
             bs, num_b, _ = pruned_b.spans.shape
+            bs, num_c, _ = pruned_c.spans.shape
             widths_a = pruned_a.spans[..., [1]] - pruned_a.spans[..., [0]] + 1
             widths_b = pruned_b.spans[..., [1]] - pruned_b.spans[... ,[0]] + 1
+            widths_c = pruned_c.spans[..., [1]] - pruned_c.spans[... ,[0]] + 1
             widths_a = widths_a.view(bs, num_a, 1, 1)
             widths_b = widths_b.view(bs, 1, num_b, 1)
-            widths = (widths_a + widths_b) / 2
-            self._loss.lengths = widths.view(bs * num_a * num_b)
+            widths_c = widths_c.view(bs, 1, num_c, 1)
+            widths = (widths_a + widths_b + widths_c) / 2
+            self._loss.lengths = widths.view(bs * num_a * num_b * num_c)
 
-        a_orig, b_orig = pruned_a.span_embeddings, pruned_b.span_embeddings
+        a_orig, b_orig, c_orig = pruned_a.span_embeddings, pruned_b.span_embeddings, pruned_c.span_embeddings
         bs, num_a, size = a_orig.shape
         bs, num_b, size = b_orig.shape
+        bs, num_c, size = c_orig.shape
         chunk_size = max(1000 // num_a, 1)
         # logging.info(dict(a=num_a, b=num_b, chunk_size=chunk_size))
         pool = []
@@ -447,11 +452,13 @@ class ProperRelationExtractor(Model):
             num_chunk = a.shape[1]
             a = a.view(bs, num_chunk, 1, size).expand(-1, -1, num_b, -1)
             b = b_orig.view(bs, 1, num_b, size).expand(-1, num_chunk, -1, -1)
-            assert a.shape == b.shape
+            b = c_orig.view(bs, 1, num_c, size).expand(-1, num_chunk, -1, -1)
+            assert a.shape == b.shape == c.shape
             self._spans_a = pruned_a.spans[:, i:i + chunk_size, :]
             self._spans_b = pruned_b.spans
+            self._spans_c = pruned_c.spans
 
-            embeds = self._compute_span_pair_embeddings(a, b)
+            embeds = self._compute_span_pair_embeddings(a, b, c)
             self._relation_embeds = embeds
 
             if self.use_bi_affine_classifier:

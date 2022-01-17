@@ -57,7 +57,7 @@ class SpanPairMetrics(RelationMetrics):
             gold_relations = metadata.relation_dict
             self._total_gold += len(gold_relations)
             self._total_predicted += len(predicted_relations)
-            for (span_1, span_2), label in predicted_relations.items():
-                ix = (span_1, span_2)
+            for (span_1, span_2, spane), label in predicted_relations.items():
+                ix = (span_1, span_2, span3)
                 if ix in gold_relations:
                     self._total_matched += 1
