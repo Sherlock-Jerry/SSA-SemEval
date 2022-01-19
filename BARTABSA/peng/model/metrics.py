@@ -2,10 +2,8 @@ from fastNLP import MetricBase
 from fastNLP.core.metrics import _compute_f_pre_rec
 from collections import Counter
 
-
-
 class Seq2SeqSpanMetric(MetricBase):
-    def __init__(self, eos_token_id, num_labels, opinion_first=True, data_bundle=None):
+    def __init__(self, eos_token_id, num_labels, opinion_first=True, data_bundle=None, tokenizer = None, mapping2id = None):
         super(Seq2SeqSpanMetric, self).__init__()
         self.eos_token_id = eos_token_id
         self.num_labels = num_labels
@@ -25,6 +23,8 @@ class Seq2SeqSpanMetric(MetricBase):
         self.ae_sc_fn = 0
         assert opinion_first is False, "Current metric only supports aspect first"
         self.data_bundle = data_bundle
+        self.tokenizer = tokenizer
+        self.mapping2id = mapping2id
 
         self.opinin_first = opinion_first
 
