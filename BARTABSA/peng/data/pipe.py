@@ -64,11 +64,16 @@ class BartBPEABSAPipe(Pipe):
         for key in self.mapping2id:
             self.mapping2targetid[key] = self.mapping2id[key] - min(self.mapping2id.values()) #len(self.mapping2targetid)
 
-        print("mapping2targetid", '\n', json.dumps(self.mapping2targetid, indent=4))
-        print()
-        print("mapping2id", '\n', json.dumps(self.mapping2id, indent=4))
-        print()
+        # print("mapping2targetid", '\n', json.dumps(self.mapping2targetid, indent=4))
+        # print()
+        # print("mapping2id", '\n', json.dumps(self.mapping2id, indent=4))
+        # print()
 
+        for k,v in sorted(self.mapping2targetid.items(), key=lambda x: x[1]): print([k, v])
+        print()
+        for k,v in sorted(self.mapping2id.items(), key=lambda x: x[1]): print([k, v])
+        print()
+        
         import pickle
         dictionary_data = self.mapping2targetid 
         a_file = open("/content/mapping2targetid.pkl", "wb")

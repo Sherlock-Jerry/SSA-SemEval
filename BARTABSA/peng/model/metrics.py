@@ -3,11 +3,13 @@ from fastNLP.core.metrics import _compute_f_pre_rec
 from collections import Counter
 
 class Seq2SeqSpanMetric(MetricBase):
-    def __init__(self, eos_token_id, num_labels, opinion_first=True, data_bundle=None, tokenizer = None, mapping2id = None):
+    def __init__(self, eos_token_id, num_labels, opinion_first=True, data_bundle=None, tokenizer = None, mapping2id = None, dataset = None):
         super(Seq2SeqSpanMetric, self).__init__()
         self.eos_token_id = eos_token_id
         self.num_labels = num_labels
         self.word_start_index = num_labels + 2  # +2, shift for sos and eos
+        self.dev_pred_spans = []
+        self.test_pred_spans = []
 
         self.ae_oe_fp = 0
         self.ae_oe_tp = 0
@@ -28,7 +30,75 @@ class Seq2SeqSpanMetric(MetricBase):
 
         self.opinin_first = opinion_first
 
+    def make_phrase(self, start, end, tokenized_sentence):
+        phrase = tokenized_sentence[start-len(self.mapping2id)-3: end-len(self.mapping2id)-3+1]
+        if phrase == []: return [], []
+        sent = self.tokenizer.convert_tokens_to_string(tokenized_sentence)
+        phrase = self.tokenizer.convert_tokens_to_string(phrase).strip()
+        if phrase == 'NA' or phrase == []: return [], []
+
+        start_idx = sent.find(phrase)
+        end_idx = start_idx+len(phrase)
+        return [phrase], [f'{start_idx}:{end_idx}']
+
+    def make_pol_int(self, start):
+        rev_map = {}
+        for k,v in self.mapping2id.items():
+            rev_map[v] = k
+        
+        minima = min(self.mapping2id.values())
+        return rev_map[start+minima-2]
+
+    def make_result(self, pred_spans):
+        offset = len(self.mapping2id)# self. sab kuch hi
+        var_len = len(pred_spans)
+        category = 'test'
+        req_data_len = len(self.data_bundle.get_dataset(category))
+        if var_len == req_data_len:
+            print('This is actual test')
+        elif var_len == len(self.data_bundle.get_dataset('dev')):
+            print('This is dev')
+            category = 'dev'
+        else:
+            print(f'Different Lengths -> Req {req_data_len} \t Len {var_len}')
+            return
+
+        final_data_bundle = self.data_bundle.get_dataset(category)
+        master_preds = []
+
+        for i in range(req_data_len):
+            tokenized_sent = self.tokenizer.tokenize(final_data_bundle['text'][i])
+            opinions = []
+            for pair in pred_spans[i]:
+                aspect_s, aspect_e, opinion_s, opinion_e, holder_s, holder_e, polarity, intensity = pair
+                
+                aspect_phrase, aspect_phrase_idx = self.make_phrase(aspect_s, aspect_e, tokenized_sent, self.mapping2id, self.tokenizer)
+                opinion_phrase, opinion_phrase_idx = self.make_phrase(opinion_s, opinion_e, tokenized_sent, self.mapping2id, self.tokenizer)
+                holder_phrase, holder_phrase_idx = self.make_phrase(holder_s, holder_e, tokenized_sent, self.mapping2id, self.tokenizer)
+
+                polarity_phrase = self.make_pol_int(polarity)
+                intensity_phrase = self.make_pol_int(intensity)
+
+                single_set = {
+                    "Source": [aspect_phrase, aspect_phrase_idx],
+                    "Target": [holder_phrase, holder_phrase_idx],
+                    "Polar_expression": [opinion_phrase, opinion_phrase_idx],
+                    "Polarity": polarity_phrase,
+                    "Intensity": intensity_phrase
+                }
+                opinions.append(single_set)
+
+            master_preds.append({
+                'sent_id':final_data_bundle['sent_id'][i],
+                'text':final_data_bundle['text'][i],
+                'opinions':opinions
+            })
+        epoch = len([file for file in os.listdir(dataset_name) if 'preds_{category}' in file]) + 1
+        with open(f'{dataset_name}/preds_{category}_epoch{epoch}.json','w') as f:
+            json.dump(master_preds, f)
+
     def evaluate(self, target_span, pred, tgt_tokens):
+        a = 3 + 'a'
         self.total += pred.size(0)
         # print('pred', pred)
         # print('target_span', target_span)
@@ -149,9 +219,9 @@ class Seq2SeqSpanMetric(MetricBase):
                     self.triple_tp += 1
                 else:
                     self.triple_fp += 1
-
             self.triple_fn += len(ts)
-        
+
+        self.make_result(pred_spans)
 
 
 
