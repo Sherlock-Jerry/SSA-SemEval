@@ -22,7 +22,7 @@ def cmp_opinion(v1, v2):
 
 
 class BartBPEABSAPipe(Pipe):
-    def __init__(self, tokenizer='facebook/bart-base', opinion_first=True):
+    def __init__(self, tokenizer='facebook/bart-base', opinion_first=True, dataset = None):
         super(BartBPEABSAPipe, self).__init__()
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
         self.mapping = OrderedDict()

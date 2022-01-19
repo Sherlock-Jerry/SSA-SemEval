@@ -69,7 +69,7 @@ else:
 
 @cache_results(cache_fn, _refresh=False)
 def get_data():
-    pipe = BartBPEABSAPipe(tokenizer=bart_name, opinion_first=opinion_first)
+    pipe = BartBPEABSAPipe(tokenizer=bart_name, opinion_first=opinion_first, dataset = dataset)
     data_bundle = pipe.process_from_file(f'../final_data/{dataset_name}', demo=demo)
     return data_bundle, pipe.tokenizer, pipe.mapping2id
 
