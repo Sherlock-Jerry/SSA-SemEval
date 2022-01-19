@@ -4,7 +4,7 @@ import os
 if 'p' in os.environ:
     os.environ['CUDA_VISIBLE_DEVICES'] = os.environ['p']
     # os.environ['CUDA_VISIBLE_DEVICES'] = '7'
-
+#process pipe
 import warnings
 warnings.filterwarnings('ignore')
 from data.pipe import BartBPEABSAPipe
@@ -156,7 +156,7 @@ callbacks.append(FitlogCallback(data_bundle.get_dataset('test')))
 sampler = None
 # sampler = ConstTokenNumSampler('src_seq_len', max_token=1000)
 sampler = BucketSampler(seq_len_field_name='src_seq_len')
-metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_first=opinion_first)
+metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_first=opinion_first, data_bundle)
 
 
 model_path = None

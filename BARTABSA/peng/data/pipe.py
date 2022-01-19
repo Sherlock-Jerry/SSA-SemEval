@@ -25,18 +25,19 @@ class BartBPEABSAPipe(Pipe):
     def __init__(self, tokenizer='facebook/bart-base', opinion_first=True):
         super(BartBPEABSAPipe, self).__init__()
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
-        self.mapping = OrderedDict(  # so that the label word can be initialized in a better embedding.
-            Positive = '<<positive>>',
-            Negative = '<<negative>>',
-            Neutral= '<<neutral>>',
-
-            Weak= '<<weak>>',
-            Strong= '<<strong>>',
-            Average= '<<average>>',
-            # Standard= '<<standard>>',
-            # Slight= '<<slight>>'
-        )
-        self.mapping['None'] = '<<none>>'
+        self.mapping = OrderedDict()
+        
+        with open(os.path.join(dataset, 'train_convert.json'), 'r') as f:
+            tmp_data = json.load(f)
+        pol, inten = [], []
+        for row in tmp_data:
+            # print(json.dumps(row, indent=4))
+            for ori_opi in row['aspects']:
+                pol.append(ori_opi['Polarity'])
+                inten.append(ori_opi['Intensity'])
+        pol, inten = list(set(pol)), list(set(inten))
+        for label in pol+inten:
+            self.mapping[label] = f'<<{label.lower()}>>'
         # self.mapping['<<none>>'] = "<<none>>"
         
         self.opinion_first = opinion_first  # 是否先生成opinion
