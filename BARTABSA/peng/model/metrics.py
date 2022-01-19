@@ -10,6 +10,7 @@ class Seq2SeqSpanMetric(MetricBase):
         self.num_labels = num_labels
         self.word_start_index = num_labels + 2  # +2, shift for sos and eos
         self.pred_spans = []
+        self.null_token = 'NA '
 
         self.ae_oe_fp = 0
         self.ae_oe_tp = 0
@@ -38,8 +39,8 @@ class Seq2SeqSpanMetric(MetricBase):
         phrase = self.tokenizer.convert_tokens_to_string(phrase).strip()
         if phrase == 'NA' or phrase == []: return [], []
 
-        start_idx = sent.find(phrase)
-        end_idx = start_idx+len(phrase)
+        start_idx = sent.find(phrase) - len(self.null_token)
+        end_idx = start_idx+len(phrase) - len(self.null_token)
         return [phrase], [f'{start_idx}:{end_idx}']
 
     def make_pol_int(self, start):
@@ -75,7 +76,7 @@ class Seq2SeqSpanMetric(MetricBase):
         for i in range(req_data_len):
             tokenized_sent = self.tokenizer.tokenize(final_data_bundle['text'][i])
             opinions = []
-            for pair in pred_spans[i]:
+            for pair in list(set(pred_spans[i])):
                 aspect_s, aspect_e, opinion_s, opinion_e, holder_s, holder_e, polarity, intensity = pair
                 
                 aspect_phrase, aspect_phrase_idx = self.make_phrase(aspect_s, aspect_e, tokenized_sent)
@@ -85,18 +86,26 @@ class Seq2SeqSpanMetric(MetricBase):
                 polarity_phrase = self.make_pol_int(polarity)
                 intensity_phrase = self.make_pol_int(intensity)
 
-                single_set = {
-                    "Source": [aspect_phrase, aspect_phrase_idx],
-                    "Target": [holder_phrase, holder_phrase_idx],
-                    "Polar_expression": [opinion_phrase, opinion_phrase_idx],
-                    "Polarity": polarity_phrase,
-                    "Intensity": intensity_phrase
-                }
-                opinions.append(single_set)
+                if aspect_phrase == aspect_phrase_idx == holder_phrase == holder_phrase_idx == opinion_phrase == opinion_phrase_idx == []:
+                    opinions = []
+                    break
+
+                if polarity_phrase!='NA' and intensity_phrase!='NA':
+                    single_set = {
+                        "Source": [aspect_phrase, aspect_phrase_idx],
+                        "Target": [holder_phrase, holder_phrase_idx],
+                        "Polar_expression": [opinion_phrase, opinion_phrase_idx],
+                        "Polarity": polarity_phrase,
+                        "Intensity": intensity_phrase
+                    }
+                    opinions.append(single_set)
+                else:
+                    opinions = []
+                    break
 
             master_preds.append({
                 'sent_id':final_data_bundle['sent_id'][i],
-                'text':final_data_bundle['text'][i],
+                'text':final_data_bundle['text'][i].replace(self.null_token, ''),
                 'opinions':opinions
             })
         category = '_'.join(category)
@@ -221,6 +230,8 @@ class Seq2SeqSpanMetric(MetricBase):
             ps = set(pairs)
             for p in list(ps):
                 if p in ts:
+                    print(p)
+                    _ = input()
                     ts.remove(p)
                     self.triple_tp += 1
                 else:
