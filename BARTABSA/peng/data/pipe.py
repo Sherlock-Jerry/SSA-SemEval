@@ -60,7 +60,9 @@ class BartBPEABSAPipe(Pipe):
             assert len(key_id) == 1, value
             assert key_id[0] >= cur_num_tokens
             self.mapping2id[key] = key_id[0]
-            self.mapping2targetid[key] = len(self.mapping2targetid)
+        
+        for key in self.mapping2id:
+            self.mapping2targetid[key] = self.mapping2id[key] - min(self.mapping2id.values()) #len(self.mapping2targetid)
 
         print("mapping2targetid", '\n', json.dumps(self.mapping2targetid, indent=4))
         print()
@@ -178,6 +180,8 @@ class BartBPEABSAPipe(Pipe):
                                          o_start_bpe+target_shift, o_end_bpe+target_shift,
                                          h_start_bpe+target_shift, h_end_bpe+target_shift])
                 target_spans[-1].append(self.mapping2targetid[aspects['Polarity']]+2)   # 前面有sos和eos
+                # print(aspects['Intensity'], self.mapping2targetid[aspects['Intensity']]+2)
+                # _ = input()
                 target_spans[-1].append(self.mapping2targetid[aspects['Intensity']]+2)   # 前面有sos和eos
                 target_spans[-1] = tuple(target_spans[-1])
             target.extend(list(chain(*target_spans)))
