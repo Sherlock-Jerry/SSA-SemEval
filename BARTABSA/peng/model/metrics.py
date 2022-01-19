@@ -1,6 +1,7 @@
 from fastNLP import MetricBase
 from fastNLP.core.metrics import _compute_f_pre_rec
 from collections import Counter
+import os, json
 
 class Seq2SeqSpanMetric(MetricBase):
     def __init__(self, eos_token_id, num_labels, opinion_first=True, data_bundle=None, tokenizer = None, mapping2id = None, dataset = None):
@@ -8,8 +9,7 @@ class Seq2SeqSpanMetric(MetricBase):
         self.eos_token_id = eos_token_id
         self.num_labels = num_labels
         self.word_start_index = num_labels + 2  # +2, shift for sos and eos
-        self.dev_pred_spans = []
-        self.test_pred_spans = []
+        self.pred_spans = []
 
         self.ae_oe_fp = 0
         self.ae_oe_tp = 0
@@ -27,6 +27,7 @@ class Seq2SeqSpanMetric(MetricBase):
         self.data_bundle = data_bundle
         self.tokenizer = tokenizer
         self.mapping2id = mapping2id
+        self.dataset = f'../final_data/{dataset}'
 
         self.opinin_first = opinion_first
 
@@ -55,10 +56,15 @@ class Seq2SeqSpanMetric(MetricBase):
         category = 'test'
         req_data_len = len(self.data_bundle.get_dataset(category))
         if var_len == req_data_len:
-            print('This is actual test')
+            print()
+            print('*'*20, 'This is test', '*'*20)
+
         elif var_len == len(self.data_bundle.get_dataset('dev')):
-            print('This is dev')
+            print()
+            print('*'*20, 'This is dev', '*'*20)
             category = 'dev'
+            req_data_len = len(self.data_bundle.get_dataset(category))
+
         else:
             print(f'Different Lengths -> Req {req_data_len} \t Len {var_len}')
             return
@@ -72,9 +78,9 @@ class Seq2SeqSpanMetric(MetricBase):
             for pair in pred_spans[i]:
                 aspect_s, aspect_e, opinion_s, opinion_e, holder_s, holder_e, polarity, intensity = pair
                 
-                aspect_phrase, aspect_phrase_idx = self.make_phrase(aspect_s, aspect_e, tokenized_sent, self.mapping2id, self.tokenizer)
-                opinion_phrase, opinion_phrase_idx = self.make_phrase(opinion_s, opinion_e, tokenized_sent, self.mapping2id, self.tokenizer)
-                holder_phrase, holder_phrase_idx = self.make_phrase(holder_s, holder_e, tokenized_sent, self.mapping2id, self.tokenizer)
+                aspect_phrase, aspect_phrase_idx = self.make_phrase(aspect_s, aspect_e, tokenized_sent)
+                opinion_phrase, opinion_phrase_idx = self.make_phrase(opinion_s, opinion_e, tokenized_sent)
+                holder_phrase, holder_phrase_idx = self.make_phrase(holder_s, holder_e, tokenized_sent)
 
                 polarity_phrase = self.make_pol_int(polarity)
                 intensity_phrase = self.make_pol_int(intensity)
@@ -93,12 +99,12 @@ class Seq2SeqSpanMetric(MetricBase):
                 'text':final_data_bundle['text'][i],
                 'opinions':opinions
             })
-        epoch = len([file for file in os.listdir(dataset_name) if 'preds_{category}' in file]) + 1
-        with open(f'{dataset_name}/preds_{category}_epoch{epoch}.json','w') as f:
+        category = '_'.join(category)
+        epoch = len([file for file in os.listdir(self.dataset) if 'preds_{category}' in file]) + 1
+        with open(f'{self.dataset}/preds_{category}_epoch{epoch}.json','w') as f:
             json.dump(master_preds, f)
 
     def evaluate(self, target_span, pred, tgt_tokens):
-        a = 3 + 'a'
         self.total += pred.size(0)
         # print('pred', pred)
         # print('target_span', target_span)
@@ -221,7 +227,7 @@ class Seq2SeqSpanMetric(MetricBase):
                     self.triple_fp += 1
             self.triple_fn += len(ts)
 
-        self.make_result(pred_spans)
+        self.pred_spans += pred_spans
 
 
 
@@ -259,6 +265,8 @@ class Seq2SeqSpanMetric(MetricBase):
             self.ae_sc_fp = 0
             self.ae_sc_tp = 0
             self.ae_sc_fn = 0
+            self.make_result(self.pred_spans)
+            self.pred_spans = []
         return res
 
 
