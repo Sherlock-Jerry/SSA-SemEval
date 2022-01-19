@@ -47,9 +47,9 @@ class Seq2SeqSpanMetric(MetricBase):
         # print('pred_seq_len', pred_seq_len, '\n\n', 'target_seq_len', target_seq_len) ###
         pred_spans = []
         for i, (ts, ps) in enumerate(zip(target_span, pred.tolist())):
-            print('*'*30)
-            print('ts', ts)
-            print('ps', ps)
+            # print('*'*30)
+            # print('ts', ts)
+            # print('ps', ps)
             em = 0
             ps = ps[:pred_seq_len[i]]
             if pred_seq_len[i] == target_seq_len[i]:
@@ -110,7 +110,7 @@ class Seq2SeqSpanMetric(MetricBase):
             #         else:
             #             cur_pair.append(j)
             # print('*'*30)
-            print('pairs', pairs)
+            # print('pairs', pairs)
             # print('cur_pair', cur_pair)
             # print('invalid', invalid)
             # _ = input()

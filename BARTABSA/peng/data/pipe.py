@@ -221,12 +221,14 @@ class ABSALoader(Loader):
             data = json.load(f)
         ds = DataSet()
         for ins in data:
+            sent_id = ins['sent_id']
+            text = ins['raw_words']
             tokens = ins['words']
             aspects = ins['aspects']
             opinions = ins['opinions']
             holders = ins['holder']
             assert len(aspects)==len(opinions)==len(holders)
-            ins = Instance(raw_words=tokens, aspects=aspects, opinions=opinions, holders=holders)
+            ins = Instance(sent_id = sent_id, text = text, raw_words=tokens, aspects=aspects, opinions=opinions, holders=holders)
             ds.append(ins)
             if self.demo and len(ds)>30:
                 break

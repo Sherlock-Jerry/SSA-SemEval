@@ -1,0 +1,1 @@
+Step:99	{"metric": {"Seq2SeqSpanMetric": {"triple_f": 13.04, "triple_rec": 8.649999999999999, "triple_pre": 26.529999999999998, "oe_ae_he_f": 17.73, "oe_ae_he_rec": 11.75, "oe_ae_he_pre": 36.05, "ae_pol_int_f": 19.78, "ae_pol_int_rec": 13.450000000000001, "ae_pol_int_pre": 37.41, "em": 0.0924, "invalid": 0.1968}, "step": 99, "epoch": 1}, "step": 99, "epoch": 1}

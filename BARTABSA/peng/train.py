@@ -69,7 +69,7 @@ else:
 
 @cache_results(cache_fn, _refresh=False)
 def get_data():
-    pipe = BartBPEABSAPipe(tokenizer=bart_name, opinion_first=opinion_first, dataset = dataset)
+    pipe = BartBPEABSAPipe(tokenizer=bart_name, opinion_first=opinion_first, dataset = f'../final_data/{dataset_name}')
     data_bundle = pipe.process_from_file(f'../final_data/{dataset_name}', demo=demo)
     return data_bundle, pipe.tokenizer, pipe.mapping2id
 
@@ -156,7 +156,7 @@ callbacks.append(FitlogCallback(data_bundle.get_dataset('test')))
 sampler = None
 # sampler = ConstTokenNumSampler('src_seq_len', max_token=1000)
 sampler = BucketSampler(seq_len_field_name='src_seq_len')
-metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_first=opinion_first, data_bundle)
+metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_first=opinion_first, data_bundle = data_bundle)
 
 
 model_path = None
