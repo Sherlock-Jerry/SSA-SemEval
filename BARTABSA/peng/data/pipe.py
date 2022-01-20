@@ -119,6 +119,9 @@ class BartBPEABSAPipe(Pipe):
         
         def prepare_target(ins):
             raw_words = ins['raw_words']
+            
+            sent_id = ins['sent_id']
+
             word_bpes = [[self.tokenizer.bos_token_id]]
             for word in raw_words:
                 bpes = self.tokenizer.tokenize(word, add_prefix_space=True)
@@ -192,7 +195,7 @@ class BartBPEABSAPipe(Pipe):
             target.extend(list(chain(*target_spans)))
             target.append(1)  # append 1是由于特殊的eos
 
-            return {'tgt_tokens': target, 'target_span': target_spans, 'src_tokens': list(chain(*word_bpes))}
+            return {'tgt_tokens': target, 'target_span': target_spans, 'src_tokens': list(chain(*word_bpes)), "sent_id": sent_id}
 
         data_bundle.apply_more(prepare_target, use_tqdm=True, tqdm_desc='Pre. tgt.')
 
@@ -203,7 +206,7 @@ class BartBPEABSAPipe(Pipe):
         data_bundle.apply_field(lambda x: len(x), field_name='src_tokens', new_field_name='src_seq_len')
         data_bundle.apply_field(lambda x: len(x), field_name='tgt_tokens', new_field_name='tgt_seq_len')
         data_bundle.set_input('tgt_tokens', 'src_tokens', 'src_seq_len', 'tgt_seq_len')
-        data_bundle.set_target('tgt_tokens', 'tgt_seq_len', 'target_span')
+        data_bundle.set_target('tgt_tokens', 'tgt_seq_len', 'target_span', "sent_id")
 
         return data_bundle
 

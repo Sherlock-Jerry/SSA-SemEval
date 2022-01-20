@@ -19,6 +19,7 @@ from fastNLP import FitlogCallback
 from fastNLP.core.sampler import SortedSampler
 from peng.model.generator import SequenceGeneratorModel
 import fitlog
+from fastNLP.core.sampler import SequentialSampler
 
 # fitlog.debug()
 if not os.path.exists("logs"):
@@ -156,6 +157,8 @@ callbacks.append(FitlogCallback(data_bundle.get_dataset('test')))
 sampler = None
 # sampler = ConstTokenNumSampler('src_seq_len', max_token=1000)
 sampler = BucketSampler(seq_len_field_name='src_seq_len')
+sampler = SequentialSampler()
+# sampler = None
 metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_first=opinion_first, data_bundle = data_bundle, tokenizer = tokenizer, mapping2id = mapping2id, dataset = dataset_name)
 
 

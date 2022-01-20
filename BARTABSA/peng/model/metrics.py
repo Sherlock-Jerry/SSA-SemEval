@@ -30,8 +30,9 @@ class Seq2SeqSpanMetric(MetricBase):
         self.tokenizer = tokenizer
         self.mapping2id = mapping2id
         self.dataset = f'../final_data/{dataset}'
-
+        self.tgt_token_list = []
         self.opinin_first = opinion_first
+        self.sentence_id_list = []
 
     def make_phrase(self, start, end, tokenized_sentence):
         phrase = tokenized_sentence[start-len(self.mapping2id)-3: end-len(self.mapping2id)-3+1]
@@ -103,26 +104,40 @@ class Seq2SeqSpanMetric(MetricBase):
                 else:
                     opinions = []
                     break
-
+            # print(self.tgt_token_list[i,:])
+            idx = list(final_data_bundle['sent_id']).index(self.sentence_id_list[i])
             master_preds.append({
-                'sent_id':final_data_bundle['sent_id'][i],
-                'text':final_data_bundle['text'][i].replace(self.null_token, ''),
+                'sent_id_old':final_data_bundle['sent_id'][i],
+                'sent_id': self.sentence_id_list[i],
+                'text':final_data_bundle['text'][idx].replace(self.null_token, ''),
                 'opinions':opinions,
                 'pred_span':str(set(pred_spans[i])),
-                'target_span': str(final_data_bundle['target_span'][i])
+                'target_span': str(final_data_bundle['target_span'][idx]),
+                'tgt_tokens': str(self.tgt_token_list[idx])
             })
+
         category = '_'.join(category)
         epoch = len([file for file in os.listdir(self.dataset) if 'preds_{category}' in file]) + 1
         print('Saving to File', f'{self.dataset}/preds_{category}_epoch{epoch}.json')
         with open(f'{self.dataset}/preds_{category}_epoch{epoch}.json','w') as f:
             json.dump(master_preds, f)
 
-    def evaluate(self, target_span, pred, tgt_tokens):
+    def evaluate(self, target_span, pred, tgt_tokens, sent_id):
+        
+        # print(sent_id)
+        for i in sent_id:
+            self.sentence_id_list.append(i)
+
+        raghav = False
         self.total += pred.size(0)
+        
+        for i in tgt_tokens:
+            self.tgt_token_list.append(str(i.to("cpu").tolist()))
         # print('pred', pred)
         # print('target_span', target_span)
         # print('tgt_tokens', tgt_tokens)
         # print('#'*50)
+
         pred_eos_index = pred.flip(dims=[1]).eq(self.eos_token_id).cumsum(dim=1).long()
         target_eos_index = tgt_tokens.flip(dims=[1]).eq(self.eos_token_id).cumsum(dim=1).long()
         # print('pred_eos_index', pred_eos_index, '\n\n', 'target_eos_index', target_eos_index) ###
@@ -136,9 +151,10 @@ class Seq2SeqSpanMetric(MetricBase):
         # print('pred_seq_len', pred_seq_len, '\n\n', 'target_seq_len', target_seq_len) ###
         pred_spans = []
         for i, (ts, ps) in enumerate(zip(target_span, pred.tolist())):
-            # print('*'*30)
-            # print('ts', ts)
-            # print('ps', ps)
+            if raghav:
+                print('*'*30)
+                print("i",self.total-16+i+1)
+                print('ts', ts)
             em = 0
             ps = ps[:pred_seq_len[i]]
             if pred_seq_len[i] == target_seq_len[i]:
@@ -199,7 +215,8 @@ class Seq2SeqSpanMetric(MetricBase):
             #         else:
             #             cur_pair.append(j)
             # print('*'*30)
-            # print('pairs', pairs)
+            if raghav:
+                print('pairs', pairs)
             # print('cur_pair', cur_pair)
             # print('invalid', invalid)
             # _ = input()
