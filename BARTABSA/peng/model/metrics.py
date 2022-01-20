@@ -42,7 +42,9 @@ class Seq2SeqSpanMetric(MetricBase):
         if phrase == 'NA' or phrase == []: return [], []
 
         start_idx = sent.find(phrase) - len(self.null_token)
+        assert(start_idx+len(self.null_token)!=-1)
         end_idx = start_idx+len(phrase) - len(self.null_token)
+
         return [phrase], [f'{start_idx}:{end_idx}']
 
     def make_pol_int(self, start):
@@ -67,16 +69,18 @@ class Seq2SeqSpanMetric(MetricBase):
             print('*'*20, 'This is dev', '*'*20)
             category = 'dev'
             req_data_len = len(self.data_bundle.get_dataset(category))
-
         else:
             print(f'Different Lengths -> Req {req_data_len} \t Len {var_len}')
             return
+
+        self.sentence_id_list = self.sentence_id_list[-req_data_len:]
 
         final_data_bundle = self.data_bundle.get_dataset(category)
         master_preds = []
 
         for i in range(req_data_len):
-            tokenized_sent = self.tokenizer.tokenize(final_data_bundle['text'][i])
+            idx = list(final_data_bundle['sent_id']).index(self.sentence_id_list[i])
+            tokenized_sent = self.tokenizer.tokenize(final_data_bundle['text'][idx])
             opinions = []
             for pair in list(set(pred_spans[i])):
                 aspect_s, aspect_e, opinion_s, opinion_e, holder_s, holder_e, polarity, intensity = pair
@@ -104,8 +108,7 @@ class Seq2SeqSpanMetric(MetricBase):
                 else:
                     opinions = []
                     break
-            # print(self.tgt_token_list[i,:])
-            idx = list(final_data_bundle['sent_id']).index(self.sentence_id_list[i])
+            # print(self.tgt_token_list[i,:])            
             master_preds.append({
                 'sent_id_old':final_data_bundle['sent_id'][i],
                 'sent_id': self.sentence_id_list[i],
@@ -124,7 +127,6 @@ class Seq2SeqSpanMetric(MetricBase):
 
     def evaluate(self, target_span, pred, tgt_tokens, sent_id):
         
-        # print(sent_id)
         for i in sent_id:
             self.sentence_id_list.append(i)
 
