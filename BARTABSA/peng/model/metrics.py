@@ -11,6 +11,7 @@ class Seq2SeqSpanMetric(MetricBase):
         self.word_start_index = num_labels + 2  # +2, shift for sos and eos
         self.pred_spans = []
         self.null_token = 'NA '
+        self.all_pairs = []
 
         self.ae_oe_fp = 0
         self.ae_oe_tp = 0
@@ -90,13 +91,13 @@ class Seq2SeqSpanMetric(MetricBase):
                     opinions = []
                     break
 
-                if polarity_phrase!='NA' and intensity_phrase!='NA':
+                if (polarity_phrase!='NA') and (intensity_phrase!='NA'):
                     single_set = {
                         "Source": [aspect_phrase, aspect_phrase_idx],
                         "Target": [holder_phrase, holder_phrase_idx],
                         "Polar_expression": [opinion_phrase, opinion_phrase_idx],
                         "Polarity": polarity_phrase,
-                        "Intensity": intensity_phrase
+                        "Intensity": intensity_phrase,
                     }
                     opinions.append(single_set)
                 else:
@@ -106,10 +107,13 @@ class Seq2SeqSpanMetric(MetricBase):
             master_preds.append({
                 'sent_id':final_data_bundle['sent_id'][i],
                 'text':final_data_bundle['text'][i].replace(self.null_token, ''),
-                'opinions':opinions
+                'opinions':opinions,
+                'pred_span':str(set(pred_spans[i])),
+                'target_span': str(final_data_bundle['target_span'][i])
             })
         category = '_'.join(category)
         epoch = len([file for file in os.listdir(self.dataset) if 'preds_{category}' in file]) + 1
+        print('Saving to File', f'{self.dataset}/preds_{category}_epoch{epoch}.json')
         with open(f'{self.dataset}/preds_{category}_epoch{epoch}.json','w') as f:
             json.dump(master_preds, f)
 
@@ -228,15 +232,20 @@ class Seq2SeqSpanMetric(MetricBase):
 
             ts = set([tuple(t) for t in ts])
             ps = set(pairs)
+
+            for val in list(set(list(ps)+list(ps))): self.all_pairs.append(val)
+
             for p in list(ps):
                 if p in ts:
-                    print(p)
-                    _ = input()
+                    # print(p)
+                    # _ = input()
                     ts.remove(p)
                     self.triple_tp += 1
                 else:
                     self.triple_fp += 1
             self.triple_fn += len(ts)
+            # print('tp, fp, fn', self.triple_tp, self.triple_fp, self.triple_fn)
+            # _ = input()
 
         self.pred_spans += pred_spans
 
@@ -245,6 +254,10 @@ class Seq2SeqSpanMetric(MetricBase):
     def get_metric(self, reset=True):
         res = {}
         f, pre, rec = _compute_f_pre_rec(1, self.triple_tp, self.triple_fn, self.triple_fp)
+        print('tp, fp, fn', self.triple_tp, self.triple_fp, self.triple_fn)
+        print('Total', self.triple_tp + self.triple_fp + self.triple_fn, len(self.all_pairs))
+        print('f, pre, rec', f, pre, rec)
+        # _ = input()
 
         res['triple_f'] = round(f, 4)*100
         res['triple_rec'] = round(rec, 4)*100
@@ -278,6 +291,7 @@ class Seq2SeqSpanMetric(MetricBase):
             self.ae_sc_fn = 0
             self.make_result(self.pred_spans)
             self.pred_spans = []
+            self.all_pairs = []
         return res
 
 
