@@ -13,6 +13,7 @@ class Seq2SeqSpanMetric(MetricBase):
         self.pred_spans = []
         self.null_token = 'NA '
         self.all_pairs = []
+        self.results_write = 0
 
         self.ae_oe_fp = 0
         self.ae_oe_tp = 0
@@ -126,7 +127,8 @@ class Seq2SeqSpanMetric(MetricBase):
             })
 
         category = '_'.join(category)
-        epoch = len([filename for filename in os.listdir(self.dataset) if 'preds_{category}' in filename]) + 1
+        epoch = self.results_write // 2 + 1
+        self.results_write += 1
         print('Saving to File', f'{self.dataset}/preds_{category}_epoch{epoch}.json')
         with open(f'{self.dataset}/preds_{category}_epoch{epoch}.json','w') as f:
             # json.dump(master_preds, f)
