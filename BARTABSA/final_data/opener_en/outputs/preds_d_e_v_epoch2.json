@@ -18,30 +18,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "very hig"
+                        "welcome"
                     ],
                     [
-                        "569:577"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [],
-                    []
-                ],
-                "Polar_expression": [
-                    [
-                        "beer was welcome"
-                    ],
-                    [
-                        "525:541"
+                        "534:541"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -54,66 +34,18 @@
                 ],
                 "Target": [
                     [
-                        "food"
+                        "weather"
                     ],
                     [
-                        "158:162"
+                        "473:480"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "catered"
+                        "welcome"
                     ],
                     [
-                        "179:186"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "beer"
-                    ],
-                    [
-                        "525:529"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "catered"
-                    ],
-                    [
-                        "179:186"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "food"
-                    ],
-                    [
-                        "158:162"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "catered"
-                    ],
-                    [
-                        "179:186"
+                        "534:541"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -147,7 +79,7 @@
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             },
             {
                 "Source": [
@@ -178,12 +110,85 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00180_d5ec496d5858acfbab77283dd350b0ec-3",
         "text": "the car park gets a little busy when there is a function on , but all worked out with a bit of cooperation ; the breakfast times are fine during the week but I would have preferred a little later cut off on Sunday \u00b7 again the staff sorted it to ever\u00fdone 's satisfaction .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "breakfast times"
+                    ],
+                    [
+                        "113:128"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "fine"
+                    ],
+                    [
+                        "133:137"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "the car park"
+                    ],
+                    [
+                        "0:12"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "a little busy"
+                    ],
+                    [
+                        "18:31"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            }
+        ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00032_30ddf6dff464d0b92c6fbae7019ece91-2",
         "text": "very warm welcome at the reception , very friendly and helpful personnel , especially at the bar and during breakfast , a really good experience overall , had a relaxing drink at the bar , visited the cigarrum smokers lounge and had a great start into the day at the very nicely assorted breakfast buffet .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "personnel"
+                    ],
+                    [
+                        "63:72"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very friendly"
+                    ],
+                    [
+                        "37:50"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            },
             {
                 "Source": [
                     [],
@@ -207,6 +212,30 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "personnel"
+                    ],
+                    [
+                        "63:72"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "helpful"
+                    ],
+                    [
+                        "55:62"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
             }
         ]
     },
@@ -245,18 +274,18 @@
                 ],
                 "Target": [
                     [
-                        "food"
+                        "animation team"
                     ],
                     [
-                        "146:150"
+                        "64:78"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "fresh"
+                        "friendly"
                     ],
                     [
-                        "171:176"
+                        "55:63"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -353,10 +382,10 @@
                 ],
                 "Target": [
                     [
-                        "The staff"
+                        "the food"
                     ],
                     [
-                        "20:29"
+                        "41:49"
                     ]
                 ],
                 "Polar_expression": [
@@ -377,10 +406,10 @@
                 ],
                 "Target": [
                     [
-                        "The staff were great the food"
+                        "The staff"
                     ],
                     [
-                        "20:49"
+                        "20:29"
                     ]
                 ],
                 "Polar_expression": [
@@ -414,32 +443,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00051_496c24f962c80bf3bb9efff898020602-4",
         "text": "This however requires walking all around the hotel , and there is only one set of elevators for each floor ( the hotel is a pyramid , and the elevators are only in one corner ) .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "This however requires walking all around the hotel , and there is only one set of elev"
-                    ],
-                    [
-                        "0:86"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "only one set of elevators for each floor ( the hotel is a pyramid , and the elev"
-                    ],
-                    [
-                        "66:146"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00166_cabe0f1ab6bab341e2fd51db06738b2a-3",
@@ -589,22 +593,22 @@
                 ],
                 "Target": [
                     [
-                        "the hotelmanager want the guests to enjoy e wonderful holiday in the hotel.The staff"
+                        "staff"
                     ],
                     [
-                        "14:98"
+                        "93:98"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "speak English"
+                        "very friendly"
                     ],
                     [
-                        "123:136"
+                        "102:115"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             },
             {
                 "Source": [
@@ -643,10 +647,10 @@
                 ],
                 "Target": [
                     [
-                        "people"
+                        "anim"
                     ],
                     [
-                        "94:100"
+                        "126:130"
                     ]
                 ],
                 "Polar_expression": [
@@ -697,10 +701,34 @@
                 ],
                 "Target": [
                     [
-                        "the corridors"
+                        "The rooms"
                     ],
                     [
-                        "69:82"
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "one of the clean"
+                    ],
+                    [
+                        "14:30"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "reception area"
+                    ],
+                    [
+                        "87:101"
                     ]
                 ],
                 "Polar_expression": [
@@ -721,18 +749,18 @@
                 ],
                 "Target": [
                     [
-                        "The rooms"
+                        "corridors"
                     ],
                     [
-                        "0:9"
+                        "73:82"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "one of the clean"
+                        "clean"
                     ],
                     [
-                        "14:30"
+                        "25:30"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -751,10 +779,10 @@
                 ],
                 "Target": [
                     [
-                        "this is a very nice hotel"
+                        "hotel"
                     ],
                     [
-                        "8:33"
+                        "28:33"
                     ]
                 ],
                 "Polar_expression": [
@@ -781,18 +809,18 @@
                 ],
                 "Target": [
                     [
-                        "Hotel"
+                        "beds"
                     ],
                     [
-                        "0:5"
+                        "136:140"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "really quite"
+                        "really conf"
                     ],
                     [
-                        "121:133"
+                        "141:152"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -821,6 +849,54 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "Hotel"
+                    ],
+                    [
+                        "0:5"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "not too far from center ( 25 minutes walk from main station"
+                    ],
+                    [
+                        "6:65"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "room"
+                    ],
+                    [
+                        "116:120"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "really quite"
+                    ],
+                    [
+                        "121:133"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
             }
         ]
     },
@@ -828,6 +904,30 @@
         "sent_id": "opener_en/kaf/hotel/english00016_1bf091a4517b245ddc05ed2efd135973-2",
         "text": "The hotel was very nice , I think it 's good that they have like 5 restaurants so the people are spread over 5 restaurants so it 's never so crowded .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The hotel"
+                    ],
+                    [
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "never so crowded"
+                    ],
+                    [
+                        "132:148"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -859,10 +959,10 @@
                 ],
                 "Target": [
                     [
-                        "the people"
+                        "The hotel"
                     ],
                     [
-                        "82:92"
+                        "0:9"
                     ]
                 ],
                 "Polar_expression": [
@@ -882,6 +982,30 @@
         "sent_id": "opener_en/kaf/hotel/english00070_4b333078625224037956975e6fba0e41-2",
         "text": "This Travelodge is well placed in the City Centre and a short walk from the station and a short walk to the shops , restaurants etc. that Leeds has to offer .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "restaurants"
+                    ],
+                    [
+                        "116:127"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "offer"
+                    ],
+                    [
+                        "151:156"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -924,10 +1048,34 @@
                 ],
                 "Target": [
                     [
-                        "It is a shame that given such ehormous pool area"
+                        "pool"
                     ],
                     [
-                        "0:48"
+                        "39:43"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "a shame"
+                    ],
+                    [
+                        "6:13"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "pool area"
+                    ],
+                    [
+                        "39:48"
                     ]
                 ],
                 "Polar_expression": [
@@ -936,6 +1084,30 @@
                     ],
                     [
                         "58:65"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "pool area"
+                    ],
+                    [
+                        "39:48"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "more unheated than heated"
+                    ],
+                    [
+                        "58:83"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -1062,10 +1234,10 @@
                 ],
                 "Target": [
                     [
-                        "places"
+                        "restaurant"
                     ],
                     [
-                        "103:109"
+                        "41:51"
                     ]
                 ],
                 "Polar_expression": [
@@ -1108,56 +1280,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00200_e8f707795fc0c7f605a1f7115c3da711-2",
         "text": "Hotel Premiere Classe Orly Rungis is near the airport and close to Orly major highways ( all night heard the noise of passing large vehicles ) .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "highways"
-                    ],
-                    [
-                        "78:86"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "close"
-                    ],
-                    [
-                        "58:63"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Hotel"
-                    ],
-                    [
-                        "0:5"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "close"
-                    ],
-                    [
-                        "58:63"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00110_7a012157f787f3c49871371b3f64b382-5",
@@ -1194,18 +1317,18 @@
                 ],
                 "Target": [
                     [
-                        "bathrooms"
+                        "rooms"
                     ],
                     [
-                        "136:145"
+                        "15:20"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "comfortable"
+                        "clean"
                     ],
                     [
-                        "124:135"
+                        "48:53"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -1264,86 +1387,13 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "it"
-                    ],
-                    [
-                        "95:97"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "in the heart of Gran Via , and if you need to go somewhere , it is in front"
-                    ],
-                    [
-                        "34:109"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
             }
         ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00016_1bf091a4517b245ddc05ed2efd135973-3",
         "text": "But on the other hand I missed the a la carte restaurants that you have in so many hotels because that 's more pleasant / cosy .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "the a la carte restaurants"
-                    ],
-                    [
-                        "31:57"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "pleasant"
-                    ],
-                    [
-                        "111:119"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "restaurants"
-                    ],
-                    [
-                        "46:57"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "cos"
-                    ],
-                    [
-                        "122:125"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00170_ce1f9b38f0bec2250f15e8b855713ffd-2",
@@ -1356,18 +1406,18 @@
                 ],
                 "Target": [
                     [
-                        "suites"
+                        "hotel"
                     ],
                     [
-                        "48:54"
+                        "18:23"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "extremely long"
+                        "Very large"
                     ],
                     [
-                        "90:104"
+                        "0:10"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -1404,22 +1454,22 @@
                 ],
                 "Target": [
                     [
-                        "hotel"
+                        "suites"
                     ],
                     [
-                        "18:23"
+                        "48:54"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "Very large"
+                        "approx"
                     ],
                     [
-                        "0:10"
+                        "142:148"
                     ]
                 ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Polarity": "Negative",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -1432,6 +1482,30 @@
         "sent_id": "opener_en/kaf/hotel/english00221_fbcfafad33cef47cd341ecc409a0f76a-3",
         "text": "It 's locate near Champ Elysee , Arc de Triump and very close to George 5 metro station.The staff was very friendly .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The staff"
+                    ],
+                    [
+                        "88:97"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very friendly"
+                    ],
+                    [
+                        "102:115"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            },
             {
                 "Source": [
                     [],
@@ -1469,6 +1543,54 @@
                 ],
                 "Target": [
                     [
+                        "this hotel"
+                    ],
+                    [
+                        "32:42"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "relatively low"
+                    ],
+                    [
+                        "45:59"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "price"
+                    ],
+                    [
+                        "60:65"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "relatively low"
+                    ],
+                    [
+                        "45:59"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
                         "location"
                     ],
                     [
@@ -1485,62 +1607,13 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "this hotel"
-                    ],
-                    [
-                        "32:42"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "relatively low"
-                    ],
-                    [
-                        "45:59"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
             }
         ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00191_e2c6a1fdfc1d286a4beee6e62ab0d407-5",
         "text": "Also , we could hear the loud disco music till very late in the morning , and nothing could be done about it even after we complained .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "the loud disco music"
-                    ],
-                    [
-                        "21:41"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "loud"
-                    ],
-                    [
-                        "25:29"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00072_4cc2e9801df78f120125f41eac84ee35-3",
@@ -1561,13 +1634,61 @@
                 ],
                 "Polar_expression": [
                     [
-                        "a city"
+                        "there is"
                     ],
                     [
-                        "13:19"
+                        "76:84"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "room"
+                    ],
+                    [
+                        "4:8"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "facing Street"
+                    ],
+                    [
+                        "30:43"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "room"
+                    ],
+                    [
+                        "4:8"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "there is"
+                    ],
+                    [
+                        "76:84"
+                    ]
+                ],
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
@@ -1586,30 +1707,6 @@
         "sent_id": "opener_en/kaf/hotel/english00180_d5ec496d5858acfbab77283dd350b0ec-2",
         "text": "stayed for a weekend , good location between village and beach , accepts dogs \u00b7 a must for us , great staff , very helpful",
         "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "staff"
-                    ],
-                    [
-                        "102:107"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "helpful"
-                    ],
-                    [
-                        "115:122"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
             {
                 "Source": [
                     [],
@@ -1679,14 +1776,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "really didn 't like"
+                        "way to old"
                     ],
                     [
-                        "11:30"
+                        "86:96"
                     ]
                 ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Polarity": "Negative",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -1698,86 +1795,12 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00044_3efe4d8dbdd774d767ba1349e00ceeeb-3",
         "text": "Last year it wasn 't. and due to the weather it was to cold for the children to use that pool ;",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "it wasn 't. and due to the weather it was to cold for the children to use that pool"
-                    ],
-                    [
-                        "10:93"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "cold"
-                    ],
-                    [
-                        "55:59"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00019_1de6c7cab0a5e466ea5f1ffa02bea834-5",
         "text": "It is located next to the park and a rose garden in a calm area 10 min from the center of Trier",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "It"
-                    ],
-                    [
-                        "0:2"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "located next"
-                    ],
-                    [
-                        "6:18"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "It is located next to the park and a rose garden"
-                    ],
-                    [
-                        "0:48"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "calm"
-                    ],
-                    [
-                        "54:58"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00068_648a6a0314adb5e7e8f21eea47c75071-2",
@@ -1830,6 +1853,30 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "sound isolation"
+                    ],
+                    [
+                        "35:50"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "good"
+                    ],
+                    [
+                        "30:34"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -1844,10 +1891,34 @@
                 ],
                 "Target": [
                     [
-                        "The hotel"
+                        "The hotel features free Wireless Internet"
                     ],
                     [
-                        "0:9"
+                        "0:41"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "pretty fast"
+                    ],
+                    [
+                        "56:67"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "Internet"
+                    ],
+                    [
+                        "33:41"
                     ]
                 ],
                 "Polar_expression": [
@@ -1874,10 +1945,10 @@
                 ],
                 "Target": [
                     [
-                        "this hotel"
+                        "NA We stayed in this hotel"
                     ],
                     [
-                        "13:23"
+                        "-3:23"
                     ]
                 ],
                 "Polar_expression": [
@@ -1907,30 +1978,6 @@
         "sent_id": "opener_en/kaf/hotel/english00073_6d0660face021ed117d3193124ae7849-2",
         "text": "the hotel is very clean and all the people who are working their are very friendly and willing to help .",
         "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "the people"
-                    ],
-                    [
-                        "32:42"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "friendly"
-                    ],
-                    [
-                        "74:82"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
             {
                 "Source": [
                     [],
@@ -1973,10 +2020,10 @@
                 ],
                 "Target": [
                     [
-                        "It"
+                        "It is situated in Frankfurt Flughaven railway station , so as one might expect transport connections"
                     ],
                     [
-                        "0:2"
+                        "0:100"
                     ]
                 ],
                 "Polar_expression": [
@@ -2027,6 +2074,30 @@
                 ],
                 "Target": [
                     [
+                        "bathroom"
+                    ],
+                    [
+                        "37:45"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very small"
+                    ],
+                    [
+                        "26:36"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
                         "the very small bathroom"
                     ],
                     [
@@ -2041,7 +2112,7 @@
                         "26:36"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Strong"
             }
         ]
@@ -2073,30 +2144,6 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "The staff"
-                    ],
-                    [
-                        "0:9"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "taking care"
-                    ],
-                    [
-                        "65:76"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
             }
         ]
     },
@@ -2104,6 +2151,30 @@
         "sent_id": "opener_en/kaf/hotel/english00185_db05e0757f02b90cd0bfea7d0bc9349b-3",
         "text": "Lobby was full of flies ( dead and alive ) , it was hot , humid and smelly .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "it"
+                    ],
+                    [
+                        "45:47"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "hot"
+                    ],
+                    [
+                        "52:55"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -2143,10 +2214,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "hot , humid"
+                        "humid"
                     ],
                     [
-                        "52:63"
+                        "58:63"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -2167,10 +2238,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "full of flies ( dead and alive ) , it was hot , humid and sm"
+                        "full"
                     ],
                     [
-                        "10:70"
+                        "10:14"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -2191,91 +2262,41 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00068_648a6a0314adb5e7e8f21eea47c75071-3",
         "text": "The wellness is an absolute pluspoint , tram to the centre of cologne stops right in front .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "The wellness"
-                    ],
-                    [
-                        "0:12"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "absolute plus"
-                    ],
-                    [
-                        "19:32"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "tram"
-                    ],
-                    [
-                        "40:44"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "stops right"
-                    ],
-                    [
-                        "70:81"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00135_cf437684333d2d7a16753ea12607b92d-3",
         "text": "I was only in castelo restaurat but there you can find all kind of food . super holiday",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "restaurat but there you can find all kind of food"
-                    ],
-                    [
-                        "22:71"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "super holiday"
-                    ],
-                    [
-                        "74:87"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00107_76be57e13ea17e1c2cc08cb3f5ab2240-2",
         "text": "The hotel looks , and is most likely , clean inside , which cannot be said from the outside .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The hotel"
+                    ],
+                    [
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "clean"
+                    ],
+                    [
+                        "39:44"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -2358,14 +2379,8 @@
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Strong"
-            }
-        ]
-    },
-    {
-        "sent_id": "opener_en/kaf/hotel/english00200_e8f707795fc0c7f605a1f7115c3da711-5",
-        "text": "In this area there is famous Rungis market , the largest food market in the world .",
-        "opinions": [
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -2373,24 +2388,29 @@
                 ],
                 "Target": [
                     [
-                        "this area"
+                        "suit case"
                     ],
                     [
-                        "3:12"
+                        "54:63"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "famous"
+                        "having troubles"
                     ],
                     [
-                        "22:28"
+                        "68:83"
                     ]
                 ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Polarity": "Negative",
+                "Intensity": "Standard"
             }
         ]
+    },
+    {
+        "sent_id": "opener_en/kaf/hotel/english00200_e8f707795fc0c7f605a1f7115c3da711-5",
+        "text": "In this area there is famous Rungis market , the largest food market in the world .",
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00070_4b333078625224037956975e6fba0e41-5",
@@ -2415,30 +2435,6 @@
                     ],
                     [
                         "5:9"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "location"
-                    ],
-                    [
-                        "10:18"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "clean"
-                    ],
-                    [
-                        "29:34"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -2497,116 +2493,18 @@
                 ],
                 "Polarity": "Negative",
                 "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "everything"
-                    ],
-                    [
-                        "69:79"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "works perfectly"
-                    ],
-                    [
-                        "80:95"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
             }
         ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00107_76be57e13ea17e1c2cc08cb3f5ab2240-3",
         "text": "Probably as soon as you are not on the premises anymore , it is not that clean .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "it"
-                    ],
-                    [
-                        "58:60"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "not that clean"
-                    ],
-                    [
-                        "64:78"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00036_29c5cdcccf3cb2bb0f38d4d1153d3d44-8",
         "text": "Only by lingual if you ask for basic Where is the bathroom forget about a conversation .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "the bathroom"
-                    ],
-                    [
-                        "46:58"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "forget"
-                    ],
-                    [
-                        "59:65"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "NA Only by lingual if you ask for basic Where is the bathroom"
-                    ],
-                    [
-                        "-3:58"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "basic"
-                    ],
-                    [
-                        "31:36"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00036_29c5cdcccf3cb2bb0f38d4d1153d3d44-2",
@@ -2619,10 +2517,10 @@
                 ],
                 "Target": [
                     [
-                        "NA She"
+                        "She"
                     ],
                     [
-                        "-3:3"
+                        "0:3"
                     ]
                 ],
                 "Polar_expression": [
@@ -2691,32 +2589,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00023_22d8107c2e6ea01e0c2ab9855eb9fd86-2",
         "text": "Overall our stay at the Grand Palladium was the best vacation I have ever had .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "vacation"
-                    ],
-                    [
-                        "53:61"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "the best"
-                    ],
-                    [
-                        "44:52"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00122_b509ee1b998f3418b1fd4a8096880441-5",
@@ -2734,10 +2607,10 @@
                 ],
                 "Target": [
                     [
-                        "NA I requested a non \u00b7 smoking room"
+                        "a non \u00b7 smoking room"
                     ],
                     [
-                        "-3:32"
+                        "12:32"
                     ]
                 ],
                 "Polar_expression": [
@@ -2756,12 +2629,65 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00064_5fe84dfe3d4af6e6b8ef7b2ca8ac6c8f-3",
         "text": "We enjoyed the time on the beach and the friendliness of the people working there .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        "We"
+                    ],
+                    [
+                        "0:2"
+                    ]
+                ],
+                "Target": [
+                    [
+                        "the time on the beach"
+                    ],
+                    [
+                        "11:32"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "enjoyed"
+                    ],
+                    [
+                        "3:10"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            }
+        ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00210_f4aa2529a7784fec56fad627916db4b7-4",
         "text": "The check in was quick and efficient , just what you need after a long flight .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The check"
+                    ],
+                    [
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "just what you need"
+                    ],
+                    [
+                        "39:57"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -2791,32 +2717,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00012_0d83dca3caeaaf8eceffcae22ebf53b6-2",
         "text": "I have to say that I 've had a very nice holiday in this hotel .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "holiday"
-                    ],
-                    [
-                        "41:48"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "very nice"
-                    ],
-                    [
-                        "31:40"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00200_e8f707795fc0c7f605a1f7115c3da711-4",
@@ -2842,14 +2743,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "hot"
+                        "very expensive"
                     ],
                     [
-                        "28:31"
+                        "58:72"
                     ]
                 ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
+                "Polarity": "Negative",
+                "Intensity": "Strong"
             },
             {
                 "Source": [
@@ -2866,13 +2767,13 @@
                 ],
                 "Polar_expression": [
                     [
-                        "expensive"
+                        "hot"
                     ],
                     [
-                        "46:55"
+                        "28:31"
                     ]
                 ],
-                "Polarity": "Negative",
+                "Polarity": "Positive",
                 "Intensity": "Standard"
             }
         ]
@@ -2923,10 +2824,10 @@
                 ],
                 "Target": [
                     [
-                        "resort"
+                        "the people"
                     ],
                     [
-                        "27:33"
+                        "36:46"
                     ]
                 ],
                 "Polar_expression": [
@@ -2947,18 +2848,18 @@
                 ],
                 "Target": [
                     [
-                        "the people"
+                        "resort"
                     ],
                     [
-                        "36:46"
+                        "27:33"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "amazing"
+                        "just amazing"
                     ],
                     [
-                        "56:63"
+                        "51:63"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -2977,10 +2878,34 @@
                 ],
                 "Target": [
                     [
-                        "The best reason to choose Lord Byron hotel was it 's location"
+                        "price"
                     ],
                     [
-                        "0:61"
+                        "66:71"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "best reason to choose Lord Byron hotel was it 's location and price"
+                    ],
+                    [
+                        "4:71"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The best reason to choose Lord Byron hotel"
+                    ],
+                    [
+                        "0:42"
                     ]
                 ],
                 "Polar_expression": [
@@ -3061,30 +2986,6 @@
                 ],
                 "Target": [
                     [
-                        "wine"
-                    ],
-                    [
-                        "66:70"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "excellent"
-                    ],
-                    [
-                        "47:56"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
                         "Hotel"
                     ],
                     [
@@ -3147,10 +3048,34 @@
                 ],
                 "Polar_expression": [
                     [
-                        "Near"
+                        "Near Milano Centrale train station"
                     ],
                     [
-                        "0:4"
+                        "0:34"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "bus stop"
+                    ],
+                    [
+                        "40:48"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "Near Milano Centrale train station with bus stop to all airports"
+                    ],
+                    [
+                        "0:64"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -3185,73 +3110,96 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "Rooms"
+                    ],
+                    [
+                        "0:5"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "not in acordance of today 's traveller"
+                    ],
+                    [
+                        "31:69"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
             }
         ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00021_175f405c5bc3db2c7e1207bc21346d43-8",
         "text": "It 's about 15 \u00b7 20 minutes easy walk to the city center .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "It 's about 15 \u00b7 20 minutes easy walk"
+                    ],
+                    [
+                        "0:37"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "easy"
+                    ],
+                    [
+                        "28:32"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "walk"
+                    ],
+                    [
+                        "33:37"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "easy walk"
+                    ],
+                    [
+                        "28:37"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            }
+        ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00021_175f405c5bc3db2c7e1207bc21346d43-9",
         "text": "When we stayed there , there was a weird smell around the sitting area .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "smell"
-                    ],
-                    [
-                        "41:46"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "weird"
-                    ],
-                    [
-                        "35:40"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00036_29c5cdcccf3cb2bb0f38d4d1153d3d44-6",
         "text": "You are stuck once you book they will not allow you to change hotels .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "NA You are stuck once you book they will not allow you to change hotels"
-                    ],
-                    [
-                        "-3:68"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "stuck"
-                    ],
-                    [
-                        "8:13"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00036_29c5cdcccf3cb2bb0f38d4d1153d3d44-7",
@@ -3277,14 +3225,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "very forthcoming"
+                        "knowledgeable"
                     ],
                     [
-                        "97:113"
+                        "13:26"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             },
             {
                 "Source": [
@@ -3301,10 +3249,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "knowledgeable"
+                        "very forthcoming"
                     ],
                     [
-                        "13:26"
+                        "97:113"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -3315,90 +3263,12 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00114_81738fd5eabd2b44715d8f62cd43823c-4",
         "text": "The only drawback from this hotel is that it is in an old building .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "building"
-                    ],
-                    [
-                        "58:66"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "old"
-                    ],
-                    [
-                        "54:57"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "The only drawback from this hotel"
-                    ],
-                    [
-                        "0:33"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "in an old"
-                    ],
-                    [
-                        "48:57"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00068_648a6a0314adb5e7e8f21eea47c75071-5",
         "text": "I 've been coming to this hotel since 2000 and still returning .",
-        "opinions": [
-            {
-                "Source": [
-                    [
-                        "I"
-                    ],
-                    [
-                        "0:1"
-                    ]
-                ],
-                "Target": [
-                    [
-                        "this hotel"
-                    ],
-                    [
-                        "21:31"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "still returning"
-                    ],
-                    [
-                        "47:62"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00225_ffb11fd9fc93b3b74cde6a9dcb91be15-11",
@@ -3410,8 +3280,12 @@
                     []
                 ],
                 "Target": [
-                    [],
-                    []
+                    [
+                        "NA Would expect much more for the price"
+                    ],
+                    [
+                        "-3:36"
+                    ]
                 ],
                 "Polar_expression": [
                     [
@@ -3421,7 +3295,7 @@
                         "0:12"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
@@ -3450,10 +3324,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "under"
+                        "underconst"
                     ],
                     [
-                        "14:19"
+                        "14:24"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -3480,10 +3354,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "really professionell and nice"
+                        "nice"
                     ],
                     [
-                        "47:76"
+                        "72:76"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -3504,10 +3378,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "nice"
+                        "really profession"
                     ],
                     [
-                        "72:76"
+                        "47:64"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -3581,12 +3455,8 @@
         "opinions": [
             {
                 "Source": [
-                    [
-                        "I"
-                    ],
-                    [
-                        "0:1"
-                    ]
+                    [],
+                    []
                 ],
                 "Target": [
                     [
@@ -3660,13 +3530,7 @@
                 ],
                 "Polarity": "Negative",
                 "Intensity": "Standard"
-            }
-        ]
-    },
-    {
-        "sent_id": "opener_en/kaf/hotel/english00185_db05e0757f02b90cd0bfea7d0bc9349b-6",
-        "text": "Bath shower didn 't work , and the fridge was broken .",
-        "opinions": [
+            },
             {
                 "Source": [
                     [],
@@ -3674,23 +3538,29 @@
                 ],
                 "Target": [
                     [
-                        "the fridge"
+                        "dishes"
                     ],
                     [
-                        "31:41"
+                        "6:12"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "broken"
+                        "no fruit"
                     ],
                     [
-                        "46:52"
+                        "15:23"
                     ]
                 ],
                 "Polarity": "Negative",
                 "Intensity": "Standard"
-            },
+            }
+        ]
+    },
+    {
+        "sent_id": "opener_en/kaf/hotel/english00185_db05e0757f02b90cd0bfea7d0bc9349b-6",
+        "text": "Bath shower didn 't work , and the fridge was broken .",
+        "opinions": [
             {
                 "Source": [
                     [],
@@ -3706,10 +3576,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "broken"
+                        "didn 't work"
                     ],
                     [
-                        "46:52"
+                        "12:24"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -3736,14 +3606,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "charming"
+                        "Simply Good"
                     ],
                     [
-                        "55:63"
+                        "0:11"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             },
             {
                 "Source": [
@@ -3781,15 +3651,43 @@
                     []
                 ],
                 "Target": [
-                    [],
-                    []
-                ],
-                "Polar_expression": [
                     [
                         "Check"
                     ],
                     [
                         "0:5"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "a piece"
+                    ],
+                    [
+                        "29:36"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "Check \u00b7 out"
+                    ],
+                    [
+                        "13:24"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "a piece"
+                    ],
+                    [
+                        "29:36"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -3862,10 +3760,10 @@
                 ],
                 "Target": [
                     [
-                        "matras familyroom was hard and bad in the single room"
+                        "familyroom was hard and bad in the single room"
                     ],
                     [
-                        "2:55"
+                        "9:55"
                     ]
                 ],
                 "Polar_expression": [
@@ -3886,10 +3784,10 @@
                 ],
                 "Target": [
                     [
-                        "matras familyroom"
+                        "matras family"
                     ],
                     [
-                        "2:19"
+                        "2:15"
                     ]
                 ],
                 "Polar_expression": [
@@ -3946,6 +3844,30 @@
                 ],
                 "Target": [
                     [
+                        "rooms"
+                    ],
+                    [
+                        "10:15"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very basic"
+                    ],
+                    [
+                        "21:31"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
                         "beds"
                     ],
                     [
@@ -3970,10 +3892,10 @@
                 ],
                 "Target": [
                     [
-                        "rooms"
+                        "comfort"
                     ],
                     [
-                        "10:15"
+                        "32:39"
                     ]
                 ],
                 "Polar_expression": [
@@ -3986,30 +3908,6 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "beds"
-                    ],
-                    [
-                        "61:65"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "only beds"
-                    ],
-                    [
-                        "56:65"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
             }
         ]
     },
@@ -4021,56 +3919,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00110_7a012157f787f3c49871371b3f64b382-6",
         "text": "I prefer stay at this hotel , when they have free rooms .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "rooms"
-                    ],
-                    [
-                        "50:55"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "free"
-                    ],
-                    [
-                        "45:49"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "stay at this hotel"
-                    ],
-                    [
-                        "9:27"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "prefer"
-                    ],
-                    [
-                        "2:8"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00057_5407ee0ce68f6d8dca6b6ffbd67fa2d8-2",
@@ -4106,6 +3955,30 @@
         "sent_id": "opener_en/kaf/hotel/english00106_95e12d763c34248a2836b2b210c1cbd1-2",
         "text": "A confortable hotel , large rooms and excellent service .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "rooms"
+                    ],
+                    [
+                        "28:33"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "large"
+                    ],
+                    [
+                        "22:27"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -4226,10 +4099,10 @@
                 ],
                 "Target": [
                     [
-                        "meat"
+                        "Hamburger meat"
                     ],
                     [
-                        "10:14"
+                        "0:14"
                     ]
                 ],
                 "Polar_expression": [
@@ -4282,10 +4155,10 @@
                 ],
                 "Target": [
                     [
-                        "location"
+                        "The major plus : location"
                     ],
                     [
-                        "17:25"
+                        "0:25"
                     ]
                 ],
                 "Polar_expression": [
@@ -4298,13 +4171,7 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            }
-        ]
-    },
-    {
-        "sent_id": "opener_en/kaf/hotel/english00118_aea36867626915cb3f94bc7c17ec5bb9-2",
-        "text": "The staff is very friendly , prompt and courteous .",
-        "opinions": [
+            },
             {
                 "Source": [
                     [],
@@ -4312,23 +4179,29 @@
                 ],
                 "Target": [
                     [
-                        "The staff"
+                        "the price"
                     ],
                     [
-                        "0:9"
+                        "43:52"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "cour"
+                        "affordable"
                     ],
                     [
-                        "40:44"
+                        "53:63"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
+                "Intensity": "Standard"
+            }
+        ]
+    },
+    {
+        "sent_id": "opener_en/kaf/hotel/english00118_aea36867626915cb3f94bc7c17ec5bb9-2",
+        "text": "The staff is very friendly , prompt and courteous .",
+        "opinions": [
             {
                 "Source": [
                     [],
@@ -4352,6 +4225,54 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The staff"
+                    ],
+                    [
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "prompt"
+                    ],
+                    [
+                        "29:35"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The staff"
+                    ],
+                    [
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "cour"
+                    ],
+                    [
+                        "40:44"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -4391,31 +4312,27 @@
         "opinions": [
             {
                 "Source": [
-                    [
-                        "I"
-                    ],
-                    [
-                        "14:15"
-                    ]
+                    [],
+                    []
                 ],
                 "Target": [
                     [
-                        "this place"
+                        "NA Most likely , I won 't return to this place"
                     ],
                     [
-                        "33:43"
+                        "-3:43"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "won"
+                        "Most likely"
                     ],
                     [
-                        "16:19"
+                        "0:11"
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             }
         ]
     },
@@ -4462,13 +4379,13 @@
                 ],
                 "Polar_expression": [
                     [
-                        "big balcony"
+                        "big"
                     ],
                     [
-                        "20:31"
+                        "20:23"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
@@ -4476,32 +4393,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00051_496c24f962c80bf3bb9efff898020602-6",
         "text": "And my salad was a dressing soup topped with some lettuce .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "salad"
-                    ],
-                    [
-                        "7:12"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "topped"
-                    ],
-                    [
-                        "33:39"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00064_5fe84dfe3d4af6e6b8ef7b2ca8ac6c8f-4",
@@ -4530,30 +4422,6 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "food"
-                    ],
-                    [
-                        "10:14"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "breat"
-                    ],
-                    [
-                        "17:22"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
             }
         ]
     },
@@ -4570,7 +4438,56 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00118_aea36867626915cb3f94bc7c17ec5bb9-5",
         "text": "Outbeaten cleanliness noticed from lobby to room .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "clean"
+                    ],
+                    [
+                        "10:15"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "Out"
+                    ],
+                    [
+                        "0:3"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "cleanliness"
+                    ],
+                    [
+                        "10:21"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "noticed"
+                    ],
+                    [
+                        "22:29"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            }
+        ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00106_95e12d763c34248a2836b2b210c1cbd1-4",
@@ -4580,36 +4497,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00072_4cc2e9801df78f120125f41eac84ee35-2",
         "text": "We have stayed in this hotel for 4 nights recently .",
-        "opinions": [
-            {
-                "Source": [
-                    [
-                        "We"
-                    ],
-                    [
-                        "0:2"
-                    ]
-                ],
-                "Target": [
-                    [
-                        "this hotel"
-                    ],
-                    [
-                        "18:28"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "have stayed"
-                    ],
-                    [
-                        "3:14"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00210_f4aa2529a7784fec56fad627916db4b7-9",
@@ -4689,7 +4577,32 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00021_175f405c5bc3db2c7e1207bc21346d43-6",
         "text": "There aren 't many English channel on TV unfortunately .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "channel"
+                    ],
+                    [
+                        "27:34"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "There aren"
+                    ],
+                    [
+                        "0:10"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
+            }
+        ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00021_175f405c5bc3db2c7e1207bc21346d43-7",
@@ -4762,18 +4675,18 @@
                 ],
                 "Target": [
                     [
-                        "the rooms"
+                        "The food"
                     ],
                     [
-                        "43:52"
+                        "0:8"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "very good"
+                        "very very good"
                     ],
                     [
-                        "28:37"
+                        "23:37"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -4786,10 +4699,10 @@
                 ],
                 "Target": [
                     [
-                        "The food"
+                        "the rooms"
                     ],
                     [
-                        "0:8"
+                        "43:52"
                     ]
                 ],
                 "Polar_expression": [
@@ -4831,7 +4744,31 @@
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The rooms"
+                    ],
+                    [
+                        "0:9"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "not big"
+                    ],
+                    [
+                        "14:21"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -4859,14 +4796,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "very outdated"
+                        "sm"
                     ],
                     [
-                        "29:42"
+                        "10:12"
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             },
             {
                 "Source": [
@@ -4910,46 +4847,22 @@
                 ],
                 "Target": [
                     [
-                        "The People are friendly and the Food"
+                        "The People"
                     ],
                     [
-                        "0:36"
+                        "0:10"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "fantastic"
+                        "friendly"
                     ],
                     [
-                        "40:49"
+                        "15:23"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "the Food"
-                    ],
-                    [
-                        "28:36"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "fantastic"
-                    ],
-                    [
-                        "40:49"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             }
         ]
     },
@@ -4957,6 +4870,30 @@
         "sent_id": "opener_en/kaf/hotel/english00023_22d8107c2e6ea01e0c2ab9855eb9fd86-5",
         "text": "The pool was amazing , the entertainment was excellent .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "the entertainment"
+                    ],
+                    [
+                        "23:40"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "excellent"
+                    ],
+                    [
+                        "45:54"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            },
             {
                 "Source": [
                     [],
@@ -4976,30 +4913,6 @@
                     ],
                     [
                         "13:20"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "entertainment"
-                    ],
-                    [
-                        "27:40"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "excellent"
-                    ],
-                    [
-                        "45:54"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -5031,14 +4944,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "this large"
+                        "large"
                     ],
                     [
-                        "34:44"
+                        "39:44"
                     ]
                 ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Polarity": "Negative",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -5046,6 +4959,30 @@
         "sent_id": "opener_en/kaf/hotel/english00019_1de6c7cab0a5e466ea5f1ffa02bea834-4",
         "text": "The service is excellent and helpful in any case .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The service"
+                    ],
+                    [
+                        "0:11"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "helpful"
+                    ],
+                    [
+                        "29:36"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
             {
                 "Source": [
                     [],
@@ -5103,7 +5040,7 @@
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             }
         ]
     },
@@ -5143,12 +5080,8 @@
         "opinions": [
             {
                 "Source": [
-                    [
-                        "we"
-                    ],
-                    [
-                        "24:26"
-                    ]
+                    [],
+                    []
                 ],
                 "Target": [
                     [
@@ -5160,14 +5093,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "will be back"
+                        "The best"
                     ],
                     [
-                        "27:39"
+                        "0:8"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             }
         ]
     },
@@ -5204,32 +5137,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00225_ffb11fd9fc93b3b74cde6a9dcb91be15-6",
         "text": "Some staff does not speak any English at all !!",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Some staff"
-                    ],
-                    [
-                        "0:10"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "does not speak"
-                    ],
-                    [
-                        "11:25"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00036_29c5cdcccf3cb2bb0f38d4d1153d3d44-1",
@@ -5250,13 +5158,13 @@
                 ],
                 "Polar_expression": [
                     [
-                        "grand"
+                        "worst"
                     ],
                     [
-                        "39:44"
+                        "4:9"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Strong"
             }
         ]
@@ -5272,10 +5180,10 @@
                 ],
                 "Target": [
                     [
-                        "shuttle"
+                        "shuttle bus"
                     ],
                     [
-                        "5:12"
+                        "5:16"
                     ]
                 ],
                 "Polar_expression": [
@@ -5315,10 +5223,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "conf"
+                        "quiet"
                     ],
                     [
-                        "30:34"
+                        "20:25"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -5423,14 +5331,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "dirty"
+                        "very old"
                     ],
                     [
-                        "29:34"
+                        "16:24"
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             },
             {
                 "Source": [
@@ -5447,10 +5355,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "very old"
+                        "dirty"
                     ],
                     [
-                        "16:24"
+                        "29:34"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -5512,10 +5420,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "inedible bacteria"
+                        "in"
                     ],
                     [
-                        "9:26"
+                        "9:11"
                     ]
                 ],
                 "Polarity": "Negative",
@@ -5660,14 +5568,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "loud"
+                        "very poor"
                     ],
                     [
-                        "41:45"
+                        "19:28"
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             }
         ]
     },
@@ -5675,6 +5583,30 @@
         "sent_id": "opener_en/kaf/hotel/english00122_b509ee1b998f3418b1fd4a8096880441-4",
         "text": "Breakfast was perfect with a nice variety .",
         "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "variety"
+                    ],
+                    [
+                        "34:41"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "perfect"
+                    ],
+                    [
+                        "14:21"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            },
             {
                 "Source": [
                     [],
@@ -5698,30 +5630,6 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "variety"
-                    ],
-                    [
-                        "34:41"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "nice"
-                    ],
-                    [
-                        "29:33"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
             }
         ]
     },
@@ -5794,6 +5702,34 @@
                 ],
                 "Target": [
                     [
+                        "breakfast selection"
+                    ],
+                    [
+                        "25:44"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "impressed"
+                    ],
+                    [
+                        "6:15"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [
+                        "I"
+                    ],
+                    [
+                        "0:1"
+                    ]
+                ],
+                "Target": [
+                    [
                         "the breakfast"
                     ],
                     [
@@ -5809,13 +5745,18 @@
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             }
         ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00221_fbcfafad33cef47cd341ecc409a0f76a-5",
         "text": "We spend 4 night at this hotel .",
+        "opinions": []
+    },
+    {
+        "sent_id": "opener_en/kaf/hotel/english00225_ffb11fd9fc93b3b74cde6a9dcb91be15-9",
+        "text": "After breakfast no meals or drinks offered .",
         "opinions": [
             {
                 "Source": [
@@ -5824,29 +5765,24 @@
                 ],
                 "Target": [
                     [
-                        "this hotel"
+                        "meals"
                     ],
                     [
-                        "20:30"
+                        "19:24"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "spend"
+                        "no meals or drinks offered"
                     ],
                     [
-                        "3:8"
+                        "16:42"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
-    },
-    {
-        "sent_id": "opener_en/kaf/hotel/english00225_ffb11fd9fc93b3b74cde6a9dcb91be15-9",
-        "text": "After breakfast no meals or drinks offered .",
-        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00021_175f405c5bc3db2c7e1207bc21346d43-1",
@@ -5921,28 +5857,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00127_be6853eb63a85dfd91663b64efaaf60b-4",
         "text": "I am enjoying in my way .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [],
-                    []
-                ],
-                "Polar_expression": [
-                    [
-                        "enjoying"
-                    ],
-                    [
-                        "5:13"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00131_922600cc0b95f1bff86e963509495860-6",
@@ -5955,10 +5870,10 @@
                 ],
                 "Target": [
                     [
-                        "Thick windows"
+                        "windows"
                     ],
                     [
-                        "0:13"
+                        "6:13"
                     ]
                 ],
                 "Polar_expression": [
@@ -6048,7 +5963,7 @@
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             }
         ]
     },
@@ -6056,30 +5971,6 @@
         "sent_id": "opener_en/kaf/hotel/english00225_ffb11fd9fc93b3b74cde6a9dcb91be15-2",
         "text": "Basic Sheraton below my expectations .",
         "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Sher"
-                    ],
-                    [
-                        "6:10"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Basic"
-                    ],
-                    [
-                        "0:5"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            },
             {
                 "Source": [
                     [],
@@ -6127,7 +6018,7 @@
                         "0:10"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
@@ -6151,10 +6042,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "worth"
+                        "worth a visit"
                     ],
                     [
-                        "13:18"
+                        "13:26"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -6227,21 +6118,21 @@
                 ],
                 "Target": [
                     [
-                        "towels"
+                        "bed linen"
                     ],
                     [
-                        "25:31"
+                        "6:15"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "grey"
+                        "Cheap"
                     ],
                     [
-                        "20:24"
+                        "0:5"
                     ]
                 ],
-                "Polarity": "Negative",
+                "Polarity": "Positive",
                 "Intensity": "Standard"
             },
             {
@@ -6327,32 +6218,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00106_95e12d763c34248a2836b2b210c1cbd1-5",
         "text": "Ervery morning Aquagym !",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "NA Ervery morning"
-                    ],
-                    [
-                        "-3:14"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Er"
-                    ],
-                    [
-                        "0:2"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00071_6901a988b452abe791e088abe8e7dd83-1",
@@ -6491,14 +6357,14 @@
                 ],
                 "Polar_expression": [
                     [
-                        "comfortable"
+                        "Very warm comfortable friendly"
                     ],
                     [
-                        "10:21"
+                        "0:30"
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Standard"
+                "Intensity": "Strong"
             },
             {
                 "Source": [
@@ -6567,10 +6433,10 @@
                 ],
                 "Target": [
                     [
-                        "The food"
+                        "The food choices"
                     ],
                     [
-                        "0:8"
+                        "0:16"
                     ]
                 ],
                 "Polar_expression": [
@@ -6594,66 +6460,12 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00012_0d83dca3caeaaf8eceffcae22ebf53b6-7",
         "text": "I will come back there .",
-        "opinions": [
-            {
-                "Source": [
-                    [
-                        "I"
-                    ],
-                    [
-                        "0:1"
-                    ]
-                ],
-                "Target": [
-                    [
-                        "NA I will come back there"
-                    ],
-                    [
-                        "-3:22"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "will come"
-                    ],
-                    [
-                        "2:11"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00118_aea36867626915cb3f94bc7c17ec5bb9-1",
         "text": "Steigenberger Airport Hotel Frankfurt",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "NA Steigenberger Airport Hotel"
-                    ],
-                    [
-                        "-3:27"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Frankfurt"
-                    ],
-                    [
-                        "28:37"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00071_6901a988b452abe791e088abe8e7dd83-4",
@@ -6768,28 +6580,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00036_29c5cdcccf3cb2bb0f38d4d1153d3d44-4",
         "text": "Cannot get any assistance with issues",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [],
-                    []
-                ],
-                "Polar_expression": [
-                    [
-                        "Cannot"
-                    ],
-                    [
-                        "0:6"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00148_ddb06f1e4ab012d85f9120c394168c48-3",
@@ -6814,30 +6605,6 @@
                     ],
                     [
                         "21:30"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "place"
-                    ],
-                    [
-                        "31:36"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Wonderful"
-                    ],
-                    [
-                        "0:9"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -6955,6 +6722,30 @@
                     ]
                 ],
                 "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "The room"
+                    ],
+                    [
+                        "0:8"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "adequate"
+                    ],
+                    [
+                        "13:21"
+                    ]
+                ],
+                "Polarity": "Positive",
                 "Intensity": "Strong"
             }
         ]
@@ -6965,8 +6756,12 @@
         "opinions": [
             {
                 "Source": [
-                    [],
-                    []
+                    [
+                        "We"
+                    ],
+                    [
+                        "0:2"
+                    ]
                 ],
                 "Target": [
                     [
@@ -6989,8 +6784,12 @@
             },
             {
                 "Source": [
-                    [],
-                    []
+                    [
+                        "We"
+                    ],
+                    [
+                        "0:2"
+                    ]
                 ],
                 "Target": [
                     [
@@ -7021,11 +6820,6 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00148_ddb06f1e4ab012d85f9120c394168c48-2",
         "text": "Loved this holiday .",
-        "opinions": []
-    },
-    {
-        "sent_id": "opener_en/kaf/hotel/english00015_18a9f5b73a668f8d4b7c7e3fe6bf039a-1",
-        "text": "Good times , great people",
         "opinions": [
             {
                 "Source": [
@@ -7034,23 +6828,29 @@
                 ],
                 "Target": [
                     [
-                        "times"
+                        "this holiday"
                     ],
                     [
-                        "5:10"
+                        "6:18"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "Good"
+                        "L"
                     ],
                     [
-                        "0:4"
+                        "0:1"
                     ]
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
-            },
+            }
+        ]
+    },
+    {
+        "sent_id": "opener_en/kaf/hotel/english00015_18a9f5b73a668f8d4b7c7e3fe6bf039a-1",
+        "text": "Good times , great people",
+        "opinions": [
             {
                 "Source": [
                     [],
@@ -7074,6 +6874,30 @@
                 ],
                 "Polarity": "Positive",
                 "Intensity": "Strong"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "times"
+                    ],
+                    [
+                        "5:10"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "Good"
+                    ],
+                    [
+                        "0:4"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
             }
         ]
     },
@@ -7176,10 +7000,10 @@
                 ],
                 "Target": [
                     [
-                        "meals"
+                        "NA We enjoyed te meals"
                     ],
                     [
-                        "14:19"
+                        "-3:19"
                     ]
                 ],
                 "Polar_expression": [
@@ -7330,39 +7154,14 @@
                     ]
                 ],
                 "Polarity": "Positive",
-                "Intensity": "Strong"
+                "Intensity": "Standard"
             }
         ]
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00011_131b37a0eb5542ccbdbd5e0139875027-5",
         "text": "We will come again !",
-        "opinions": [
-            {
-                "Source": [
-                    [
-                        "We"
-                    ],
-                    [
-                        "0:2"
-                    ]
-                ],
-                "Target": [
-                    [],
-                    []
-                ],
-                "Polar_expression": [
-                    [
-                        "will come"
-                    ],
-                    [
-                        "3:12"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00221_fbcfafad33cef47cd341ecc409a0f76a-1",
@@ -7375,10 +7174,10 @@
                 ],
                 "Target": [
                     [
-                        "impression"
+                        "NA Bad impression"
                     ],
                     [
-                        "4:14"
+                        "-3:14"
                     ]
                 ],
                 "Polar_expression": [
@@ -7480,7 +7279,7 @@
                         "0:5"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
@@ -7531,10 +7330,10 @@
                 ],
                 "Target": [
                     [
-                        "NA Pool"
+                        "Pool"
                     ],
                     [
-                        "-3:4"
+                        "0:4"
                     ]
                 ],
                 "Polar_expression": [
@@ -7545,7 +7344,7 @@
                         "5:16"
                     ]
                 ],
-                "Polarity": "Positive",
+                "Polarity": "Negative",
                 "Intensity": "Standard"
             }
         ]
@@ -7651,6 +7450,30 @@
                 ],
                 "Target": [
                     [
+                        "airport hotel"
+                    ],
+                    [
+                        "10:23"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "Exp"
+                    ],
+                    [
+                        "0:3"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Standard"
+            },
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
                         "hotel"
                     ],
                     [
@@ -7709,30 +7532,6 @@
         "sent_id": "opener_en/kaf/hotel/english00016_1bf091a4517b245ddc05ed2efd135973-1",
         "text": "Very nice hotel !",
         "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "hotel"
-                    ],
-                    [
-                        "10:15"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "nice"
-                    ],
-                    [
-                        "5:9"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Strong"
-            },
             {
                 "Source": [
                     [],
@@ -7857,10 +7656,10 @@
                 ],
                 "Target": [
                     [
-                        "resort"
+                        "beach resort"
                     ],
                     [
-                        "16:22"
+                        "10:22"
                     ]
                 ],
                 "Polar_expression": [
@@ -7879,32 +7678,7 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00110_7a012157f787f3c49871371b3f64b382-1",
         "text": "Business and shopping",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Business and shopping"
-                    ],
-                    [
-                        "0:21"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Business"
-                    ],
-                    [
-                        "0:8"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00044_3efe4d8dbdd774d767ba1349e00ceeeb-1",
@@ -7952,10 +7726,10 @@
                 ],
                 "Target": [
                     [
-                        "NA Pool area"
+                        "Pool"
                     ],
                     [
-                        "-3:9"
+                        "0:4"
                     ]
                 ],
                 "Polar_expression": [
@@ -7986,10 +7760,10 @@
                 ],
                 "Polar_expression": [
                     [
-                        "Coming"
+                        "Coming to rest"
                     ],
                     [
-                        "0:6"
+                        "0:14"
                     ]
                 ],
                 "Polarity": "Positive",
@@ -8035,58 +7809,12 @@
     {
         "sent_id": "opener_en/kaf/hotel/english00141_d588b065119a34291a9a412b413bed58-2",
         "text": "hello .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [],
-                    []
-                ],
-                "Polar_expression": [
-                    [
-                        "hello"
-                    ],
-                    [
-                        "0:5"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00111_a0c1adca8aa3f8cebb3b188d2a3e6fbf-1",
         "text": "Hotel Riverside",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Hotel"
-                    ],
-                    [
-                        "0:5"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Riverside"
-                    ],
-                    [
-                        "6:15"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Standard"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "opener_en/kaf/hotel/english00127_be6853eb63a85dfd91663b64efaaf60b-1",
