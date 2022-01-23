@@ -3,8 +3,7 @@ sys.path.append('../')
 import os
 if 'p' in os.environ:
     os.environ['CUDA_VISIBLE_DEVICES'] = os.environ['p']
-    # os.environ['CUDA_VISIBLE_DEVICES'] = '7'
-#process pipe
+
 import warnings
 warnings.filterwarnings('ignore')
 from data.pipe import BartBPEABSAPipe
@@ -21,7 +20,9 @@ from peng.model.generator import SequenceGeneratorModel
 import fitlog
 from fastNLP.core.sampler import SequentialSampler
 
-# fitlog.debug()
+print('Tuple Order ---> Aspect, Opinion, Holder, Polarity and Intensity')
+print()
+
 if not os.path.exists("logs"):
   os.makedirs('logs')
 fitlog.set_log_dir('logs')
@@ -57,10 +58,6 @@ use_encoder_mlp = args.use_encoder_mlp
 save_model = args.save_model
 fitlog.add_hyper(args)
 
-#######hyper
-#######hyper
-
-
 demo = False
 if demo:
     cache_fn = f"caches/data_{bart_name}_{dataset_name}_{opinion_first}_demo.pt"
@@ -75,22 +72,9 @@ def get_data():
     return data_bundle, pipe.tokenizer, pipe.mapping2id
 
 data_bundle, tokenizer, mapping2id = get_data()
-# for i in range(0,15):
-# print(tokenizer.convert_ids_to_tokens(range(0,15)))
-# print("For positive:")
-# print(tokenizer.convert_ids_to_tokens(2))
-# print(tokenizer.convert_tokens_to_ids("<<positive>>"))
-# exit()
 print()
 print("Data_bundle", data_bundle)
 
-# for j in range(2):
-#     wet123 = data_bundle.get_dataset('dev')[j].items()
-#     for i in wet123:
-#         print(i)
-#     print()
-#     print()
-# exit()
 max_len = 10
 # max_len_a = {
 #     'penga/14lap': 0.9,
@@ -102,7 +86,6 @@ max_len = 10
 #     'pengb/15res': 0.9,
 #     'pengb/16res': 1.2
 # }[dataset_name]
-
 max_len_a = 1.2
 
 print("The number of tokens in tokenizer ", len(tokenizer.decoder))
@@ -157,8 +140,7 @@ callbacks.append(FitlogCallback(data_bundle.get_dataset('test')))
 sampler = None
 # sampler = ConstTokenNumSampler('src_seq_len', max_token=1000)
 sampler = BucketSampler(seq_len_field_name='src_seq_len')
-sampler = SequentialSampler()
-# sampler = None
+# sampler = SequentialSampler()
 metric = Seq2SeqSpanMetric(eos_token_id, num_labels=len(label_ids), opinion_first=opinion_first, data_bundle = data_bundle, tokenizer = tokenizer, mapping2id = mapping2id, dataset = dataset_name)
 
 
