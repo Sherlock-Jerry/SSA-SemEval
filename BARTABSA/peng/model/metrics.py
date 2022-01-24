@@ -49,7 +49,8 @@ class Seq2SeqSpanMetric(MetricBase):
             print(phrase)
             print(start, end, len(self.mapping2id), self.mapping2id)
             print(tokenized_sentence)
-        assert(start_idx+len(self.null_token)!=-1)
+            return [], []
+        # assert(start_idx+len(self.null_token)!=-1)
         end_idx = start_idx+len(phrase)
 
         return [phrase], [f'{start_idx}:{end_idx}']
