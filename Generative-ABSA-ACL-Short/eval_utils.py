@@ -22,7 +22,7 @@ aspect_cate_list = ['location general',
  'restaurant general',
  'food style_options']
 
-
+# edit
 def extract_spans_extraction(task, seq):
     extractions = []
     if task == 'uabsa' and seq.lower() == 'none':

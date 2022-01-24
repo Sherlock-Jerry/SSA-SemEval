@@ -1,5 +1,5 @@
 # This file contains all data loading and transformation functions
-
+# ABSADataset
 import time
 from torch.utils.data import Dataset
 
@@ -313,8 +313,14 @@ class ABSADataset(Dataset):
 
         self.inputs = []
         self.targets = []
+        self.raw_sentences = []
+        self.master_map = {}
+
+        self.data_type = data_type
+        self.data_dir = data_dir
 
         self._build_examples()
+        self.make_map()
 
     def __len__(self):
         return len(self.inputs)
@@ -327,15 +333,16 @@ class ABSADataset(Dataset):
         target_mask = self.targets[index]["attention_mask"].squeeze()  # might need to squeeze
 
         return {"source_ids": source_ids, "source_mask": src_mask, 
-                "target_ids": target_ids, "target_mask": target_mask}
+                "target_ids": target_ids, "target_mask": target_mask,
+                "sent_id": self.raw_sentences[index]
+                }
 
     def _build_examples(self):
 
         inputs, targets = get_transformed_io(self.data_path, self.paradigm, self.task)
-
         for i in range(len(inputs)):
 
-            input = ' '.join(inputs[i]) 
+            input_raw = ' '.join(inputs[i]) 
             if self.paradigm == 'annotation':
                 if self.task != 'tasd':
                     target = ' '.join(targets[i]) 
@@ -345,7 +352,7 @@ class ABSADataset(Dataset):
                 target = targets[i]
 
             tokenized_input = self.tokenizer.batch_encode_plus(
-              [input], max_length=self.max_len, pad_to_max_length=True, truncation=True,
+              [input_raw], max_length=self.max_len, pad_to_max_length=True, truncation=True,
               return_tensors="pt",
             )
             tokenized_target = self.tokenizer.batch_encode_plus(
@@ -355,6 +362,15 @@ class ABSADataset(Dataset):
 
             self.inputs.append(tokenized_input)
             self.targets.append(tokenized_target)
+            self.raw_sentences.append(input_raw)
+    
+    def make_map(self):
+        with open(f"/content/SSA-SemEval/BARTABSA/final_data/{data_dir}/{data_type}_convert.json") as f:
+            data = json.load(f)
+            for row in data:
+                self.master_map[row['raw_words']] = row['sent_id']
+        self.raw_sentences = [ self.master_map[i] for i in self.raw_sentences ]
+        
 
 
 def write_results_to_log(log_file_path, best_test_result, args, dev_results, test_results, global_steps):

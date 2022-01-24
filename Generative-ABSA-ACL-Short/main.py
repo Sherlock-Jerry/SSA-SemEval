@@ -117,7 +117,7 @@ class T5FineTuner(pl.LightningModule):
 
         loss = outputs[0]
         return loss
-
+# /content/SSA-SemEval/Generative-ABSA-ACL-Short/output_results
     def training_step(self, batch, batch_idx):
         loss = self._step(batch)
 
@@ -212,7 +212,7 @@ class LoggingCallback(pl.Callback):
                     writer.write("{} = {}\n".format(key, str(metrics[key])))
 
 
-def evaluate(data_loader, model, paradigm, task, sents=None):
+def evaluate(data_loader, model, paradigm, task, sents=None, dataset_type = None):
     """
     Compute scores given the predictions and gold labels
     """
@@ -221,6 +221,7 @@ def evaluate(data_loader, model, paradigm, task, sents=None):
     
     model.model.eval()
     outputs, targets = [], []
+    sent_ids = []
     for batch in tqdm(data_loader):
         # need to push the data to device
         outs = model.model.generate(input_ids=batch['source_ids'].to(device), 
@@ -232,12 +233,13 @@ def evaluate(data_loader, model, paradigm, task, sents=None):
 
         outputs.extend(dec)
         targets.extend(target)
-
-    if not os.path.exists('output_results'): os.makedirs('output_results')
-    with open(f'output_results/outputs_{args.dataset}.json', 'w') as f: json.dump(outputs, f)
-    with open(f'output_results/targets_{args.dataset}.json', 'w') as f: json.dump(targets, f)
+        sent_ids += [ids for ids in batch['sent_id']]
+    
     if sents is not None: 
-        with open(f'output_results/sents_{args.dataset}.json', 'w') as f: json.dump(sents, f)
+        if not os.path.exists('output_results'): os.makedirs('output_results')
+        with open(f'output_results/outputs_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(outputs, f)
+        with open(f'output_results/targets_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(targets, f)
+        with open(f'output_results/sents_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(sents, f)
     else:
         print('sents is None, not writing in output_results')
     print('paradigm, task, args.dataset', paradigm, task, args.dataset)
@@ -389,7 +391,15 @@ if args.do_direct_eval:
                     paradigm=args.paradigm, task=args.task, max_len=args.max_seq_length)
     test_loader = DataLoader(test_dataset, batch_size=32, num_workers=4)
     # print(test_loader.device)
-    raw_scores, fixed_scores = evaluate(test_loader, model, args.paradigm, args.task, sents)
+    
+    model_ckpt = torch.load(best_checkpoint)
+    model = T5FineTuner(model_ckpt['hyper_parameters'])
+    model.load_state_dict(model_ckpt['state_dict'])
+    print("*"*50, best_epoch,"*"*50)
+
+
+    raw_scores_dev, fixed_scores_dev = evaluate(dev_loader, model, args.paradigm, args.task, sents, "dev")
+    raw_scores, fixed_scores = evaluate(test_loader, model, args.paradigm, args.task, sents, "test")
     # print(scores)
 
     # write to file
