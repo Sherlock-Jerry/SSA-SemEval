@@ -52,7 +52,32 @@
     {
         "sent_id": "University_of_Maryland_University_College_20_03-06-2006-9",
         "text": "It doesn't help that the faculty and administration deliberately spies on students in student groups , plants information in the groups , and seeks to destroy the student groups when the messges get to negative about UMUC .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "UM"
+                    ],
+                    [
+                        "217:219"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "administration deliberately"
+                    ],
+                    [
+                        "37:64"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_55_10-05-2005-7",
@@ -72,7 +97,32 @@
     {
         "sent_id": "University_of_Phoenix_Online_185_09-06-2004-9",
         "text": "If they are so expensive , and not good , why are they the largest school in the U.S . Word would get out in the past 15 years they have been doing it .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "they are so expensive , and not good , why are they the largest school"
+                    ],
+                    [
+                        "3:73"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "not"
+                    ],
+                    [
+                        "31:34"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Average"
+            }
+        ]
     },
     {
         "sent_id": "University_of_Maryland_University_College_30_10-31-2004-6",
@@ -97,32 +147,7 @@
     {
         "sent_id": "Capella_University_4_08-01-2008-18",
         "text": "This led me to look at what others are saying and \" some \" are saying that the school is lousy from their experiences also and they are currently in the program .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "school"
-                    ],
-                    [
-                        "79:85"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "lousy"
-                    ],
-                    [
-                        "89:94"
-                    ]
-                ],
-                "Polarity": "Negative",
-                "Intensity": "Average"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "University_of_Phoenix_Online_153_07-27-2005-10",
@@ -157,6 +182,11 @@
     {
         "sent_id": "University_of_Maryland_University_College_20_03-06-2006-15",
         "text": "I thought the courses would be more challenging , but because anyone can enroll in a course , the instructors have to dumb it down so everyone can enjoy .",
+        "opinions": []
+    },
+    {
+        "sent_id": "University_of_Maryland_University_College_20_03-06-2006-13",
+        "text": "There is also truth to rumors that there have been out of court settlements for wronful dismissals of UMUC employees , and EEOC complaints .",
         "opinions": [
             {
                 "Source": [
@@ -165,29 +195,24 @@
                 ],
                 "Target": [
                     [
-                        "instructors"
+                        "UM"
                     ],
                     [
-                        "98:109"
+                        "102:104"
                     ]
                 ],
                 "Polar_expression": [
                     [
-                        "dumb"
+                        "rumors that there have been out"
                     ],
                     [
-                        "118:122"
+                        "23:54"
                     ]
                 ],
                 "Polarity": "Negative",
                 "Intensity": "Average"
             }
         ]
-    },
-    {
-        "sent_id": "University_of_Maryland_University_College_20_03-06-2006-13",
-        "text": "There is also truth to rumors that there have been out of court settlements for wronful dismissals of UMUC employees , and EEOC complaints .",
-        "opinions": []
     },
     {
         "sent_id": "Capella_University_4_08-01-2008-9",
@@ -277,7 +302,32 @@
     {
         "sent_id": "University_of_Maryland_University_College_3_01-03-2008-4",
         "text": "It has some who are very involved in classes while there are other professors who should be barred from entering any school , not just online .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "It"
+                    ],
+                    [
+                        "0:2"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very"
+                    ],
+                    [
+                        "20:24"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_27_12-21-2007-14",
@@ -472,7 +522,32 @@
     {
         "sent_id": "University_of_Phoenix_Online_27_12-21-2007-11",
         "text": "I have had classes with students who are reading at elementary school level and I was so freaking embarrassed .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "NA I have had classes"
+                    ],
+                    [
+                        "-3:18"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "so"
+                    ],
+                    [
+                        "86:88"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_4_08-01-2008-7",
@@ -487,7 +562,32 @@
     {
         "sent_id": "University_of_Maryland_University_College_20_03-06-2006-1",
         "text": "I was really disappointed with the UMUC experience , both face-to-face and online .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "UM"
+                    ],
+                    [
+                        "35:37"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "really"
+                    ],
+                    [
+                        "6:12"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_55_09-08-2006-8",
@@ -544,7 +644,7 @@
                         "4:7"
                     ]
                 ],
-                "Polarity": "Negative",
+                "Polarity": "Neutral",
                 "Intensity": "Average"
             }
         ]
@@ -557,7 +657,32 @@
     {
         "sent_id": "DeVry_University_93_08-08-2004-1",
         "text": "I go the seattle campus and in the CIS program and agree the that school is expensive .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "school"
+                    ],
+                    [
+                        "66:72"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "expensive"
+                    ],
+                    [
+                        "76:85"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Average"
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_4_08-01-2008-8",
@@ -612,32 +737,7 @@
     {
         "sent_id": "Capella_University_40_05-24-2006-2",
         "text": "On an aside , this type of education is not for the undisciplined learner .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "education"
-                    ],
-                    [
-                        "27:36"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "not"
-                    ],
-                    [
-                        "40:43"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Average"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "University_of_Phoenix_Online_185_09-06-2004-3",
@@ -717,7 +817,32 @@
     {
         "sent_id": "University_of_Maryland_University_College_20_03-06-2006-3",
         "text": "UMUC administrators tended to supply larger communities with more choices of F2F courses .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "UM"
+                    ],
+                    [
+                        "0:2"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "administrators tended to supply larger communities with more"
+                    ],
+                    [
+                        "5:65"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_50_12-09-2005-4",
@@ -767,7 +892,32 @@
     {
         "sent_id": "Capella_University_4_08-01-2008-10",
         "text": "I found Capella to be very unprofessional with the way they handled this .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "Cape"
+                    ],
+                    [
+                        "8:12"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very un"
+                    ],
+                    [
+                        "22:29"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_15_05-19-2008-1",
@@ -907,7 +1057,32 @@
     {
         "sent_id": "University_of_Maryland_University_College_20_03-06-2006-19",
         "text": "As colleges go , sorry UMUC just doesn't rate very well .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "UM"
+                    ],
+                    [
+                        "23:25"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very"
+                    ],
+                    [
+                        "46:50"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "St_Leo_University_4_04-16-2004-3",
@@ -917,7 +1092,32 @@
     {
         "sent_id": "St_Leo_University_4_04-16-2004-5",
         "text": "The teachers are very helpful , and the staff is , as well .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "teachers"
+                    ],
+                    [
+                        "4:12"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very"
+                    ],
+                    [
+                        "17:21"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "University_of_Maryland_University_College_20_03-06-2006-11",
@@ -992,32 +1192,7 @@
     {
         "sent_id": "Capella_University_4_08-01-2008-3",
         "text": "So , now I will leave my original comment about Capella .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Cape"
-                    ],
-                    [
-                        "48:52"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Cape"
-                    ],
-                    [
-                        "48:52"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Average"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "Capella_University_4_08-01-2008-5",
@@ -1037,7 +1212,32 @@
     {
         "sent_id": "University_of_Phoenix_Online_109_02-09-2006-2",
         "text": "The professor are very experienced and I have learned a lot .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "professor"
+                    ],
+                    [
+                        "4:13"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "very"
+                    ],
+                    [
+                        "18:22"
+                    ]
+                ],
+                "Polarity": "Positive",
+                "Intensity": "Strong"
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_4_08-01-2008-26",
@@ -1062,12 +1262,62 @@
     {
         "sent_id": "University_of_Phoenix_Online_192_06-15-2004-1",
         "text": "University of Phoenix is a complete waste of time and money .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "University"
+                    ],
+                    [
+                        "0:10"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "complete"
+                    ],
+                    [
+                        "27:35"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Average"
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_185_09-06-2004-5",
         "text": "What I do not understand is all the negative feedback .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [],
+                    []
+                ],
+                "Target": [
+                    [
+                        "feedback"
+                    ],
+                    [
+                        "45:53"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        "not"
+                    ],
+                    [
+                        "10:13"
+                    ]
+                ],
+                "Polarity": "Negative",
+                "Intensity": "Average"
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_153_07-27-2005-26",
@@ -1100,7 +1350,7 @@
                     ]
                 ],
                 "Polarity": "Negative",
-                "Intensity": "Average"
+                "Intensity": "Strong"
             }
         ]
     },
@@ -1137,32 +1387,7 @@
     {
         "sent_id": "Capella_University_4_08-01-2008-11",
         "text": "This does not bode well for the school .",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "school"
-                    ],
-                    [
-                        "32:38"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "well"
-                    ],
-                    [
-                        "19:23"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Average"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "DeVry_University_95_05-16-2004-6",
@@ -1252,32 +1477,7 @@
     {
         "sent_id": "Capella_University_4_08-01-2008-1",
         "text": "Thanks Capella ! ! ! !",
-        "opinions": [
-            {
-                "Source": [
-                    [],
-                    []
-                ],
-                "Target": [
-                    [
-                        "Cape"
-                    ],
-                    [
-                        "7:11"
-                    ]
-                ],
-                "Polar_expression": [
-                    [
-                        "Cape"
-                    ],
-                    [
-                        "7:11"
-                    ]
-                ],
-                "Polarity": "Positive",
-                "Intensity": "Average"
-            }
-        ]
+        "opinions": []
     },
     {
         "sent_id": "Capella_University_80_09-21-2004-1",

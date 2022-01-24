@@ -36,13 +36,19 @@ class Seq2SeqSpanMetric(MetricBase):
         self.sentence_id_list = []
 
     def make_phrase(self, start, end, tokenized_sentence):
-        phrase = tokenized_sentence[start-len(self.mapping2id)-len(self.null_token): end-len(self.mapping2id)-len(self.null_token)+1]
+        phrase = tokenized_sentence[start-len(self.mapping2id)-3: end-len(self.mapping2id)-3+1]
         if phrase == []: return [], []
         sent = self.tokenizer.convert_tokens_to_string(tokenized_sentence)
         phrase = self.tokenizer.convert_tokens_to_string(phrase).strip()
         if phrase == 'NA' or phrase == []: return [], []
 
         start_idx = sent.find(phrase) - len(self.null_token)
+        if start_idx + len(self.null_token) == -1:
+            print()
+            print(sent)
+            print(phrase)
+            print(start, end, len(self.mapping2id), self.mapping2id)
+            print(tokenized_sentence)
         assert(start_idx+len(self.null_token)!=-1)
         end_idx = start_idx+len(phrase)
 

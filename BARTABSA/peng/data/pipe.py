@@ -38,7 +38,7 @@ class BartBPEABSAPipe(Pipe):
                 inten.append(ori_opi['Intensity'])
         pol, inten = list(set(pol)), list(set(inten))
         for label in pol+inten:
-            self.mapping[label] = f'<<{label.lower()}>>'
+            self.mapping[label] = f'<<{str(label).lower()}>>'
         # self.mapping['<<none>>'] = "<<none>>"
         
         self.opinion_first = opinion_first  # 是否先生成opinion
