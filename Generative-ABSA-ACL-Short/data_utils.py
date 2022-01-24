@@ -1,6 +1,7 @@
 # This file contains all data loading and transformation functions
 # ABSADataset
 import time
+import json
 from torch.utils.data import Dataset
 
 # senttag2word = {'POS': 'positive', 'NEG': 'negative', 'NEU': 'neutral'}
@@ -314,6 +315,7 @@ class ABSADataset(Dataset):
         self.inputs = []
         self.targets = []
         self.raw_sentences = []
+        self.sent_ids = []
         self.master_map = {}
 
         self.data_type = data_type
@@ -334,8 +336,7 @@ class ABSADataset(Dataset):
 
         return {"source_ids": source_ids, "source_mask": src_mask, 
                 "target_ids": target_ids, "target_mask": target_mask,
-                "sent_id": self.raw_sentences[index]
-                }
+                "sent_id": self.sent_ids[index], "text": self.raw_sentences[index]}
 
     def _build_examples(self):
 
@@ -365,14 +366,12 @@ class ABSADataset(Dataset):
             self.raw_sentences.append(input_raw)
     
     def make_map(self):
-        with open(f"/content/SSA-SemEval/BARTABSA/final_data/{data_dir}/{data_type}_convert.json") as f:
+        with open(f"/content/SSA-SemEval/BARTABSA/final_data/{self.data_dir}/{self.data_type}_convert.json") as f:
             data = json.load(f)
             for row in data:
                 self.master_map[row['raw_words']] = row['sent_id']
-        self.raw_sentences = [ self.master_map[i] for i in self.raw_sentences ]
+        self.sent_ids = [ self.master_map[i] for i in self.raw_sentences ]
         
-
-
 def write_results_to_log(log_file_path, best_test_result, args, dev_results, test_results, global_steps):
     """
     Record dev and test results to log file

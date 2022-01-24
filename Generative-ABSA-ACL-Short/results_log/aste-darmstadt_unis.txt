@@ -3,3 +3,17 @@ Wed Jan  5 04:50:57 2022
 aste on darmstadt_unis under extraction; Train bs=16, num_epochs = 1
 Raw F1 = 0.0042, Fixed F1 = 0.6250
 
+Mon Jan 24 18:10:03 2022
+Exp setting: aste on darmstadt_unis under extraction | 0.2013 | 
+Train setting: bs=16, lr=0.0003, num_epochs=1
+
+* Results *:  Dev  /  Test  
+Step-1:
+f1      : 0.1417 / 0.2013     precision: 0.1466 / 0.2013     recall  : 0.1371 / 0.2013     
+
+
+============================================================
+Mon Jan 24 18:10:53 2022
+aste on darmstadt_unis under extraction; Train bs=16, num_epochs = 1
+Raw F1 = 0.2013, Fixed F1 = 0.5849
+

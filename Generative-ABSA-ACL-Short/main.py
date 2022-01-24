@@ -222,6 +222,8 @@ def evaluate(data_loader, model, paradigm, task, sents=None, dataset_type = None
     model.model.eval()
     outputs, targets = [], []
     sent_ids = []
+    text_list = []
+
     for batch in tqdm(data_loader):
         # need to push the data to device
         outs = model.model.generate(input_ids=batch['source_ids'].to(device), 
@@ -233,15 +235,18 @@ def evaluate(data_loader, model, paradigm, task, sents=None, dataset_type = None
 
         outputs.extend(dec)
         targets.extend(target)
-        sent_ids += [ids for ids in batch['sent_id']]
+        sent_ids += batch['sent_id']
+        text_list += batch['text']
     
     if sents is not None: 
         if not os.path.exists('output_results'): os.makedirs('output_results')
         with open(f'output_results/outputs_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(outputs, f)
         with open(f'output_results/targets_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(targets, f)
         with open(f'output_results/sents_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(sents, f)
+        with open(f'output_results/sent_ids_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(sent_ids, f)# added
     else:
         print('sents is None, not writing in output_results')
+    
     print('paradigm, task, args.dataset', paradigm, task, args.dataset)
     raw_scores, fixed_scores, all_labels, all_preds, all_preds_fixed = compute_scores(outputs, targets, sents, paradigm, task, args.dataset)
     results = {'raw_scores': raw_scores, 'fixed_scores': fixed_scores, 'labels': all_labels,
