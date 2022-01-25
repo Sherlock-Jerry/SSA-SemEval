@@ -2,7 +2,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_124_12-02-2005-1",
         "text": "Well after reading most of the comments here , I will say that I am even more afraid to start \" UOP \" as everyone here is calling it .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_124_12-02-2005-2",
@@ -143,7 +172,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-2",
         "text": "I have to agree with GoCryToYOurMommyDontCryHere .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-3",
@@ -212,17 +270,104 @@
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-5",
         "text": "It's always somebody else's fault and they're not afraid to shout it out to the world .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-6",
         "text": "The ones who complain about UoP costing so much obviously never went to college anywhere before this .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-7",
         "text": "Here's a clue folks , it's not any cheaper at a university .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-8",
@@ -408,7 +553,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-15",
         "text": "The ones that aren't get weeded out fairly quickly .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-16",
@@ -443,7 +617,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-17",
         "text": "Some will be shocked by the work they will have to do in class and soon you'll be hearing from them in this forum .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-18",
@@ -453,17 +656,104 @@
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-19",
         "text": "Most every person who does enroll will have sub-standard writing abilities , some because they never learned , and some because they got lazy over the years .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-20",
         "text": "The ones who stay will sharpen those skills and become more polished in their thinking and their writing .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-21",
         "text": "Bottom line : It's not cheap , but then you're paying for an extensive infrastructure built to deliver education to you wherever you go .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_34_11-18-2007-22",
@@ -729,12 +1019,70 @@
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-3",
         "text": "That would seem to fit any of these people .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-4",
         "text": "You only get out what you put in .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-5",
@@ -749,7 +1097,36 @@
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-7",
         "text": "Yep , sure is easy to complain though .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-8",
@@ -784,7 +1161,36 @@
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-9",
         "text": "Sure you do . . . . .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-10",
@@ -819,7 +1225,36 @@
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-11",
         "text": "I am halfway through my program and my wages have gone up by $10,000 already .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-12",
@@ -829,17 +1264,104 @@
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-13",
         "text": "Have fun with your life I am sure you will find plenty to bitch about as time passes you by....without any degrees !",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-14",
         "text": "Thank you for your attention .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-15",
         "text": "Student of CTUOnline .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_47_02-07-2007-16",
@@ -900,7 +1422,36 @@
     {
         "sent_id": "Capella_University_13_03-14-2008-2",
         "text": "I live in Georgia and currently , there is no PhD program for cj in the state .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_13_03-14-2008-3",
@@ -950,7 +1501,36 @@
     {
         "sent_id": "Capella_University_13_03-14-2008-7",
         "text": "Any help would be greatly appreciated , whether it is good or bad .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_4_05-03-2008-1",
@@ -1025,7 +1605,36 @@
     {
         "sent_id": "Colorado_Technical_University_Online_4_05-03-2008-5",
         "text": "I just sent them transcipt request forms .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Colorado_Technical_University_Online_4_05-03-2008-6",
@@ -1186,7 +1795,36 @@
     {
         "sent_id": "Capella_University_49_01-01-2006-3",
         "text": "The programs change frequently and these changes are not understood by the staff of the school leaving the learner to pay tuition while these items get sorted out .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_49_01-01-2006-4",
@@ -1550,7 +2188,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-1",
         "text": "I am a MBA student with 3 classes left .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-2",
@@ -1590,12 +2257,70 @@
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-4",
         "text": "Papers are supposed to be written in APA format and many do not even know how to properly cite a reference .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-5",
         "text": "Basically an easy \" A \" and every class .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-6",
@@ -1630,12 +2355,70 @@
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-7",
         "text": "You can learn ( teach yourself ) but you do not learn much from the students .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-8",
         "text": "Most do not read the weekly chapters and have little to add to discussions .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_70_06-02-2007-9",
@@ -1750,7 +2533,36 @@
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-2",
         "text": "I just completed my first graduate class - MGMT 610 ( The Manager in a Technological Society ) , instructed by Dr . George Ellis and TA , Dr . Patricia McKenna .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-3",
@@ -1926,7 +2738,36 @@
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-13",
         "text": "So , you have to rely on a school name to get you hired , what a shame .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-14",
@@ -2066,7 +2907,36 @@
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-21",
         "text": "When people attain a degree from UMUC can they not get a career ?",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-22",
@@ -2076,7 +2946,36 @@
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-23",
         "text": "If individual's can't find work by obtaining a degree at UMUC , I am definitely in the wrong place , other than that i'm straight .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Maryland_University_College_11_05-15-2007-24",
@@ -2176,7 +3075,36 @@
     {
         "sent_id": "DeVry_University_7_06-07-2008-4",
         "text": "I already knew most of the stuff before the classes began , most classes I did not even have to open the book and I got an A . I left there with a 3.90 GPA .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_7_06-07-2008-5",
@@ -2752,7 +3680,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-1",
         "text": "I can not say that I have experienced the issues outlined by rootcrontab .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-2",
@@ -2787,7 +3744,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-3",
         "text": "University of Pheonix Online has provided a reliable classroom environment .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-4",
@@ -2912,7 +3898,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-8",
         "text": "Many will argue that you miss out on the social interaction .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-9",
@@ -2922,7 +3937,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-10",
         "text": "In this day and age computer skills and the ability to communicate using the technology available is a necessity in the corporate world .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_173_11-09-2004-11",
@@ -3048,7 +4092,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_154_07-25-2005-1",
         "text": "I have been attending UOP for nearly two years , things apparently came to an end because the inability to handle issues in a timely manner .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_154_07-25-2005-2",
@@ -3173,12 +4246,70 @@
     {
         "sent_id": "DeVry_University_24_12-20-2007-1",
         "text": "I assume your ive is to make money in a field that interests you .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-2",
         "text": "Perceptions count ; you must have something an employer wants , and he must know he wants it .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-3",
@@ -3193,7 +4324,36 @@
     {
         "sent_id": "DeVry_University_24_12-20-2007-5",
         "text": "So you get built in name recognition of your school .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-6",
@@ -3258,22 +4418,138 @@
     {
         "sent_id": "DeVry_University_24_12-20-2007-8",
         "text": "If you are a recent graduate and cant get into a public college go to your local community college .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-9",
         "text": "My bet is that an associates degree from a community college is just as marketable as an associates degree from a private specialty school .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-10",
         "text": "( Did I mention that it is less expensive too ? ) Some ( dare I say most ? ) community colleges have extension classes that allow you to gain transferable credits to a state 4 year institution .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-11",
         "text": "Lastly if none of these options meet your needs ( I think you should re-evaluate your needs but ! ) by all means check out a private school such as DEVRY .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-12",
@@ -3283,7 +4559,36 @@
     {
         "sent_id": "DeVry_University_24_12-20-2007-13",
         "text": "Well , lets see I am a 95 , DEVRY graduate of the Phoenix , AZ . USA , BSEET curriculum .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-14",
@@ -3334,7 +4639,36 @@
     {
         "sent_id": "DeVry_University_24_12-20-2007-19",
         "text": "Lastly : I havent looked at DEVRYs curriculum in years .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-20",
@@ -3399,7 +4733,36 @@
     {
         "sent_id": "DeVry_University_24_12-20-2007-22",
         "text": "That may be because a BSEET degree is not an engineering degree .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_24_12-20-2007-23",
@@ -3495,7 +4858,36 @@
     {
         "sent_id": "DeVry_University_82_07-29-2005-2",
         "text": "Yes it is expensive , but you get what you pay for . . .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_82_07-29-2005-3",
@@ -3686,7 +5078,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_183_09-08-2004-8",
         "text": "But US who pay and work hard to get an education do find we expect MORE from a college whether online or not .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_183_09-08-2004-9",
@@ -3941,7 +5362,36 @@
     {
         "sent_id": "Capella_University_9_05-18-2008-8",
         "text": "Do I ever feel that I have to defend my degree ( or soon to be degree ) ?",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_9_05-18-2008-9",
@@ -3951,12 +5401,70 @@
     {
         "sent_id": "Capella_University_9_05-18-2008-10",
         "text": "Why ?",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_9_05-18-2008-11",
         "text": "Because all of the nut jobs out that that have zero clue what distance education is about and their failures on life in general .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_9_05-18-2008-12",
@@ -4001,7 +5509,36 @@
     {
         "sent_id": "Capella_University_9_05-18-2008-15",
         "text": "But I did it with my BS and MS .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_9_05-18-2008-16",
@@ -4071,7 +5608,36 @@
     {
         "sent_id": "Capella_University_9_05-18-2008-19",
         "text": "AND of course the cost...it isnt cheap !",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_9_05-18-2008-20",
@@ -4111,7 +5677,36 @@
     {
         "sent_id": "Capella_University_9_05-18-2008-22",
         "text": "Dude , get a clue !",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "Capella_University_9_05-18-2008-23",
@@ -4261,7 +5856,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_100_10-06-2006-2",
         "text": "Returning students who need an online program should do everything in their power to find a different school .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_100_10-06-2006-3",
@@ -4332,7 +5956,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_100_10-06-2006-7",
         "text": "If you are a good student , you will usually ( not always , but usually ) doing 80-100% of the \" team \" assignments yourself if care about getting an A in the class .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_100_10-06-2006-8",
@@ -4427,7 +6080,36 @@
     {
         "sent_id": "University_of_Phoenix_Online_100_10-06-2006-11",
         "text": "Once you make even a single post to the class newsgroup you are financially committed to that class ( I don't know if this is rigidly enforced ) .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "University_of_Phoenix_Online_100_10-06-2006-12",
@@ -5478,7 +7160,36 @@
     {
         "sent_id": "DeVry_University_12_05-20-2008-25",
         "text": "After dealing with their finance dept .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_12_05-20-2008-26",
@@ -5563,7 +7274,36 @@
     {
         "sent_id": "DeVry_University_87_01-21-2005-6",
         "text": "On a two year sabbatical , I had to pay back my loan from Devry .",
-        "opinions": []
+        "opinions": [
+            {
+                "Source": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Target": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polar_expression": [
+                    [
+                        ""
+                    ],
+                    [
+                        "0:0"
+                    ]
+                ],
+                "Polarity": "",
+                "Intensity": ""
+            }
+        ]
     },
     {
         "sent_id": "DeVry_University_87_01-21-2005-7",

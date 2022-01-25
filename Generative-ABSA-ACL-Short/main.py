@@ -211,6 +211,44 @@ class LoggingCallback(pl.Callback):
                     logger.info("{} = {}\n".format(key, str(metrics[key])))
                     writer.write("{} = {}\n".format(key, str(metrics[key])))
 
+def get_idx(phrase, text):
+    if phrase == 'NA': return [[], []]
+    start = text.replace('NA ', '').find(phrase)
+    end = start + len(phrase)
+    # assert(start >= 0)
+    if start < 0: return [[], []]
+    return [[phrase], [f'{start}:{end}']]
+
+def format_convert(outputs, sent_ids, text_list, dtype=None):
+    final = []
+    invalid = 0
+    for output, sent_id, text in zip(outputs, sent_ids, text_list):
+        row = {'sent_id':sent_id, 'text':text.replace('NA ', '')}
+        opinions = []
+        if dtype=='string': iterating_val = output.split(';')
+        else: iterating_val = output
+        for opinion in iterating_val:
+            if dtype=='string': unpack = opinion.strip(' ()').split(', ')
+            else: unpack = opinion
+            try: aspect, opinion, holder, polarity, intensity = unpack
+            except Exception as e: invalid+=1; continue
+            if polarity == 'NA' or intensity == 'NA': continue
+            source = get_idx(holder, text)
+            target = get_idx(aspect, text)
+            polar_exp = get_idx(opinion, text)
+            if source == target == polar_exp == [[], []]: continue
+            opinions.append({
+                "Source": source,
+                "Target": target,
+                "Polar_expression": polar_exp,
+                "Polarity": polarity,
+                "Intensity": intensity,
+            })
+        row['opinions'] = opinions
+        final.append(row)
+    print('Invalid Tuples', invalid)
+    return final
+
 
 def evaluate(data_loader, model, paradigm, task, sents=None, dataset_type = None):
     """
@@ -237,21 +275,29 @@ def evaluate(data_loader, model, paradigm, task, sents=None, dataset_type = None
         targets.extend(target)
         sent_ids += batch['sent_id']
         text_list += batch['text']
-    
-    if sents is not None: 
-        if not os.path.exists('output_results'): os.makedirs('output_results')
-        with open(f'output_results/outputs_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(outputs, f)
-        with open(f'output_results/targets_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(targets, f)
-        with open(f'output_results/sents_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(sents, f)
-        with open(f'output_results/sent_ids_{args.dataset}_{dataset_type}.json', 'w') as f: json.dump(sent_ids, f)# added
-    else:
-        print('sents is None, not writing in output_results')
-    
+
     print('paradigm, task, args.dataset', paradigm, task, args.dataset)
     raw_scores, fixed_scores, all_labels, all_preds, all_preds_fixed = compute_scores(outputs, targets, sents, paradigm, task, args.dataset)
     results = {'raw_scores': raw_scores, 'fixed_scores': fixed_scores, 'labels': all_labels,
                'preds': all_preds, 'preds_fixed': all_preds_fixed}
-    # pickle.dump(results, open(f"{args.output_dir}/results-{args.task}-{args.dataset}-{args.paradigm}.pickle", 'wb'))
+
+    if sents is not None:
+        try:
+            print(all_preds[:5])
+            print(all_preds_fixed[:5])
+        except Exception as e: print(e); pass
+        processed_outputs = format_convert(outputs, sent_ids, text_list, 'string')    
+        processed_all_preds = format_convert(all_preds, sent_ids, text_list)    
+        processed_all_preds_fixed = format_convert(all_preds_fixed, sent_ids, text_list)    
+        if not os.path.exists('output_results'): os.makedirs('output_results')
+        with open(f'output_results/outputs_{args.dataset}_{dataset_type}.json', 'w') as f: f.write(json.dumps(processed_outputs, indent=4))
+        with open(f'output_results/all_preds_{args.dataset}_{dataset_type}.json', 'w') as f: f.write(json.dumps(processed_all_preds, indent=4))
+        with open(f'output_results/all_preds_fixed_{args.dataset}_{dataset_type}.json', 'w') as f: f.write(json.dumps(processed_all_preds_fixed, indent=4))
+        with open(f'output_results/targets_{args.dataset}_{dataset_type}.json', 'w') as f: f.write(json.dumps(targets, indent=4))
+        with open(f'output_results/sents_{args.dataset}_{dataset_type}.json', 'w') as f: f.write(json.dumps(sents, indent=4))
+        with open(f'output_results/sent_ids_{args.dataset}_{dataset_type}.json', 'w') as f: f.write(json.dumps(sent_ids, indent=4))
+    else:
+        print('sents is None, not writing in output_results')
 
     return raw_scores, fixed_scores
 
@@ -400,7 +446,7 @@ if args.do_direct_eval:
     model_ckpt = torch.load(best_checkpoint)
     model = T5FineTuner(model_ckpt['hyper_parameters'])
     model.load_state_dict(model_ckpt['state_dict'])
-    print("*"*50, best_epoch,"*"*50)
+    print("*"*20, 'Best Epoch -', best_epoch,"*"*20)
 
 
     raw_scores_dev, fixed_scores_dev = evaluate(dev_loader, model, args.paradigm, args.task, sents, "dev")
