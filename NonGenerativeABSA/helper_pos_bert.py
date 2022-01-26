@@ -90,7 +90,9 @@ def BERTData(sent_file, pointer_file, pos_file, bert_sent_file, bert_pointer_fil
         pointer_line = pointer_lines[i].strip()
         pointers = pointer_line.split(' | ')
         for p in pointers:
-            t_s, t_e, ev, a_s, a_e, ar, role = p.split()
+            # print(p.split())
+            # t_s, t_e, ev, a_s, a_e, ar, role = p.split(';')
+            a_s, a_e, ev, t_s, t_e, ar, role, h_s, h_e = p.split()
             new_p = [str(token_map[int(t_s)][0]), str(token_map[int(t_e)][1]), ev, str(token_map[int(a_s)][0]), str(token_map[int(a_e)][1]), ar, role]
             bert_pointers.append(' '.join(new_p))
         #print(bert_pointers)
@@ -118,12 +120,13 @@ def DepDist():
 
 
 if __name__ == "__main__":
-    sent_file='dev_oct.sent'#print(sys.argv[1])
-    point_file='dev_trim_oct.pointer'#print(sys.argv[2])
-    pos_file='dev_oct.pos'#print(sys.argv[3])
-    bert_sent_file='dev_bert.sent'#print(sys.argv[4])
-    bert_point_file='dev_bert.pointer'#print(sys.argv[5])
-    bert_pos_file='dev_bert.pos'
+    base_pth = "/content/SSA-SemEval/NonGenerativeABSA/CAB_annotated/"
+    sent_file= base_pth + 'dev_bert.sent'#print(sys.argv[1])
+    point_file= base_pth + 'dev_bert.pointer'#print(sys.argv[2])
+    pos_file= base_pth + 'dev_bert.pos'#print(sys.argv[3])
+    bert_sent_file= base_pth + 'out_dev_bert.sent'#print(sys.argv[4])
+    bert_point_file= base_pth + 'out_dev_bert.pointer'#print(sys.argv[5])
+    bert_pos_file= base_pth + 'out_dev_bert.pos'
     #BERTData(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
     max1, max2, max3 = BERTData(sent_file, point_file, pos_file, bert_sent_file, bert_point_file, bert_pos_file)
     print('{},{},{}'.format(max1, max2, max3))
