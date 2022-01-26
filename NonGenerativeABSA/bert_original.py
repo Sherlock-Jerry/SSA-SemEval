@@ -1280,7 +1280,7 @@ if __name__ == "__main__":
     max_nr_cnt = 10
     if use_nr_triplets:
         max_trg_len += max_nr_cnt
-    embedding_file = 'cased_glove300.txt'
+    embedding_file = '/content/SSA-SemEval/NonGenerativeABSA/cased_glove300.txt'
     update_freq = 1
     wf = 1.0
     att_type = 2
