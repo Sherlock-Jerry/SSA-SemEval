@@ -1229,7 +1229,7 @@ def train_model(model_id, train_samples, dev_samples, test_samples, best_model_f
 
 
 if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES'] = 0#sys.argv[1]
+    os.environ['CUDA_VISIBLE_DEVICES'] = "0"#sys.argv[1]
     random_seed = 1#int(sys.argv[2])
     n_gpu = torch.cuda.device_count()
     set_random_seeds(random_seed)

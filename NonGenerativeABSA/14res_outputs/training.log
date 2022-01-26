@@ -1,0 +1,15 @@
+['bert_original.py']
+100	10	0.5	OpinionFirst	AP_OP
+16	100
+LSTM
+loading data......
+No. of sentences:1266
+No. of sentences:310
+No. of sentences:492
+Training data size:1266
+Development data size:310
+Test data size:492
+preparing vocabulary......
+getting pos tags......
+vocab length:3965
+cased_glove300.txt
