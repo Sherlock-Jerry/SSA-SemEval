@@ -1229,28 +1229,28 @@ def train_model(model_id, train_samples, dev_samples, test_samples, best_model_f
 
 
 if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES'] = sys.argv[1]
-    random_seed = int(sys.argv[2])
+    os.environ['CUDA_VISIBLE_DEVICES'] = 0#sys.argv[1]
+    random_seed = 1#int(sys.argv[2])
     n_gpu = torch.cuda.device_count()
     set_random_seeds(random_seed)
 
-    src_data_folder = sys.argv[3]
-    trg_data_folder = sys.argv[4]
+    src_data_folder = "/content/SSA-SemEval/NonGenerativeABSA/14res"#sys.argv[3]
+    trg_data_folder = "/content/SSA-SemEval/NonGenerativeABSA/14res_outputs"#sys.argv[4]
     if not os.path.exists(trg_data_folder):
         os.mkdir(trg_data_folder)
     model_name = 1
-    job_mode = sys.argv[5]
-    batch_size = int(sys.argv[6])
-    num_epoch = int(sys.argv[7])
+    job_mode = "train" #sys.argv[5] need to change to test as well
+    batch_size = 16 #int(sys.argv[6])
+    num_epoch = 100 #int(sys.argv[7])
 
     gen_directions = ['AspectFirst', 'OpinionFirst', 'BothWays']
-    gen_direct = gen_directions[int(sys.argv[8])]
+    gen_direct = gen_directions[1] # can be changed to experiment with
     triplet_orders = ['Random', 'AP_OP', 'OP_AP']
-    trip_order = triplet_orders[int(sys.argv[9])]
+    trip_order = triplet_orders[1] # can be changed to experiment with
 
     bert_base_size = 768
-    update_bert = bool(int(sys.argv[10]))
-    bert_model_name = 'bert-base-uncased'
+    update_bert = True #bool(int(sys.argv[10]))
+    bert_model_name = 'bert-base-uncased' # cased kar ke try kar skte
     bert_tokenizer = BertTokenizer.from_pretrained(bert_model_name, do_lower_case=True)
 
     use_char_embed = False
@@ -1412,7 +1412,7 @@ if __name__ == "__main__":
         custom_print('P:', round(p, 3))
         custom_print('R:', round(r, 3))
         custom_print('F1:', round(test_acc, 3))
-        # write_test_res(test_data, test_preds, os.path.join(trg_data_folder, 'test.out'))
+        write_test_res(test_data, test_preds, os.path.join(trg_data_folder, 'test.out'))#uncommented
 
         write_test_res(src_test_file, test_gt_lines, test_data, test_preds,
                        os.path.join(trg_data_folder, 'test.out'))
