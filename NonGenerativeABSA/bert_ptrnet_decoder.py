@@ -892,7 +892,7 @@ class Decoder(nn.Module):
             return aspect.unsqueeze(1), sentiment.unsqueeze(1), ap_start.unsqueeze(1), ap_end.unsqueeze(1), op_start.unsqueeze(1), \
                    op_end.unsqueeze(1), st_start.unsqueeze(1), st_end.unsqueeze(1), (hidden, cell_state), ap, op, st
 
-#Done
+#Done sys.arg
 class Seq2SeqModel(nn.Module):
     def __init__(self):
         super(Seq2SeqModel, self).__init__()
@@ -1340,22 +1340,22 @@ def train_model(model_id, train_samples, dev_samples, test_samples, best_model_f
     custom_print('Best Dev F1:', round(best_dev_acc, 3))
 
 if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES'] = sys.argv[1]
-    random_seed = int(sys.argv[2])
+    os.environ['CUDA_VISIBLE_DEVICES'] = "0" #sys.argv[1]
+    random_seed = 42 #int(sys.argv[2])
     n_gpu = torch.cuda.device_count()
     set_random_seeds(random_seed)
 
-    src_data_folder = sys.argv[3]
-    trg_data_folder = sys.argv[4]
+    src_data_folder = sys.argv[1]
+    trg_data_folder = sys.argv[1] + "/outputs"
     if not os.path.exists(trg_data_folder):
         os.mkdir(trg_data_folder)
     model_name = 1
-    job_mode = sys.argv[5]
-    batch_size = int(sys.argv[6])
-    num_epoch = int(sys.argv[7])
+    job_mode = sys.argv[2]
+    batch_size = 16 #int(sys.argv[6])
+    num_epoch = 50 #int(sys.argv[7])
 
     bert_base_size = 768
-    update_bert = bool(int(sys.argv[10]))
+    update_bert = False #bool(int(sys.argv[10]))
     bert_model_name = 'bert-base-uncased'
     bert_tokenizer = BertTokenizer.from_pretrained(bert_model_name, do_lower_case=True)
 
