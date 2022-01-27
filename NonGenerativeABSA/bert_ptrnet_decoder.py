@@ -159,7 +159,7 @@ def read_data(src_file, trg_file, pos_file, datatype):
     data = get_data(src_lines, trg_lines, pos_lines, datatype)
     return data
 
-#Done
+#Done get_gt_triple
 def get_relations(file_name):
     nameToIdx = OrderedDict()
     idxToName = OrderedDict()
@@ -181,6 +181,9 @@ def get_relations(file_name):
         nameToIdx[line.strip()] = idx
         idxToName[idx] = line.strip()
         idx += 1
+
+    print(nameToIdx, idxToName)
+
     return nameToIdx, idxToName
 
 #Done get_f1
@@ -262,7 +265,7 @@ def is_full_match(triplet, triplets):
             if i!=j: return False
     return True
 
-
+#model
 def get_gt_triples(src_words, aspects, sentiments, pointers):
     triples = []
     i = 0
@@ -271,15 +274,25 @@ def get_gt_triples(src_words, aspects, sentiments, pointers):
         arg2 = ' '.join(src_words[pointers[i][2]:pointers[i][3] + 1])
         arg3 = ' '.join(src_words[pointers[i][4]:pointers[i][5] + 1])
         triplet = (arg1.strip(), arg2.strip(), arg3.strip(), relIdxToName_aspects[r], relIdxToName_sentiments[sentiments[i]])
-        if not is_full_match(triplet, triples):
+        if not is_full_match(triplet, triples):            
             triples.append(triplet)
         i += 1
+
+    #     if(arg1!="[unused]" or arg2!="[unused]"):
+    #         print("ARGS::",arg1,arg2,arg3,triplet)
+    
+    # print("Triples:",triples)
+    # print(src_words)
+    # print(aspects)
+    # print(sentiments) 
+    # print(pointers)
+
     return triples
 
 
 def get_pred_triples(asp, sent, arg1s, arg1e, arg2s, arg2e, arg3s, arg3e, src_words):
     triples = []
-    all_triples = []
+    all_triples = [] # relnameToIdx_aspects, 
     for i in range(0, len(asp)):
         pred_idx_asp = np.argmax(asp[i][1:]) + 1
         pred_score_asp = np.max(asp[i][1:])
@@ -325,6 +338,7 @@ def get_F1(data, preds):
     # print(data)
     # print(preds)
     for i in range(0, len(data)):
+        # if i==0: print("*"*10 , "Ghusa hai saale")
         gt_triples = get_gt_triples(data[i].SrcWords, data[i].TrgAspects, data[i].TrgSentiments, data[i].TrgPointers)
 
         pred_triples, all_pred_triples = get_pred_triples(preds[0][i], preds[1][i], preds[2][i], preds[3][i],
@@ -337,7 +351,7 @@ def get_F1(data, preds):
         for gt_triple in gt_triples:
             if is_full_match(gt_triple, pred_triples):
                 correct_pos += 1
-    print(total_pred_pos)
+    # print(total_pred_pos)
     return pred_pos, gt_pos, correct_pos
 
 def write_test_res(src, trg, data, preds, outfile):
@@ -485,7 +499,7 @@ def get_target_vec(pointers, aspects, sentiments, src_max_len):
         vec[src_max_len + len(relnameToIdx_aspects) + sentiments[i]] += 1
     return vec
 
-#Done
+#Done get_F1
 def get_batch_data(cur_samples, is_training=False):
     """
     Returns the training samples and labels as numpy array
@@ -914,7 +928,7 @@ class Seq2SeqModel(nn.Module):
         h0 = autograd.Variable(torch.FloatTensor(torch.zeros(batch_len, dec_hidden_size))).cuda() #bs,300
         c0 = autograd.Variable(torch.FloatTensor(torch.zeros(batch_len, dec_hidden_size))).cuda()
         dec_hid = (h0, c0)
-
+# int(elem)
         # rel_embed = autograd.Variable(torch.FloatTensor(torch.zeros(batch_len, rel_embed_dim))).cuda()
         arg1 = autograd.Variable(torch.FloatTensor(torch.zeros(batch_len, 2 * pointer_net_hidden_size))).cuda() #bs, 2*300
         arg2 = autograd.Variable(torch.FloatTensor(torch.zeros(batch_len, 2 * pointer_net_hidden_size))).cuda() #bs, 2*300
@@ -1003,7 +1017,7 @@ class Seq2SeqModel(nn.Module):
         else:
             return asp, sent, arg1s, arg1e, arg2s, arg2e, arg3s, arg3e
 
-#Done
+#Done model.
 def get_model(model_id):
     if model_id == 1:
         return Seq2SeqModel()
@@ -1093,7 +1107,7 @@ def train_model(model_id, train_samples, dev_samples, test_samples, best_model_f
     pytorch_total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     custom_print('Parameters size:', pytorch_total_params)
 
-    custom_print(model)
+    # custom_print(model)
     if torch.cuda.is_available():
         model.cuda()
     if n_gpu > 1:
@@ -1211,7 +1225,7 @@ def train_model(model_id, train_samples, dev_samples, test_samples, best_model_f
 
             if use_vec_loss:
                 loss = loss + vec_criterion(pred_vec, trg_vec)
-
+# print(model
             if use_adv:
                 # loss.backward(retain_graph=True)
                 loss.backward()
@@ -1352,7 +1366,7 @@ if __name__ == "__main__":
     model_name = 1
     job_mode = sys.argv[2]
     batch_size = 16 #int(sys.argv[6])
-    num_epoch = 50 #int(sys.argv[7])
+    num_epoch = int(sys.argv[3])
 
     bert_base_size = 768
     update_bert = False #bool(int(sys.argv[10]))
