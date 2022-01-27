@@ -1,0 +1,5 @@
+None
+Average
+Weak
+Strong
+Standard

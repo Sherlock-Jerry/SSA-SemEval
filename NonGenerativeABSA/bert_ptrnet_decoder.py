@@ -183,7 +183,7 @@ def get_relations(file_name):
         idx += 1
     return nameToIdx, idxToName
 
-#Done
+#Done get_f1
 def get_answer_pointers(arg1start_preds, arg1end_preds, arg2start_preds, arg2end_preds, arg3start_preds, arg3end_preds, sent_len):
     arg1_prob = -1.0
     arg1start = -1
@@ -257,9 +257,10 @@ def get_answer_pointers(arg1start_preds, arg1end_preds, arg2start_preds, arg2end
 
 def is_full_match(triplet, triplets):
     for t in triplets:
-        if "t[0] == triplet[0] and t[1] == triplet[1] and t[2] == triplet[2]" and t[3] == triplet[3] and t[4] == triplet[4]:
-            return True
-    return False
+        # if t[0] == triplet[0] and t[1] == triplet[1] and t[2] == triplet[2] and t[3] == triplet[3] and t[4] == triplet[4]:
+        for i,j in zip(t,triplet):
+            if i!=j: return False
+    return True
 
 
 def get_gt_triples(src_words, aspects, sentiments, pointers):
@@ -852,7 +853,7 @@ class Decoder(nn.Module):
             sentiment = self.sent_lin(self.dropout(torch.cat((hidden, ap, op, sent_ctx), -1)))
         else:
             sentiment = self.sent_lin(self.dropout(torch.cat((hidden, ap, op), -1))) #inp: bs,5*300, op:bs,n_sentiments=5
-        aspect = self.ap_lin(self.dropout(torch.cat((hidden, ap), -1)))
+        aspect = self.ap_lin(self.dropout(torch.cat((hidden, op), -1)))
 
         if is_training:
             pred_vec = get_vec(ap_start, ap_end, op_start, op_end, st_start, st_end, aspect, sentiment)
