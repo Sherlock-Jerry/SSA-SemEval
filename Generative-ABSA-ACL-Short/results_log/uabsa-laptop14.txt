@@ -1,5 +1,0 @@
-============================================================
-Sun Jan  2 10:40:03 2022
-uabsa on laptop14 under annotation; Train bs=16, num_epochs = 1
-Raw F1 = 0.5530, Fixed F1 = 0.5583
-

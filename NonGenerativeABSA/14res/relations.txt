@@ -1,3 +1,0 @@
-POS
-NEG
-NEU
